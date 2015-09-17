@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rosapi
+Description: Description of rosapi
+Version: 0.6.8
+Cflags: -I/home/cracker/workspace/devel/include
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: message_runtime

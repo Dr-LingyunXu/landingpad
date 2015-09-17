@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/julian/catkin_ws/src/cv_tracker/inc/LED.h
+string
+-
+opencv/cv.h
+/home/julian/catkin_ws/src/cv_tracker/inc/opencv/cv.h
+opencv/highgui.h
+/home/julian/catkin_ws/src/cv_tracker/inc/opencv/highgui.h
+
+/home/julian/catkin_ws/src/cv_tracker/src/LED.cpp
+../inc/LED.h
+/home/julian/catkin_ws/src/cv_tracker/inc/LED.h
+

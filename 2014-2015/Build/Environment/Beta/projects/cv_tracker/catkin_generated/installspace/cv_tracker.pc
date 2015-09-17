@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: cv_tracker
+Description: Description of cv_tracker
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

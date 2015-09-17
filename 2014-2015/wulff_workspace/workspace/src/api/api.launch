@@ -1,0 +1,11 @@
+<launch launch-prefix="gdb -ex run --args">
+  <node name="API" pkg="api" type="Api" />
+  <node name="GPS" pkg="api" type="GPS"/>
+  <node name="Cam" pkg="api" type="Camera"/>
+  <node name="CV" pkg="api" type="CV"/>
+  <node name="Logger" pkg="api" type="Logger" output="screen"/>
+  <node name="Motors" pkg="api" type="Motors"/>
+  <node name="Sim" pkg="api" type="Sim"/>
+  <node name="Slam" pkg="api" type="Slam"/>
+  <!--node name="Sender" pkg="api" type="Sender"/-->
+</launch>

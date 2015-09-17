@@ -1,0 +1,8 @@
+cd ~/workspace/landingpad/Build/Environment/Beta
+grep error notes > ~/workspace/landingpad/Build/buildReport.txt
+cd ~/workspace/landingpad/Build/UAV/Beta
+grep error notes >> ~/workspace/landingpad/Build/buildReport.txt
+cd ~/workspace/landingpad/Build/UGV/Beta
+grep error notes >> ~/workspace/landingpad/Build/buildReport.txt
+cd ~/workspace/landingpad/Build
+grep ' ' buildReport.txt

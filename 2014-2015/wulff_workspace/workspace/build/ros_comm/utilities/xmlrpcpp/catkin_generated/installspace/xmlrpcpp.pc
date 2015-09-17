@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: xmlrpcpp
+Description: Description of xmlrpcpp
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/install/include
+Libs: -L/home/cracker/workspace/install/lib -lxmlrpcpp
+Requires: cpp_common

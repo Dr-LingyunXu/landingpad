@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "eits")
+set(eits_MAINTAINER "julian <julian@todo.todo>")
+set(eits_DEPRECATED "")
+set(eits_VERSION "0.0.0")
+set(eits_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(eits_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(eits_BUILDTOOL_DEPENDS "catkin")

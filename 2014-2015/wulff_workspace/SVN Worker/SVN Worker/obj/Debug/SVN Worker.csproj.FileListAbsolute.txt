@@ -1,0 +1,13 @@
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SVN Worker.exe.config
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SVN Worker.exe
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SVN Worker.pdb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SharpSvn.dll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\Tamir.SharpSSH.dll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\DiffieHellman.dll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\Org.Mentalis.Security.dll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SharpSvn.pdb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SharpSvn.xml
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SharpSvn-DB44-20-Win32.svnDll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\bin\Debug\SharpPlink-Win32.svnExe
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\obj\Debug\SVN Worker.exe
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\SVN Worker\SVN Worker\obj\Debug\SVN Worker.pdb

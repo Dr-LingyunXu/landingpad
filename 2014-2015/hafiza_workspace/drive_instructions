@@ -1,0 +1,35 @@
+Steps for the drive instructions:
+
+1. roscore
+
+2. start/turn on the ps3 controller 
+	sixad --start
+	(I am doing that via bluetooth - https://help.ubuntu.com/community/Sixaxis - Quick Setup Guide for 12.10, steps 1 - 3)
+
+3. start the joy node 
+	rosrun joy joy_node 
+	(I had to install and configure joy to get to the correct device - http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick)
+
+4. start the control panel
+	- roslaunch control_panel control control_panel.launch 
+	- pick my_robot (or create your own)
+	- go to Connections and choose Joystick RC
+
+5. start the motor controller driver
+	roslaunch bringup.launch (located in landing_pad_bringup/launch/)
+
+6. start the drive system
+	rosrun ackerman_drive ackerman_controller_node
+
+7. have fun driving
+
+Notes:
+	- useful topics' info
+		- /cmd_joint_traj - has the velocity info
+		- /cmd_steer_traj - has the steering info
+		- /joy		  - contains the joystick data
+
+	- port for the back wheels -> ttyACM0
+	- port for the front wheels -> ttyACM1
+
+Further questions - email me: hafiza.farzami@mines.sdsmt.edu

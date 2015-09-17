@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "opencv_tests")
+set(opencv_tests_MAINTAINER "Vincent Rabaud <vincent.rabaud@gmail.com>")
+set(opencv_tests_DEPRECATED "")
+set(opencv_tests_VERSION "1.11.5")
+set(opencv_tests_BUILD_DEPENDS "cv_bridge" "ros" "sensor_msgs")
+set(opencv_tests_RUN_DEPENDS "cv_bridge")
+set(opencv_tests_BUILDTOOL_DEPENDS "catkin")

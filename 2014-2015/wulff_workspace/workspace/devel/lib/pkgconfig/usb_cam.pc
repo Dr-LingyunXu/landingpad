@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.1.9
+Cflags: -I/home/cracker/workspace/src/usb_cam/include
+Libs: -L/home/cracker/workspace/devel/lib -lusb_cam
+Requires: 

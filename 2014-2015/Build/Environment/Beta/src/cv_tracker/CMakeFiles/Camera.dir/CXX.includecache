@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/julian/catkin_ws/src/cv_tracker/inc/Camera.h
+string
+-
+iostream
+-
+
+/home/julian/catkin_ws/src/cv_tracker/src/Camera.cpp
+../inc/Camera.h
+/home/julian/catkin_ws/src/cv_tracker/inc/Camera.h
+

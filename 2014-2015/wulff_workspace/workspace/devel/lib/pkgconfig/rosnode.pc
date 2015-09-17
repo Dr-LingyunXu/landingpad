@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rosnode
+Description: Description of rosnode
+Version: 1.11.9
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

@@ -1,0 +1,17 @@
+<package>
+  <name>map</name>
+  <version>0.0.1</version>
+  <description>
+  This package is the map node for our UGV.
+  </description>
+  <maintainer email="charles.parsons@mines.sdsmt.edu">Charles Parsons</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

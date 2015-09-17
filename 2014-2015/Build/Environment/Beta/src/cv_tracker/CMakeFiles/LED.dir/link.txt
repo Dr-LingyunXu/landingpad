@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++0x  -g -ftest-coverage -fprofile-arcs   -shared -Wl,-soname,libLED.so -o devel/lib/libLED.so CMakeFiles/LED.dir/src/LED.cpp.o 

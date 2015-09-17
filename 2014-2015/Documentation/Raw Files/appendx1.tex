@@ -1,0 +1,406 @@
+% !TEX root = UAV_Landing_Pad.tex
+
+\chapter{Appendix}
+
+\section{Walkthroughs}\label{walkthroughs}
+
+\noindent Tool Installation Walkthroughs
+
+\noindent These instructions assume you are using Ubuntu 14.04.
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Installing ROS Indigo}
+
+\noindent ROS Wiki Page:
+\begin{itemize}
+	\item[]\href{http://wiki.ros.org/indigo/Installation/Ubuntu}{$http://wiki.ros.org/indigo/Installation/Ubuntu$}
+\end{itemize}
+
+\noindent 1. Setup your sources.list
+\begin{itemize}
+	\item[]sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main"
+	\item[] $>$ /etc/apt/sources.list.d/ros-latest.list'
+\end{itemize}
+
+\noindent 2. Set up your keys using:
+\begin{itemize}
+	\item[]wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key
+	\item[] -O - | sudo apt-key add -
+\end{itemize}
+
+\noindent 3. Update your system using:
+\begin{itemize}
+	\item[]sudo apt-get update
+\end{itemize}
+
+\noindent 4. Install ROS Indigo using:
+\begin{itemize}
+	\item[]sudo apt-get install ros-indigo-desktop-full
+\end{itemize}
+
+\noindent 5. Initialize Rosdep using:
+\begin{itemize}
+	\item[]sudo rosdep init
+	\item[]rosdep update
+\end{itemize}
+
+\noindent 6. Setup your environment using:
+\begin{itemize}
+	\item[]echo "source /opt/ros/indigo/setup.bash" $>>$ \textasciitilde /.bashrc
+	\item[]source \textasciitilde /.bashrc
+\end{itemize}
+
+\noindent 7. Get ROS install using:
+\begin{itemize}
+	\item[]sudo apt-get install python-rosinstall
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Creating a Catkin Workspace}
+
+\noindent Catkin Workspace Wiki Page:
+\begin{itemize}
+	\item[]\href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{$http://wiki.ros.org/catkin/Tutorials/create\_a\_workspace$}
+\end{itemize}
+
+\noindent 1. Source the setup.bash file in your ROS directory by typing the following command in a terminal window:
+\begin{itemize}
+	\item[]source /opt/ros/indigo/setup.bash
+\end{itemize}
+
+\noindent 2. Make the Catkin Workspace directory and the source subdirectory using:
+\begin{itemize}
+	\item[]mkdir -p catkin\textunderscore ws/src
+\end{itemize}
+
+\noindent 3. Change directories into catkin\textunderscore  ws using:
+\begin{itemize}
+	\item[]cd catkin\textunderscore ws/src
+\end{itemize}
+
+\noindent 4. Initialize your catkin workspace using:
+\begin{itemize}
+	\item[]catkin\textunderscore init\textunderscore workspace
+\end{itemize}
+
+\noindent 5. Change directories back into your catkin workspace directory using:
+\begin{itemize}
+	\item[]cd ..
+\end{itemize}
+
+\noindent 6. Run catkin\textunderscore make command using:
+\begin{itemize}
+	\item[]catkin\textunderscore make
+\end{itemize}
+
+\noindent 7. Source the new setup.bash file that was created within your catkin workspace using:
+\begin{itemize}
+	\item[]source devel/setup.bash
+\end{itemize}
+
+\subsection{Installing usb\textunderscore cam node}
+
+\noindent 1. Clone github repository for usb\textunderscore cam node into /catkin\textunderscore ws/src using:
+\begin{itemize}
+	\item[]git clone https://github.com/bosch-ros-pkg/usb\textunderscore cam.git
+\end{itemize}
+
+\noindent 2. Build usb\textunderscore cam node using the following command in the /catkin\textunderscore ws/ directory:
+\begin{itemize}
+	\item[]catkin\textunderscore make
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Installing PTAM}
+
+\noindent PTAM Wiki Page:
+\begin{itemize}
+	\item[]\href{http://wiki.ros.org/ethzasl_ptam}{$http://wiki.ros.org/ethzasl\_ptam$}
+\end{itemize}
+
+\noindent 1. Change directories into catkin\textunderscore ws/src using:
+\begin{itemize}
+	\item[]cd ~/catkin\textunderscore ws/src
+\end{itemize}
+
+\noindent 2. Clone the ethzasl\textunderscore ptam repository from github using:
+\begin{itemize}
+	\item[]git clone git://github.com/ethz-asl/ethzasl\textunderscore ptam.git ethzasl\textunderscore ptam
+\end{itemize}
+
+\noindent 3. Get necessary libraries for PTAM using:
+\begin{itemize}
+	\item[]sudo apt-get install freeglut3 freeglut3-dev libblas3 libblas-dev liblapack3 liblapack-dev
+\end{itemize}
+
+\noindent 4. Build PTAM using the following command in your catkin\textunderscore ws directory:
+\begin{itemize}
+	\item[]catkin\textunderscore make
+\end{itemize}
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Installing OpenCV}
+
+\noindent OpenCV Online Reference Manual:
+\begin{itemize}
+	\item[]\href{http://docs.opencv.org/}{$http://docs.opencv.org/$}
+\end{itemize}
+
+\noindent 1. Ensure you have the essential build tools needed for OpenCV:
+\begin{itemize}
+	\item[]sudo apt-get install build-essential cmake pkg-config
+\end{itemize}
+
+\noindent 2. Install required Image I/O Libraries:
+\begin{itemize}
+	\item[]sudo apt-get install libjpeg62-dev libtiff4-dev libjasper-dev
+\end{itemize}
+
+\noindent 3. Install gtk highgui Libraries:
+\begin{itemize}
+	\item[]sudo apt-get install  libgtk2.0-dev
+\end{itemize}
+
+\noindent 4. Install video Libraries:
+\begin{itemize}
+	\item[]sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+\end{itemize}
+
+\noindent 5. Download and extract OpenCV from the following sourceforge location:
+\begin{itemize}
+	\item[]\href{http://sourceforge.net/projects/opencvlibrary/files/}{$http://sourceforge.net/projects/opencvlibrary/files/$}
+\end{itemize}
+
+\noindent 6. Create a build directory within the unzipped file and enter into it:
+\begin{itemize}
+	\item[]mkdir \textunderscore build
+	\item[]cd \textunderscore build
+\end{itemize}
+
+\noindent 7. Initiate the build process with the appropriate flags:
+\begin{itemize}
+	\item[]cmake -D CMAKE\_BUILD\_TYPE=RELEASE -D MAKE\_INSTALL\_PREFIX=/usr/local -D  WITH\_TBB=ON -D BUILD\_NEW\_PYTHON\_SUPPORT=ON -D WITH\_V4L=ON -D INSTALL\_C\_EXAMPLES=ON -D INSTALL\_PYTHON\_EXAMPLES=ON -D BUILD\_EXAMPLES=ON -D WITH\_QT=ON -D WITH\_OPENGL=ON ..
+\end{itemize}
+
+\noindent 8.  Compile the built source code:
+\begin{itemize}
+	\item[]make
+\end{itemize}
+
+\noindent 9. Install OpenCV:
+\begin{itemize}
+	\item[]sudo make install
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+%\section{Introduction}
+%This is a sample input file.  Comparing it with the output it
+%generates can show you how to produce a simple document of
+%your own.
+%
+%\section{Ordinary Text}  % Produces section heading.  Lower-level
+%                                    % sections are begun with similar 
+%                                    % \subsection and \subsubsection commands.
+%
+%The ends  of words and sentences are marked 
+%  by   spaces. It  doesn't matter how many 
+%spaces    you type; one is as good as 100.  The
+%end of   a line counts as a space.
+%
+%One   or more   blank lines denote the  end 
+%of  a paragraph.  
+%
+%Since any number of consecutive spaces are treated like a single
+%one, the formatting of the input file makes no difference to
+%      \TeX,         % The \TeX command generates the TeX logo.
+%but it makes a difference to you.  
+%When you use
+%      \LaTeX,       % The \LaTeX command generates the LaTeX logo.
+%making your input file as easy to read as possible
+%will be a great help as you write your document and when you
+%change it.  This sample file shows how you can add comments to
+%your own input file.
+%
+%Because printing is different from typewriting, there are a 
+%number of things that you have to do differently when preparing 
+%an input file than if you were just typing the document directly.  
+%Quotation marks like 
+%       ``this'' 
+%have to be handled specially, as do quotes within quotes: 
+%       ``\,`this'                  % \, separates the double and single quote.
+%        is what I just 
+%        wrote, not  `that'\,''.  
+%
+%Dashes come in three sizes: an 
+%       intra-word 
+%dash, a medium dash for number ranges like 
+%       1--2, 
+%and a punctuation 
+%       dash---like 
+%this.
+%
+%A sentence-ending space should be larger than the space between words
+%within a sentence.  You sometimes have to type special commands in
+%conjunction with punctuation characters to get this right, as in the
+%following sentence.
+%       Gnats, gnus, etc.\    % `\ ' makes an inter-word space.
+%       all begin with G\@.   % \@ marks end-of-sentence punctuation.
+%You should check the spaces after periods when reading your output to
+%make sure you haven't forgotten any special cases.
+%Generating an ellipsis 
+%       \ldots\    % `\ ' needed because TeX ignores spaces after 
+%                  % command names like \ldots made from \ + letters.
+%                  %
+%                  % Note how a `%' character causes TeX to ignore the 
+%                  % end of the input line, so these blank lines do not
+%                  % start a new paragraph.
+%with the right spacing around the periods 
+%requires a special  command.  
+%
+%\TeX\ interprets some common characters as commands, so you must type
+%special commands to generate them.  These characters include the
+%following: 
+%       \$ \& \% \# \{ and \}.
+%
+%In printing, text is emphasized by using an
+%       {\em italic\/}  % The \/ command produces the tiny extra space that
+%                       % should be added between a slanted and a following
+%                       % unslanted letter.
+%type style.  
+%
+%\begin{em}
+%   A long segment of text can also be emphasized in this way.  Text within
+%   such a segment given additional emphasis 
+%          with\/ {\em Roman} 
+%   type.  Italic type loses its ability to emphasize and become simply
+%   distracting when used excessively.  
+%\end{em}
+%
+%It is sometimes necessary to prevent \TeX\ from breaking a line where
+%it might otherwise do so.  This may be at a space, as between the
+%``Mr.'' and ``Jones'' in
+%       ``Mr.~Jones'',        % ~ produces an unbreakable interword space.
+%or within a word---especially when the word is a symbol like
+%       \mbox{\em itemnum\/} 
+%that makes little sense when hyphenated across 
+%       lines.
+%
+%Footnotes\footnote{This is an example of a footnote.}
+%pose no problem.
+%
+%\TeX\ is good at typesetting mathematical formulas like
+%       \( x-3y = 7 \) 
+%or
+%       \( a_{1} > x^{2n} / y^{2n} > x' \).
+%Remember that a letter like
+%       $x$        % $ ... $  and  \( ... \)  are equivalent
+%is a formula when it denotes a mathematical symbol, and should
+%be treated as one.
+%
+%\section{Displayed Text}
+%
+%Text is displayed by indenting it from the left margin.
+%Quotations are commonly displayed.  There are short quotations
+%\begin{quote}
+%   This is a short a quotation.  It consists of a 
+%   single paragraph of text.  There is no paragraph
+%   indentation.
+%\end{quote}
+%and longer ones.
+%\begin{quotation}
+%   This is a longer quotation.  It consists of two paragraphs
+%   of text.  The beginning of each paragraph is indicated
+%   by an extra indentation.
+%
+%   This is the second paragarph of the quotation.  It is just
+%   as dull as the first paragraph.
+%\end{quotation}
+%Another frequently-displayed structure is a list.
+%The following is an example of an {\em itemized} list.
+%\begin{itemize}
+%   \item  This is the first item of an itemized list.  Each item 
+%          in the list is marked with a ``tick''.  The document
+%          style determines what kind of tick mark is used.
+%
+%   \item  This is the second item of the list.  It contains another
+%          list nested inside it.  The inner list is an {\em enumerated}
+%          list.
+%          \begin{enumerate}
+%              \item This is the first item of an enumerated list that
+%                    is nested within the itemized list.
+%
+%              \item This is the second item of the inner list.  \LaTeX\
+%                    allows you to nest lists deeper than you really should.
+%          \end{enumerate}
+%          This is the rest of the second item of the outer list.  It
+%          is no more interesting than any other part of the item.
+%   \item  This is the third item of the list.
+%\end{itemize}
+%You can even display poetry.
+%\begin{verse}
+%   There is an environment for verse \\    % The \\ command separates lines
+%   Whose features some poets will curse.   % within a stanza.
+%
+%                           % One or more blank lines separate stanzas.
+%
+%   For instead of making\\
+%   Them do {\em all\/} line breaking, \\
+%   It allows them to put too many words on a line when they'd 
+%   rather be forced to be terse.
+%\end{verse}
+%
+%Mathematical formulas may also be displayed.  A displayed formula is
+%one-line long; multiline formulas require special formatting
+%instructions.
+%   \[  x' + y^{2} = z_{i}^{2}\]
+%Don't start a paragraph with a displayed equation, nor make
+%one a paragraph by itself.
+%
+%\section{Build process}
+%
+%To build \LaTeX\ documents you need the latex program.  It is free and available on all operating systems.   Download and install.  Many of us use the TexLive distribution and are very happy with it.    You can use a editor and command line or use an IDE.  To build this document via command line:
+%
+%\begin{verbatim}
+%alta>  pdflatex SystemTemplate
+%\end{verbatim}
+%If you change the bib entries, then you need to update the bib files:
+%\begin{verbatim}
+%alta>  pdflatex SystemTemplate
+%alta>  bibtex SystemTemplate
+%alta>  pdflatex SystemTemplate
+%alta>  pdflatex SystemTemplate
+%\end{verbatim}
+
+
+\section{Acknowledgement}
+Thanks to:
+
+\begin{itemize}
+	\item[]Matt Richards, original designer of the Control Panel used in this project who also assisted with integrating the program into our API.
+
+	\item[]Allen Holmquist, who assisted Alex Wulff with the welding of the 6061-T aluminium.
+
+	\item[]An SDSM\&T Student who wishes to remain anyonymous, who performed the machining of the UGV components.
+
+	\item[]Ian Markon, who assisted with welding.
+
+	\item[]The inSight Team, for assistance with learning ROS
+
+	\item[]Devin Kroeber, who helped with wiring the ground vehicle.
+
+	\item[]Ian Carlson, who also helped with wiring the ground vehicle.
+
+	\item[]Caleb Jamison, who helped with ROS and vehicle wiring.
+
+	\item[]Leslie Lamport, for inventing LaTeX.
+\end{itemize}
+Without these individuals, our project would not be anywhere near where it is now, so we extend our sincerest gratitude.
+
+

@@ -1,0 +1,12 @@
+Hello all,
+
+I found that all you needed to get the Asus Xtion Pro up and running with ROS was to use the following command
+$ sudo apt-get install ros-<ros_version>-openni2-launch
+For me in the Indigo version of ROS the command was 
+$sudo apt-get install ros-indigo-openni2-launch
+This will install the packet to ROS so you can call it. Once installed to see results use
+$ roslaunch openni2_launch openni2.launch
+Open a new terminal and type
+$ rosrun rviz rviz
+You should be able to see some output. Note: if you are using the Xtion Pro instead of the Xtion Live Pro
+you will only see white dots.

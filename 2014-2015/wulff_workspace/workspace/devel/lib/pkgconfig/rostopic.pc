@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rostopic
+Description: Description of rostopic
+Version: 1.11.9
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

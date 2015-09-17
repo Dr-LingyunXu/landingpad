@@ -1,0 +1,55 @@
+The CXX compiler identification could not be found in "/home/julian/catkin_ws/src/cv_tracker/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.gcno"
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec467362735/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec467362735.dir/build.make CMakeFiles/cmTryCompileExec467362735.dir/build
+make[1]: Entering directory `/home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec467362735.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec467362735.dir/CheckSymbolExists.c.o   -c /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec467362735
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec467362735.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec467362735.dir/CheckSymbolExists.c.o  -o cmTryCompileExec467362735 -rdynamic 
+CMakeFiles/cmTryCompileExec467362735.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec467362735] Error 1
+make[1]: Leaving directory `/home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec467362735/fast] Error 2
+
+File /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec412192869/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec412192869.dir/build.make CMakeFiles/cmTryCompileExec412192869.dir/build
+make[1]: Entering directory `/home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec412192869.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec412192869.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec412192869
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec412192869.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec412192869.dir/CheckFunctionExists.c.o  -o cmTryCompileExec412192869 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec412192869] Error 1
+make[1]: Leaving directory `/home/julian/catkin_ws/src/cv_tracker/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec412192869/fast] Error 2
+
+

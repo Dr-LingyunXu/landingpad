@@ -1,0 +1,8 @@
+prefix=/home/julian/catkin_ws/install
+
+Name: pub_sub
+Description: Description of pub_sub
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/julian/catkin_ws/install/lib 
+Requires: 

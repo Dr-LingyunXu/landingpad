@@ -1,0 +1,49 @@
+#########################################################################//##
+ # @file killswitch 
+ #
+ # @brief SOURCE - main file.
+ #
+ # @mainpage motion script
+ #
+ # @section course_section CSC 465
+ #
+ # @author Alex Wulff
+ #
+ # @date March 3rd, 2015
+ #
+ # @par Professor:
+ #         Dr. Jeff McGough
+ #
+ # @par Course:
+ #         CSC 465 - M001 - Tues / Thurs - 9:00am
+ #
+ # @par Location:
+ #         McLaury - 304
+ #
+ # @section program_section Program Information
+ #
+ # @details
+ # This will be run to start grabbing video footage from flights.
+ #
+ # @section compile_section Compiling and Usage
+ #
+ # @par Compiling Instructions:
+ #      (Linux) - catkin_make
+ #
+ # @par Usage:
+ #@verbatim
+ #startMotion
+ #@endverbatim
+ #
+ # @section todo_bugs_modification_section Todo, Bugs, and Modifications
+ #
+ # @par Modifications and Development Timeline:
+ #@verbatim
+ #Date              Modification
+ #----------------  --------------------------------------------------------------
+ # March 3rd		wrote and configured kill for roscore.
+ #
+ @endverbatim
+ #
+ ##############################################################################/
+killall roscore

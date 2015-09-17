@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: rosapi
+Description: Description of rosapi
+Version: 0.6.8
+Cflags: -I/home/cracker/workspace/install/include
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: message_runtime

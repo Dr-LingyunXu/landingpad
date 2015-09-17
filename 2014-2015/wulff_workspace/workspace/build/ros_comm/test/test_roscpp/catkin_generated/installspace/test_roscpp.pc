@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: test_roscpp
+Description: Description of test_roscpp
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/install/include -I/usr/include
+Libs: -L/home/cracker/workspace/install/lib -l:/usr/lib/x86_64-linux-gnu/libboost_signals.so -l:/usr/lib/x86_64-linux-gnu/libboost_filesystem.so -l:/usr/lib/x86_64-linux-gnu/libboost_system.so
+Requires: message_runtime rosconsole rosgraph_msgs std_msgs xmlrpcpp

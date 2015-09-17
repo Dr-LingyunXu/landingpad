@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "svo")
+set(svo_MAINTAINER "Christian Forster <forster@ifi.uzh.ch>")
+set(svo_DEPRECATED "")
+set(svo_VERSION "0.1.0")
+set(svo_BUILD_DEPENDS "cmake_modules" "roscpp" "roslib" "vikit_common" "vikit_ros")
+set(svo_RUN_DEPENDS "roscpp" "roslib" "vikit_common" "vikit_ros")
+set(svo_BUILDTOOL_DEPENDS "catkin")

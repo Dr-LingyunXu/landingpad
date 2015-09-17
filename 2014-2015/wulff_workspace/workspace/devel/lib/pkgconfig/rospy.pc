@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rospy
+Description: Description of rospy
+Version: 1.11.9
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

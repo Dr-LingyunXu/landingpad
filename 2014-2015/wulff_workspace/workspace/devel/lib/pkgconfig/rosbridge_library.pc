@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rosbridge_library
+Description: Description of rosbridge_library
+Version: 0.6.8
+Cflags: -I/home/cracker/workspace/devel/include
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( qr )
+find_package( OpenCV REQUIRED )
+add_executable( qr qr.cpp )
+target_link_libraries( qr ${OpenCV_LIBS} zbar)

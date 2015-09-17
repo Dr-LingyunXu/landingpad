@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+<node pkg="roboteq_nxtgen_controller" name="nxtgen_rear_driver_node"
+type="nxtgen_driver_node" output="screen">
+<param name="hardware_id" value="Rear RoboteQ Controller" />
+<param name="port" value="/dev/ttyACM0" />
+<param name="ch1_joint_name" value="back_right"/>
+<param name="ch2_joint_name" value="back_left"/>
+<param name="use_encoders" value="true" />
+<param name="operating_mode" value="closed-loop speed" />
+<param name="encoder_ppr" value="676" />
+<param name="reset_encoder_count" value="true" />
+<param name="ch1_max_motor_rpm" value="136" />
+<param name="ch2_max_motor_rpm" value="136" />
+<param name="invert" value="false" />
+<param name="single_channel" value="false" />
+<remap from="joint_states" to="rear_joint_states" />
+</node>
+<node pkg="roboteq_nxtgen_controller" name="nxtgen_steer_driver_node"
+type="nxtgen_driver_node" output="screen">
+<param name="hardware_id" value="Steer RoboteQ Controller" />
+<param name="port" value="/dev/ttyACM1" />
+<param name="ch1_joint_name" value="steer_wheels"/>
+<param name="use_encoders" value="true" />
+<param name="operating_mode" value="closed-loop speed" />
+<param name="encoder_ppr" value="676" />
+<param name="reset_encoder_count" value="true" />
+<param name="ch1_max_motor_rpm" value="136" />
+<param name="ch2_max_motor_rpm" value="136" />
+<param name="invert" value="false" />
+<param name="single_channel" value="true" />
+<remap from="joint_states" to="steer_joint_states" />
+<remap from="cmd_joint_traj" to="cmd_steer_traj" />
+</node> 
+</launch>

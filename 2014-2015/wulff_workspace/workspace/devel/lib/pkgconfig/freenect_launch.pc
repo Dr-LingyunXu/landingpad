@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: freenect_launch
+Description: Description of freenect_launch
+Version: 0.3.2
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: xmlrpcpp
+Description: Description of xmlrpcpp
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/src/ros_comm/utilities/xmlrpcpp/include
+Libs: -L/home/cracker/workspace/devel/lib -lxmlrpcpp
+Requires: cpp_common

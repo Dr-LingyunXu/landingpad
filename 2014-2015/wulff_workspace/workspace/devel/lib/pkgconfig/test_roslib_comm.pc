@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: test_roslib_comm
+Description: Description of test_roslib_comm
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/devel/include
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

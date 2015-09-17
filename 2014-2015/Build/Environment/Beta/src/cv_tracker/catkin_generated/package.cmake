@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "cv_tracker")
+set(cv_tracker_MAINTAINER "julian <julian@todo.todo>")
+set(cv_tracker_DEPRECATED "")
+set(cv_tracker_VERSION "0.0.0")
+set(cv_tracker_BUILD_DEPENDS )
+set(cv_tracker_RUN_DEPENDS )
+set(cv_tracker_BUILDTOOL_DEPENDS "catkin")

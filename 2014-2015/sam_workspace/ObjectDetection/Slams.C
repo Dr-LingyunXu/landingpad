@@ -1,0 +1,172 @@
+/*************************************************************************//**
+ * @file Slam.C 
+ *
+ * @brief SOURCE - slam file.
+ *
+ * @mainpage ROS API
+ *
+ * @section course_section CSC 465
+ *
+ * @author Alex Wulff
+ *
+ * @date December 15, 2014
+ *
+ * @par Professor:
+ *         Dr. Jeff McGough
+ *
+ * @par Course:
+ *         CSC 465 - M001 - Tues / Thurs - 9:00am
+ *
+ * @par Location:
+ *         McLaury - 304
+ *
+ * @section program_section Program Information
+ *
+ * @details
+ * This API for ROS node communication is developed for ease of subscription 
+ * for topics on custom nodes.  This will assist in the completion of the UGV/
+ * UAV project for which we were all indroctinated.  This was heavily borrowed
+ * from http://wiki.ros.org/ROS/Tutorials.
+ *
+ * @section compile_section Compiling and Usage
+ *
+ * @par Compiling Instructions:
+ *      (Linux) - catkin_make
+ *
+ * @par Usage:
+ @verbatim
+ rosrun api Api
+ @endverbatim
+ *
+ * @section todo_bugs_modification_section Todo, Bugs, and Modifications
+ *
+ * @par Modifications and Development Timeline:
+ @verbatim
+ Date              Modification
+ ----------------  --------------------------------------------------------------
+ * December 15, 2014	Thought about an API.
+ *
+ * January 1-14, 2015	Created archtype and initial documentation.
+ *
+ * January 22, 2015	Began cross access of topics.
+ *
+ * January 29, 2015	Was advised to subdivide the API into each topic set then
+ *                      rebuild the base.
+ *
+ * February 2-5, 2015   Rebuilt structure and started debugging.
+ *
+ * February 8, 2015	Finished base structure and added documentation.
+ *
+ @endverbatim
+ *
+ ******************************************************************************/
+
+/******************************************************************************
+ *
+ * INCLUDE
+ *
+ ******************************************************************************/
+#include <ros/console.h>
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include "sensor_msgs/Image.h"
+#include "sensor_msgs/NavSatFix.h"
+#include "sensor_msgs/PointCloud2.h"
+#include <pcl/io/pcd_io.h>
+#include <pcl/conversions.h>
+#include <pcl/point_types.h>
+#include <pcl_ros/point_cloud.h>
+
+/******************************************************************************
+ *
+ * GLOBALS
+ *
+ ******************************************************************************/
+ros::Publisher SlamStream_pub;
+
+/******************************************************************************
+ * @author Alex Wulff and Samuel Carroll
+ *
+ * @par Description:
+ * Callback for slam data consolidation. Publishes point cloud x, y and z data
+ *
+ * @param[in] msg - the message being sent down the topic. 
+ *
+ *****************************************************************************/
+void slamCallback(const sensor_msgs::PointCloud2 msg)
+{
+
+  // transmit out
+  //ROS_INFO("I heard: [%s]", msg->data.c_str());
+  
+  int cloudsize = (msg.width) * (msg.height);
+
+  pcl::PointCloud< pcl::PointXYZ > PointCloudXYZ;
+
+  pcl::fromROSMsg(msg,PointCloudXYZ);
+  
+  int count = 1;
+  std::stringstream ss;
+  
+  // what if we stream out the PointCloudXYZ data and only access what we need in object detection?
+  // what if we stream 8 random rows?
+  // stream only 30 rows
+  for (int i = 153600; i < (cloudsize - 1); i++)
+  {
+    
+    ss << i << " of " << cloudsize << ":" << PointCloudXYZ.points[i].x << " " << PointCloudXYZ.points[i].y << " " << PointCloudXYZ.points[i].z << "\n";
+    
+    if ( count % msg.width == 0 )
+    {
+      std_msgs::String forward;
+      forward.data = ss.str();
+    
+      // Forward to Main API
+      SlamStream_pub.publish(forward);
+      ss.str()="";
+    }
+    count++;
+  }
+  
+  //ss << " received at ";
+  //ss << (time(NULL));
+
+  //ROS_DEBUG("Hello %s", "World");
+
+  ros::spinOnce();
+}
+
+/******************************************************************************
+ * @author Alex Wulff
+ *
+ * @par Description:
+ * Setup for middleman that is the SLAMs node.
+ *
+ * @param[in] argc - count of args.
+ * @param[in] argv - arguments themselves.
+ *
+ *****************************************************************************/
+
+int main(int argc, char **argv)
+{
+  // Slam Conversions
+  ros::init(argc, argv, "Slam");
+
+  ros::NodeHandle nh;
+  std::string topic = nh.resolveName("point_cloud");
+
+  ros::NodeHandle slam;
+
+  // publisher
+  SlamStream_pub = slam.advertise<std_msgs::String>("SlamStream", 1);
+
+  // subscribe
+  ros::Subscriber sub = slam.subscribe<sensor_msgs::PointCloud2>("camera/depth/points", 1, slamCallback);
+//  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> (topic, 1000, slamCallback);
+//  ros::Subscriber sub = slam.subscribe("SlamData", 1000, slamCallback);
+
+  // wait for stuff
+  ros::spin();
+
+  return 0;
+}

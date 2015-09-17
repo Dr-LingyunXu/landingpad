@@ -1,0 +1,15 @@
+cd ~/workspace/landingpad/Build/Environment/Beta
+rm src/* -rf
+cp projects/* src/ -r
+source devel/setup.bash
+catkin_make 2> notes
+cd ~/workspace/landingpad/Build/UAV/Beta
+rm src/* -rf
+cp projects/* src/ -r
+source devel/setup.bash
+catkin_make 2> notes
+cd ~/workspace/landingpad/Build/UGV/Beta
+rm src/* -rf
+cp projects/* src/ -r
+source devel/setup.bash
+catkin_make 2> notes

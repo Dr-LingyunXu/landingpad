@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: camera_calibration
+Description: Description of camera_calibration
+Version: 1.12.11
+Cflags: 
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

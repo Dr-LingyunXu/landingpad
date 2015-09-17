@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ethzasl_ptam")
+set(ethzasl_ptam_MAINTAINER "Markus Achtelik <markus.achtelik@mavt.ethz.ch>, Stephan Weiss <stephan.weiss@mavt.ethz.ch>, Simon Lynen <simon.lynen@mavt.ethz.ch>")
+set(ethzasl_ptam_DEPRECATED "")
+set(ethzasl_ptam_VERSION "0.0.1")
+set(ethzasl_ptam_BUILD_DEPENDS )
+set(ethzasl_ptam_RUN_DEPENDS )
+set(ethzasl_ptam_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: rqt_ptam
+Description: Description of rqt_ptam
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

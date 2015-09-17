@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: sensor_msgs
+Description: Description of sensor_msgs
+Version: 1.11.6
+Cflags: -I/home/cracker/workspace/install/include -I/usr/include
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: geometry_msgs message_runtime std_msgs

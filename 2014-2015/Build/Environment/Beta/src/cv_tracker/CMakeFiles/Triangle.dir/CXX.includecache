@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/julian/catkin_ws/src/cv_tracker/inc/Coord.h
+string
+-
+
+/home/julian/catkin_ws/src/cv_tracker/inc/Triangle.h
+string
+-
+iostream
+-
+Coord.h
+/home/julian/catkin_ws/src/cv_tracker/inc/Coord.h
+math.h
+/home/julian/catkin_ws/src/cv_tracker/inc/math.h
+
+/home/julian/catkin_ws/src/cv_tracker/src/Triangle.cpp
+../inc/Triangle.h
+/home/julian/catkin_ws/src/cv_tracker/inc/Triangle.h
+

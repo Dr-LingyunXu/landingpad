@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: hector_map_tools
+Description: Description of hector_map_tools
+Version: 0.3.3
+Cflags: -I/home/cracker/workspace/src/hector_slam/hector_map_tools/include
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: nav_msgs

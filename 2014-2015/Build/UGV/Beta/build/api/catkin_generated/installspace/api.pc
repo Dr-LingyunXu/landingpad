@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/Build/UGV/Beta/install
+
+Name: api
+Description: Description of api
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cracker/workspace/Build/UGV/Beta/install/lib 
+Requires: 

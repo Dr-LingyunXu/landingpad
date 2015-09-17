@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ptam_com")
+set(ptam_com_MAINTAINER "Markus Achtelik <markus.achtelik@mavt.ethz.ch>, Stephan Weiss <stephan.weiss@mavt.ethz.ch>, Simon Lynen <simon.lynen@mavt.ethz.ch>")
+set(ptam_com_DEPRECATED "")
+set(ptam_com_VERSION "0.0.1")
+set(ptam_com_BUILD_DEPENDS "message_generation" "std_msgs" "roscpp" "sensor_msgs" "geometry_msgs")
+set(ptam_com_RUN_DEPENDS "message_runtime" "std_msgs" "roscpp" "sensor_msgs" "geometry_msgs")
+set(ptam_com_BUILDTOOL_DEPENDS "catkin")

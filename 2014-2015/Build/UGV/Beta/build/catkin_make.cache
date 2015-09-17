@@ -1,0 +1,2 @@
+api
+-DCATKIN_DEVEL_PREFIX=/home/cracker/workspace/Build/UGV/Beta/devel -DCMAKE_INSTALL_PREFIX=/home/cracker/workspace/Build/UGV/Beta/install -G Unix Makefiles

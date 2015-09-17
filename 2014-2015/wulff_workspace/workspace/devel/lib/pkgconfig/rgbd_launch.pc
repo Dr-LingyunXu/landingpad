@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rgbd_launch
+Description: Description of rgbd_launch
+Version: 2.1.0
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

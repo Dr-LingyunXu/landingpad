@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: test_rosbag_storage
+Description: Description of test_rosbag_storage
+Version: 1.11.9
+Cflags: 
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/julian/catkin_ws/devel
+
+Name: eits
+Description: Description of eits
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/julian/catkin_ws/devel/lib 
+Requires: 

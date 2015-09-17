@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "rqt_ptam")
+set(rqt_ptam_MAINTAINER "Markus Achtelik <markus.achtelik@mavt.ethz.ch>, Stephan Weiss <stephan.weiss@mavt.ethz.ch>, Simon Lynen <simon.lynen@mavt.ethz.ch>")
+set(rqt_ptam_DEPRECATED "")
+set(rqt_ptam_VERSION "0.0.1")
+set(rqt_ptam_BUILD_DEPENDS "roscpp" "std_msgs" "ptam_com" "sensor_msgs" "cv_bridge")
+set(rqt_ptam_RUN_DEPENDS "roscpp" "rqt_gui" "rqt_gui_cpp")
+set(rqt_ptam_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "vikit_common")
+set(vikit_common_MAINTAINER "cforster <forster@ifi.uzh.ch>")
+set(vikit_common_DEPRECATED "")
+set(vikit_common_VERSION "0.0.0")
+set(vikit_common_BUILD_DEPENDS "roscpp" "cmake_modules")
+set(vikit_common_RUN_DEPENDS "roscpp")
+set(vikit_common_BUILDTOOL_DEPENDS "catkin")

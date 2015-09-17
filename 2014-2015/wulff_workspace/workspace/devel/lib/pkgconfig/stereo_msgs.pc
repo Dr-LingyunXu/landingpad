@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: stereo_msgs
+Description: Description of stereo_msgs
+Version: 1.11.6
+Cflags: -I/home/cracker/workspace/devel/include
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: message_runtime sensor_msgs std_msgs

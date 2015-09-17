@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "pub_sub")
+set(pub_sub_MAINTAINER "julian <julian@todo.todo>")
+set(pub_sub_DEPRECATED "")
+set(pub_sub_VERSION "0.0.0")
+set(pub_sub_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(pub_sub_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(pub_sub_BUILDTOOL_DEPENDS "catkin")

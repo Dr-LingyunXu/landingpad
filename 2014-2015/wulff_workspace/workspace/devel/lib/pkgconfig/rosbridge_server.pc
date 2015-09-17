@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rosbridge_server
+Description: Description of rosbridge_server
+Version: 0.6.8
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

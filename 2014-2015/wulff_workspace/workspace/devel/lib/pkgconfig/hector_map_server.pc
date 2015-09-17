@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: hector_map_server
+Description: Description of hector_map_server
+Version: 0.3.3
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

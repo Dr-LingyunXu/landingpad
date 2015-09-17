@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: test_rospy
+Description: Description of test_rospy
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/install/include
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

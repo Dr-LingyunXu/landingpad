@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/julian/catkin_ws/src/cv_tracker/inc/Coord.h
+string
+-
+
+/home/julian/catkin_ws/src/cv_tracker/src/Coord.cpp
+../inc/Coord.h
+/home/julian/catkin_ws/src/cv_tracker/inc/Coord.h
+

@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: image_view
+Description: Description of image_view
+Version: 1.12.11
+Cflags: 
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

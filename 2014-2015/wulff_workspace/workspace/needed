@@ -1,0 +1,58 @@
+#########################################################################//##
+ # @file needed 
+ #
+ # @brief SOURCE - main file.
+ #
+ # @mainpage motion script
+ #
+ # @section course_section CSC 465
+ #
+ # @author Alex Wulff
+ #
+ # @date March 3rd, 2015
+ #
+ # @par Professor:
+ #         Dr. Jeff McGough
+ #
+ # @par Course:
+ #         CSC 465 - M001 - Tues / Thurs - 9:00am
+ #
+ # @par Location:
+ #         McLaury - 304
+ #
+ # @section program_section Program Information
+ #
+ # @details
+ # This will be run to start grabbing video footage from flights.
+ #
+ # @section compile_section Compiling and Usage
+ #
+ # @par Compiling Instructions:
+ #      (Linux) - catkin_make
+ #
+ # @par Usage:
+ #@verbatim
+ #startMotion
+ #@endverbatim
+ #
+ # @section todo_bugs_modification_section Todo, Bugs, and Modifications
+ #
+ # @par Modifications and Development Timeline:
+ #@verbatim
+ #Date              Modification
+ #----------------  --------------------------------------------------------------
+ # March 4-15		Found a way to help Charles with stereo cameras.
+ #
+ @endverbatim
+ #
+ ##############################################################################/
+uvccamera, lib and ros (sudo install)
+
+ROS_NAMESPACE=camera rosrun uvc_camera uvc_stereo_node 
+ROS_NAMESPACE=camera rosrun stereo_image_proc stereo_image_proc
+rosrun image_view stereo_view stereo:=/stereo image:=image_rect_color
+
+/etc/udev/rules.d/99-uvc
+# UVC cameras
+SUBSYSTEMS=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="046d", MODE="0666"
+# ^ Change the vendor and product IDs to match your camera.

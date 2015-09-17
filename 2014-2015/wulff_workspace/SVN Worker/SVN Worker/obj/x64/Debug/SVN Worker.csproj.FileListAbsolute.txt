@@ -1,0 +1,15 @@
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SVN Worker.exe.config
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SVN Worker.exe
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SVN Worker.pdb
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\DiffieHellman.dll
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\Org.Mentalis.Security.dll
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.dll
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.UI.dll
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\Tamir.SharpSSH.dll
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.pdb
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.xml
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.UI.pdb
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpSvn.UI.xml
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\bin\x64\Debug\SharpPlink-x64.svnExe
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\obj\x64\Debug\SVN Worker.exe
+c:\users\alex\documents\visual studio 2013\Projects\SVN Worker\SVN Worker\obj\x64\Debug\SVN Worker.pdb

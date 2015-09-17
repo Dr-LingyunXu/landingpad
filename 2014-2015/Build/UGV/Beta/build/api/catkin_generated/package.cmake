@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "api")
+set(api_MAINTAINER "cracker <cracker@todo.todo>")
+set(api_DEPRECATED "")
+set(api_VERSION "0.0.0")
+set(api_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(api_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(api_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: openni2_camera
+Description: Description of openni2_camera
+Version: 0.2.2
+Cflags: -I/home/cracker/workspace/devel/include -I/home/cracker/workspace/src/openni2_camera/include
+Libs: -L/home/cracker/workspace/devel/lib -lopenni2_wrapper
+Requires: camera_info_manager dynamic_reconfigure image_transport nodelet sensor_msgs roscpp

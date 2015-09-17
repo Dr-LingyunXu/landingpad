@@ -1,0 +1,8 @@
+prefix=/home/julian/catkin_ws/src/cv_tracker/devel
+
+Name: cv_tracker
+Description: Description of cv_tracker
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/julian/catkin_ws/src/cv_tracker/devel/lib 
+Requires: 

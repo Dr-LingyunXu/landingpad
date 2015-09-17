@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/devel
+
+Name: rqt_svo
+Description: Description of rqt_svo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cracker/workspace/devel/lib 
+Requires: 

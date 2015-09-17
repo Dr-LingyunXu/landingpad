@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/test_roslz4.dir/test/roslz4_test.cpp.o  -o /home/cracker/workspace/devel/lib/roslz4/test_roslz4  -L/home/cracker/workspace/build/gtest -rdynamic ../../../gtest/libgtest.so /home/cracker/workspace/devel/lib/libroslz4.so -lpthread -llz4 -Wl,-rpath,/home/cracker/workspace/build/gtest:/home/cracker/workspace/devel/lib 

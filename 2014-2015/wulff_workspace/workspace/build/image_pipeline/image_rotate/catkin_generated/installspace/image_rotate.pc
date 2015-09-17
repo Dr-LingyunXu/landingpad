@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: image_rotate
+Description: Description of image_rotate
+Version: 1.12.11
+Cflags: -I/home/cracker/workspace/install/include
+Libs: -L/home/cracker/workspace/install/lib 
+Requires: 

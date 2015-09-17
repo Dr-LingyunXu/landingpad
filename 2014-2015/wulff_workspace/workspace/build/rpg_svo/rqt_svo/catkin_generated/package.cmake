@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "rqt_svo")
+set(rqt_svo_MAINTAINER "cforster <cforster@todo.todo>")
+set(rqt_svo_DEPRECATED "")
+set(rqt_svo_VERSION "0.0.0")
+set(rqt_svo_BUILD_DEPENDS "rospy" "rqt_gui" "rqt_gui_py")
+set(rqt_svo_RUN_DEPENDS "rospy" "rqt_gui" "rqt_gui_py")
+set(rqt_svo_BUILDTOOL_DEPENDS "catkin")

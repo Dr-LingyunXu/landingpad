@@ -1,0 +1,10 @@
+How to run ar tags:
+
+1. Start roscore
+2. Launch camera: roslaunch usb_cam.launch
+3. Start ar-tag: roslaunch ar_tags.launch
+4. To see the info, run this command: rostopic echo /ar_pose_maker
+
+Note: When launching the usb_cam.launch file, if the computer's built-in camera turns on, then do the following:
+	- gedit/vim usb_cam.launch
+	- change "video0" to "video1" in the file (in this line: <param name="video_device" value="/dev/video0" type="string" />)

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "freenect_stack")
+set(freenect_stack_MAINTAINER "Jack O'Quin <jack.oquin@gmail.com>, Piyush Khandelwal <piyushk@gmail.com>")
+set(freenect_stack_DEPRECATED "")
+set(freenect_stack_VERSION "0.3.2")
+set(freenect_stack_BUILD_DEPENDS )
+set(freenect_stack_RUN_DEPENDS "freenect_camera" "freenect_launch")
+set(freenect_stack_BUILDTOOL_DEPENDS "catkin")

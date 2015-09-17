@@ -1,0 +1,8 @@
+prefix=/home/cracker/workspace/install
+
+Name: message_filters
+Description: Description of message_filters
+Version: 1.11.9
+Cflags: -I/home/cracker/workspace/install/include
+Libs: -L/home/cracker/workspace/install/lib -lmessage_filters
+Requires: roscpp xmlrpcpp rosconsole
