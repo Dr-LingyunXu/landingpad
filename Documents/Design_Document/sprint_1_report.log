@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.3)  1 OCT 2015 19:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.3)  1 OCT 2015 19:25
 entering extended mode
-**C:/Users/Steven/Documents/landingpad/Documents/Design_Document/sprints_wrappe
-r.tex
+**C:/Users/Steven/Documents/landingpad/Documents/Design_Document/sprint_1_repor
+t.tex
 
-(C:/Users/Steven/Documents/landingpad/Documents/Design_Document/sprints_wrapper
+(C:/Users/Steven/Documents/landingpad/Documents/Design_Document/sprint_1_report
 .tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
@@ -228,7 +228,7 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 (C:\Users\Steven\Desktop\COMP\tex\latex\psnfss\helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-(C:\Users\Steven\Documents\landingpad\Documents\Design_Document\sprints_wrapper
+(C:\Users\Steven\Documents\landingpad\Documents\Design_Document\sprint_1_report
 .aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
@@ -325,7 +325,7 @@ LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <10.95> not available
  [1
 
 {C:/Users/Steven/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]) [3]
-(C:\Users\Steven\Documents\landingpad\Documents\Design_Document\sprints_wrapper
+(C:\Users\Steven\Documents\landingpad\Documents\Design_Document\sprint_1_report
 .aux) ) 
 Here is how much of TeX's memory you used:
  4531 strings out of 493921
@@ -339,7 +339,7 @@ Here is how much of TeX's memory you used:
 Steven/Desktop/COMP/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Steven/
 Desktop/COMP/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Steven/Desktop/COMP/
 fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on sprints_wrapper.pdf (3 pages, 34127 bytes).
+Output written on sprint_1_report.pdf (3 pages, 34127 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
