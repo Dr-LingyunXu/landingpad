@@ -1,0 +1,76 @@
+Black Hills Power UAV team
+Second Semester
+Goals: 
+Swarm Deployment 
+Powerline Survey
+Drones are in strategic locals to deploy from offices to survey lines within area
+
+Team Focus: 
+6 MEs, 1 CENG
+
+Building portable weather proof enclosure: self closing, self-opening, charging
+Drone House
+Self-sustaining
+ 
+Filing intent to disclose - field deployable UAV box
+
+Issue: Initial budget 10K
+Ordered two drones
+DJI - Phantom Drones
+DJI - Telementry Link
+
+NEED: Set a GPS location fly course and return
+
+- Real test +/- 15 meters, 
+
+requires Visual Landing System
+
+DISCUSSION: 
+Can we get other than visual
+
+Has already been done before - But controlled by motion capture
+
+Makes sense to be done by the base station - Adding to the drone, adds to issue of payload and tof
+
+Need to find a way to get video feed to where we need to land it.
+
+Bluetooth control
+
+Milehigh Wings - USB to X transmitters - enable transmitter to take control of drone (programmable)
+
+Move drone into position
+
+DJI phantoms have wifi (Phantom II)
+
+Video Feed - DJI has screen connection through control unit. 
+
+Have Go-pro gimbal on drone
+
+issue command to gimbal to flip video to control landing
+
+use led on UAV and camera on station to guide UAV
+
+finding platform from drone will be easier than other way around.
+
+Use increasingly smaller markers (Use APR tag OR AR tag)
+
+4'X 4' with 2' wings and 4' pyramids Use colored lights(G at furthest, R at nearer, B at nearest)
+
+Write homeographic warping algorithm - april tags lab Michigan
+
+Patent on drone enclosure. What type of drone doesn't matter. 
+
+Matt Sydell from BHP will be at CDR. Possible source of funding.
+
+Monday 8AM - Landing Meeting - Hardrock Room - Surbeck
+
+
+VISION: 
+
+Lights - White in center.
+
+Look at homography: Understand distances from warping
+
+Use of triangle 
+
+
