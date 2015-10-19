@@ -4,6 +4,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+%\usepackage[latin1]{inputenc}
+
 \author{Team Expeditus}
 \title{UAV Autonomous Landing}
 %\setbeamercovered{transparent} 
@@ -64,6 +68,23 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 \end{frame}
 
 \begin{frame}{Approach - UAV}
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=blue,draw=none,text=white]
+
+  \node[initial,state] (A)              {$Flight Controller$};
+  \node[state]         (B) [right of=A] {$ODroid$};
+
+  \path (A) edge [loop below] node {Take-off} (A)
+            edge [loop above]  node {Navigation} (A)
+            edge [anchor=center,bend left,above] node {Moved above Landing Area} (B)
+        (B) edge [loop above] node {Landing} (B)
+            edge [anchor=center,bend left,left,below]  node {Moved out of Landing Region} (A);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Approach - Software/Hardware}
 \begin{figure}
 \includegraphics[width=.5\textwidth]{broad_approach1}
 \end{figure}
@@ -79,23 +100,103 @@ Put some stuff here about the landing ANN approach, maybe a picture or two
 
 
 \begin{frame}{Development - Software}
-List Software Here
+\textbf{Development OS}: Ubuntu 14.04\\
+\textbf{Language}: C++\\
+\vspace{5mm}
+\textbf{Software Tools}
+\begin{itemize}
+\item OpenCV
+\item Robot Operating System(ROS)
+\item MavROS
+\item Gazebo
+\item APM Planner
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Development - Hardware}
-List Hardware Here
+\textbf{Build 1}:
+\begin{itemize}
+\item S550 Hexrotor Frame, Motors, \& ESCs
+\item Radio Set
+\item Cameras
+\item PixHawk Flight Controller
+\item 3DR Compass/GPS
+\end{itemize}
+\vspace{5mm}
+\textbf{Build 2}:
+\begin{itemize}
+\item 3DR DYI Quadrotor Frame, Motors, \& ESCs
+\item Radio Set
+\item Cameras
+\item PixHawk Flight Controller
+\item 3DR Compass/GPS
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Cost}
-Cost table of UAV purchase, maybe augmented a bit for neatness
+\centering{
+\begin{tabular}[c]{| l | r | l | r |}
+\hline
+\multicolumn{2}{| c |}{\textbf{Build 1}} & \multicolumn{2}{| c |}{\textbf{Build 2}} \\
+\hline
+Item & Cost & Item & Cost \\
+\hline
+Controller & \$199.99 & Controller & \$199.99\\
+\hline
+ODroid 	   & \$75.95  & ODroid 	   & \$75.95 \\
+\hline
+Sensors    & \$167.23 & Sensors    & \$167.23 \\
+\hline
+Frame Kit  & \$242.48 &  &\\
+\hline
+Power Kit  & \$119.98 &  &\\
+\hline
+Radio Set  & \$100.00 &  &\\
+\hline
+Extra Parts & \$95.15 &  &\\
+\hline
+\textbf{TOTAL} & \$1000.78 & \textbf{TOTAL} & \$443.17\\
+\hline
+\end{tabular}
+}
 \end{frame}
 
 \begin{frame}{Work Accomplished}
-List of Work Accomplished
+\textbf{General}
+\begin{itemize}
+\item Review previous iteration documentation \& code
+\item Begin pilot training for manual control
+\item Review Landing Pad model with Landing Pad teams
+\end{itemize}
+\vspace{4mm}
+\textbf{Setup Development Environment}
+\begin{itemize}
+\item Ubuntu 14.04
+\item Gazebo/Rviz
+\item ROS - Jade Distro
+\end{itemize}
+\vspace{4mm}
+\textbf{Inspect Current Quadrotor}
+\begin{itemize}
+\item Identify missing or non-functioning components 
+\item Generate order list
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Risk}
-List of Problems Encountered this first sprint
+\begin{frame}{Setbacks/Risk}
+\textbf{Risk}
+\begin{itemize}
+\item Reliance on Flight Controller
+\item Dependency on external team for Landing Pad
+\item No UAV Backup
+\end{itemize}
+\vspace{6mm}
+\textbf{Setbacks}
+\begin{itemize}
+\item Non-functional components
+\item Little carry-over from previous year
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusion}
@@ -103,7 +204,7 @@ Conclusion-y stuff here
 \end{frame}
 
 \begin{frame}
-\textbf{Questions?}
+\center \Large{{\textbf{Questions?}}}
 \end{frame}
 
 \end{document}
