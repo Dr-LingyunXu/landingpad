@@ -84,7 +84,7 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Approach - Software/Hardware}
+\begin{frame}{Approach - Software}
 \begin{figure}
 \includegraphics[width=.5\textwidth]{broad_approach1}
 \end{figure}
@@ -114,24 +114,54 @@ Put some stuff here about the landing ANN approach, maybe a picture or two
 \end{frame}
 
 \begin{frame}{Development - Hardware}
-\textbf{Build 1}:
+\textbf{Hardware Constraints}
 \begin{itemize}
-\item S550 Hexrotor Frame, Motors, \& ESCs
-\item Radio Set
-\item Cameras
-\item PixHawk Flight Controller
-\item 3DR Compass/GPS
-\end{itemize}
-\vspace{5mm}
-\textbf{Build 2}:
-\begin{itemize}
-\item 3DR DYI Quadrotor Frame, Motors, \& ESCs
-\item Radio Set
-\item Cameras
-\item PixHawk Flight Controller
-\item 3DR Compass/GPS
+	\item 6000mAh Battery
+	\item Power ODroid + Peripherals
+	\item Power 6x DC Motors
 \end{itemize}
 
+\centerline{\includegraphics[width=0.75\textwidth]{Power_BatteryLife}}
+
+\end{frame}
+
+\begin{frame}{Development - Hardware Continued...}
+
+	\begin{tabular}[c]{| c | c | c |}
+		\hline
+		Item & Quantity & Total Weight\\
+		\hline
+		DC Motor & 6 & 372g\\
+		\hline
+		Frame & 1 & 1300g\\
+		\hline
+		Battery & 1 & 680g\\
+		\hline
+		Camera & 2 & 140g\\
+		\hline
+		ODroid & 1 & 48g\\
+		\hline
+		GPS Module & 1 & 17g\\
+		\hline
+		\multicolumn{2}{| r |}{\textbf{Total}} & 2557g\\
+		\hline
+	\end{tabular}
+	\hfill \break \\
+	1 Motor at 100\% produces 970g of lift\\
+	Maximum Lift = 5820g\\
+	Motors must run at 2557g / 5820g = 44\%
+\end{frame}
+
+\begin{frame}{Development - Hardware Continued...}
+	\textbf{Computational Constraints}
+	\begin{itemize}
+		\item Images: 976 x 582 pixels at $\ge$ 5 images/sec
+		\item Processing 1 image thus requires $\sim$570,000 operations
+		\item ODroid has 8 cores at 1.4 GHz
+		\begin{itemize}
+			\item Ideal throughput $\sim$10 Billion operations/sec
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Cost}
