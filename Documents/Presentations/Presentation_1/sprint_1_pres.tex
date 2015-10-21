@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer}
+ \documentclass[11pt]{beamer}
 \usetheme{Warsaw}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -26,15 +26,33 @@
 %\tableofcontents
 %\end{frame}
 
-\begin{frame}{Team}
+\begin{frame}{Introduction}
+\textbf{UAV Autonomous Landing Project}\\
+\vspace{12mm}
 \textbf{Team Expeditus}\\
 Jonathan Dixon, Dylan Geyer, Christopher Smith, Steven Huerta\\ 
 \vspace{6mm}
 \textbf{Sponsor}\\
 Dr. Larry Pyeatt\\
-\vspace{6mm}
+\end{frame}
+
+\begin{frame}{Goal}
 \textbf{Goal}\\
-Software to autonomously take-off, navigate to set waypoints, return to launch pad, and land
+\begin{itemize}
+\item receive a set of waypoints
+\item autonomously take-off
+\item navigate through waypoints
+\item return to launch pad
+\item land on the pad with the correct orientation
+\end{itemize}
+\vspace{6mm}
+\textbf{Limitations}\\
+\begin{itemize}
+\item landing platform is a fixed position
+\item landing platform is a stable, horizontal surface
+\item environment is ideal(no wind, gps available, no obstacles)
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Phase Objectives}
@@ -55,15 +73,15 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 \begin{frame}{Testing}
 \textbf{Phase I}
 \begin{itemize}
-\item Manual Flight of UAV
-\item Autonomous Flight of UAV 
+\item Test manual flight of UAV
+\item Test of flight controller autonomy on a course 
 \end{itemize}
 \vspace{5mm}
 \textbf{Phase II}
 \begin{itemize}
-\item Autonomous Landing in Simulation
-\item Autonomous Landing of UAV
-\item Autonomous Take-off, Navigation, and Landing of UAV
+\item Test of simulated landing
+\item Test of UAV autonomous landing on landing pad
+\item Test of UAV task integration
 \end{itemize}
 \end{frame}
 
@@ -78,9 +96,9 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 
   \path (A) edge [loop below] node {Take-off} (A)
             edge [loop above]  node {Navigation} (A)
-            edge [anchor=center,bend left,above] node {Moved above Landing Area} (B)
+            edge [anchor=center,bend left,above] node {Moved above Landing Zone} (B)
         (B) edge [loop above] node {Landing} (B)
-            edge [anchor=center,bend left,left,below]  node {Moved out of Landing Region} (A);
+            edge [anchor=center,bend left,left,below]  node {Moved out of Landing Zone} (A);
 \end{tikzpicture}
 \end{frame}
 
@@ -249,8 +267,19 @@ Extra Parts & \$95.15 &  &\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Conclusion}
-Conclusion-y stuff here
+\begin{frame}[t]{Conclusion}
+\textbf{Team Expeditus}
+\begin{itemize}
+\item has adapted focus of tasks based on conditions
+\item is making progress on those tasks
+\item is on track to complete Phase I goals
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/quad}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
