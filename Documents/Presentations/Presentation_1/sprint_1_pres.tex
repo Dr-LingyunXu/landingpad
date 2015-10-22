@@ -157,18 +157,6 @@ Dr. Larry Pyeatt\\
 \end{frame}
 
 \begin{frame}{Development - Hardware}
-\textbf{Hardware Constraints}
-\begin{itemize}
-	\item 6000mAh Battery
-	\item Power ODroid + Peripherals
-	\item Power 6x DC Motors
-\end{itemize}
-
-\centerline{\includegraphics[width=0.75\textwidth]{Power_BatteryLife}}
-
-\end{frame}
-
-\begin{frame}{Development - Hardware Continued...}
 
 	\begin{tabular}[c]{| c | c | c |}
 		\hline
@@ -190,19 +178,31 @@ Dr. Larry Pyeatt\\
 		\hline
 	\end{tabular}
 	\hfill \break \\
-	1 Motor at 100\% produces 970g of lift\\
-	Maximum Lift = 5820g\\
+	6 Motors at 100\% produces 5820g of lift\\
+
 	Motors must run at 2557g / 5820g = 44\%
+\end{frame}
+
+\begin{frame}{Development - Hardware Continued...}
+	\textbf{Hardware Constraints}
+	\begin{itemize}
+		\item 6000mAh Battery
+		\item Power ODroid + Peripherals
+		\item Power 6x DC Motors
+	\end{itemize}
+	
+	\centerline{\includegraphics[width=0.75\textwidth]{Power_BatteryLife}}
+	
 \end{frame}
 
 \begin{frame}{Development - Hardware Continued...}
 	\textbf{Computational Constraints}
 	\begin{itemize}
-		\item Images: 976 x 582 pixels at $\ge$ 5 images/sec
-		\item Processing 1 image thus requires $\sim$570,000 operations
+		\item Images: 976 x 582 pixels at $\ge$ 30 images/sec
+		\item Real time image processing requires $30 * 976 * 582 = 17M  flops$
 		\item ODroid has 8 cores at 1.4 GHz
 		\begin{itemize}
-			\item Ideal throughput $\sim$10 Billion operations/sec
+			\item Ideal throughput $\sim$1 Billion operations/sec
 		\end{itemize}
 	\end{itemize}
 \end{frame}

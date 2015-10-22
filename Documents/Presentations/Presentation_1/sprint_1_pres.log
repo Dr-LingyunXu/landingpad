@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.20)  21 OCT 2015 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.8)  21 OCT 2015 22:05
 entering extended mode
 **sprint_1_pres.tex
 (sprint_1_pres.tex
@@ -1251,7 +1251,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 [1
 
-{C:/Users/7060360/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/7051665/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 [2
 
 ] [3
@@ -1322,33 +1322,33 @@ Package pdftex.def Info: images/Ros_Topics.png used on input line 157.
 (pdftex.def)             Requested size: 144.53375pt x 158.98714pt.
  [12
 
- <./images/Ros_Topics.png>]
-<Power_BatteryLife.png, id=354, 563.10374pt x 333.49594pt>
+ <./images/Ros_Topics.png>] [13
+
+]
+<Power_BatteryLife.png, id=381, 560.0925pt x 328.22626pt>
 File: Power_BatteryLife.png Graphic file (type png)
 
 <use Power_BatteryLife.png>
-Package pdftex.def Info: Power_BatteryLife.png used on input line 169.
-(pdftex.def)             Requested size: 230.46739pt x 136.49504pt.
- [13
+Package pdftex.def Info: Power_BatteryLife.png used on input line 196.
+(pdftex.def)             Requested size: 230.46739pt x 135.05943pt.
+ [14
 
- <./Power_BatteryLife.png>] [14
-
-] [15
+ <./Power_BatteryLife.png>] [15
 
 ] [16
 
-]
-[17
+] [17
 
-] [18
+]
+[18
 
 ] <images/quad.jpg, id=516, 3276.24pt x 2457.18pt>
 File: images/quad.jpg Graphic file (type jpg)
-
-<use images/quad.jpg>
+ <use images/quad.jpg>
 Package pdftex.def Info: images/quad.jpg used on input line 288.
 (pdftex.def)             Requested size: 122.91406pt x 92.15901pt.
- [19
+
+[19
 
  <./images/quad.jpg>] [20
 
@@ -1372,8 +1372,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
  21010 strings out of 493673
- 431501 string characters out of 3141523
- 496553 words of memory out of 3000000
+ 431501 string characters out of 3141524
+ 495553 words of memory out of 3000000
  23832 multiletter control sequences out of 15000+200000
  14472 words of font info for 53 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1384,7 +1384,7 @@ Here is how much of TeX's memory you used:
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on sprint_1_pres.pdf (20 pages, 2447559 bytes).
+Output written on sprint_1_pres.pdf (20 pages, 2448865 bytes).
 PDF statistics:
  599 PDF objects out of 1000 (max. 8388607)
  41 named destinations out of 1000 (max. 500000)
