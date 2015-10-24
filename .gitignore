@@ -1,0 +1,9 @@
+#Tex auto generated files to ignore
+*.aux
+*.log
+*.lot
+*.toc
+*.out
+*.nav
+*.snm
+*.gz
