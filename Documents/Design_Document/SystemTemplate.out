@@ -56,38 +56,46 @@
 \BOOKMARK [0][-]{chapter.6}{User Documentation}{}% 56
 \BOOKMARK [1][-]{section.6.1}{User Guide}{chapter.6}% 57
 \BOOKMARK [1][-]{section.6.2}{Installation Guide}{chapter.6}% 58
-\BOOKMARK [1][-]{section.6.3}{Programmer Manual}{chapter.6}% 59
-\BOOKMARK [0][-]{chapter.7}{Class Index}{}% 60
-\BOOKMARK [1][-]{section.7.1}{Class List}{chapter.7}% 61
-\BOOKMARK [0][-]{chapter.8}{Class Documentation}{}% 62
-\BOOKMARK [1][-]{section.8.1}{Poly Class Reference}{chapter.8}% 63
-\BOOKMARK [2][-]{subsection.8.1.1}{Constructor \046 Destructor Documentation}{section.8.1}% 64
-\BOOKMARK [2][-]{subsection.8.1.2}{Member Function Documentation}{section.8.1}% 65
-\BOOKMARK [0][-]{chapter.9}{Experimental Log}{}% 66
-\BOOKMARK [0][-]{chapter.10}{Research Results}{}% 67
-\BOOKMARK [1][-]{section.10.1}{Result 1}{chapter.10}% 68
-\BOOKMARK [1][-]{section.10.2}{Result 2}{chapter.10}% 69
-\BOOKMARK [1][-]{section.10.3}{Conclusions}{chapter.10}% 70
-\BOOKMARK [1][-]{section.10.4}{Further work}{chapter.10}% 71
-\BOOKMARK [0][-]{chapter*.7}{Bibliography}{}% 72
-\BOOKMARK [0][-]{chapter.11}{Software Agreement}{}% 73
-\BOOKMARK [0][-]{appendix.A}{Product Description}{}% 74
-\BOOKMARK [0][-]{appendix.B}{Publications}{}% 75
-\BOOKMARK [0][-]{appendix.C}{Sprint Reports}{}% 76
-\BOOKMARK [1][-]{section.C.1}{Sprint Report \0431}{appendix.C}% 77
-\BOOKMARK [1][-]{section.C.2}{Sprint Report \0432}{appendix.C}% 78
-\BOOKMARK [1][-]{section.C.3}{Sprint Report \0433}{appendix.C}% 79
-\BOOKMARK [1][-]{section.C.4}{Sprint Report ...}{appendix.C}% 80
-\BOOKMARK [0][-]{appendix.D}{Industrial Experience and Resumes}{}% 81
-\BOOKMARK [1][-]{section.D.1}{Resumes}{appendix.D}% 82
-\BOOKMARK [1][-]{section.D.2}{ABET: Industrial Experience Reports}{appendix.D}% 83
-\BOOKMARK [2][-]{subsection.D.2.1}{Name1}{section.D.2}% 84
-\BOOKMARK [2][-]{subsection.D.2.2}{Name2}{section.D.2}% 85
-\BOOKMARK [2][-]{subsection.D.2.3}{Name3}{section.D.2}% 86
-\BOOKMARK [0][-]{appendix.E}{Acknowledgment}{}% 87
-\BOOKMARK [0][-]{appendix.F}{Supporting Materials}{}% 88
-\BOOKMARK [0][-]{appendix*.8}{LaTeX Example}{}% 89
-\BOOKMARK [1][-]{section.F.1}{Introduction}{appendix*.8}% 90
-\BOOKMARK [1][-]{section.F.2}{Ordinary Text}{appendix*.8}% 91
-\BOOKMARK [1][-]{section.F.3}{Displayed Text}{appendix*.8}% 92
-\BOOKMARK [1][-]{section.F.4}{Build process}{appendix*.8}% 93
+\BOOKMARK [2][-]{subsection.6.2.1}{Environment Setup}{section.6.2}% 59
+\BOOKMARK [1][-]{section.6.3}{Programmer Manual}{chapter.6}% 60
+\BOOKMARK [0][-]{chapter.7}{Class Index}{}% 61
+\BOOKMARK [1][-]{section.7.1}{Class List}{chapter.7}% 62
+\BOOKMARK [0][-]{chapter.8}{Class Documentation}{}% 63
+\BOOKMARK [1][-]{section.8.1}{Poly Class Reference}{chapter.8}% 64
+\BOOKMARK [2][-]{subsection.8.1.1}{Constructor \046 Destructor Documentation}{section.8.1}% 65
+\BOOKMARK [2][-]{subsection.8.1.2}{Member Function Documentation}{section.8.1}% 66
+\BOOKMARK [0][-]{chapter.9}{Experimental Logs}{}% 67
+\BOOKMARK [1][-]{section.9.1}{Takeoff Log}{chapter.9}% 68
+\BOOKMARK [1][-]{section.9.2}{Navigation Log}{chapter.9}% 69
+\BOOKMARK [1][-]{section.9.3}{Landing Log}{chapter.9}% 70
+\BOOKMARK [1][-]{section.9.4}{Mechanical Log}{chapter.9}% 71
+\BOOKMARK [2][-]{subsection.9.4.1}{UAV}{section.9.4}% 72
+\BOOKMARK [2][-]{subsection.9.4.2}{UGV}{section.9.4}% 73
+\BOOKMARK [1][-]{section.9.5}{Simulation Log}{chapter.9}% 74
+\BOOKMARK [0][-]{chapter.10}{Research Results}{}% 75
+\BOOKMARK [1][-]{section.10.1}{Result 1}{chapter.10}% 76
+\BOOKMARK [1][-]{section.10.2}{Result 2}{chapter.10}% 77
+\BOOKMARK [1][-]{section.10.3}{Conclusions}{chapter.10}% 78
+\BOOKMARK [1][-]{section.10.4}{Further work}{chapter.10}% 79
+\BOOKMARK [0][-]{chapter*.7}{Bibliography}{}% 80
+\BOOKMARK [0][-]{chapter.11}{Software Agreement}{}% 81
+\BOOKMARK [0][-]{appendix.A}{Product Description}{}% 82
+\BOOKMARK [0][-]{appendix.B}{Publications}{}% 83
+\BOOKMARK [0][-]{appendix.C}{Sprint Reports}{}% 84
+\BOOKMARK [1][-]{section.C.1}{Sprint Report \0431}{appendix.C}% 85
+\BOOKMARK [1][-]{section.C.2}{Sprint Report \0432}{appendix.C}% 86
+\BOOKMARK [1][-]{section.C.3}{Sprint Report \0433}{appendix.C}% 87
+\BOOKMARK [1][-]{section.C.4}{Sprint Report ...}{appendix.C}% 88
+\BOOKMARK [0][-]{appendix.D}{Industrial Experience and Resumes}{}% 89
+\BOOKMARK [1][-]{section.D.1}{Resumes}{appendix.D}% 90
+\BOOKMARK [1][-]{section.D.2}{ABET: Industrial Experience Reports}{appendix.D}% 91
+\BOOKMARK [2][-]{subsection.D.2.1}{Name1}{section.D.2}% 92
+\BOOKMARK [2][-]{subsection.D.2.2}{Name2}{section.D.2}% 93
+\BOOKMARK [2][-]{subsection.D.2.3}{Name3}{section.D.2}% 94
+\BOOKMARK [0][-]{appendix.E}{Acknowledgment}{}% 95
+\BOOKMARK [0][-]{appendix.F}{Supporting Materials}{}% 96
+\BOOKMARK [0][-]{appendix*.8}{LaTeX Example}{}% 97
+\BOOKMARK [1][-]{section.F.1}{Introduction}{appendix*.8}% 98
+\BOOKMARK [1][-]{section.F.2}{Ordinary Text}{appendix*.8}% 99
+\BOOKMARK [1][-]{section.F.3}{Displayed Text}{appendix*.8}% 100
+\BOOKMARK [1][-]{section.F.4}{Build process}{appendix*.8}% 101

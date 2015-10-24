@@ -56,6 +56,7 @@
 \contentsline {chapter}{\numberline {6}User Documentation}{13}{chapter.6}
 \contentsline {section}{\numberline {6.1}User Guide}{13}{section.6.1}
 \contentsline {section}{\numberline {6.2}Installation Guide}{13}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Environment Setup}{13}{subsection.6.2.1}
 \contentsline {section}{\numberline {6.3}Programmer Manual}{13}{section.6.3}
 \contentsline {chapter}{\numberline {7}Class Index}{15}{chapter.7}
 \contentsline {section}{\numberline {7.1}Class List}{15}{section.7.1}
@@ -66,7 +67,14 @@
 \contentsline {subsubsection}{\numberline {8.1.1.b}$\sim $\discretionary {-}{}{}Poly}{17}{subsubsection.8.1.1.2}
 \contentsline {subsection}{\numberline {8.1.2}Member Function Documentation}{17}{subsection.8.1.2}
 \contentsline {subsubsection}{\numberline {8.1.2.a}myfunction}{17}{subsubsection.8.1.2.1}
-\contentsline {chapter}{\numberline {9}Experimental Log}{19}{chapter.9}
+\contentsline {chapter}{\numberline {9}Experimental Logs}{19}{chapter.9}
+\contentsline {section}{\numberline {9.1}Takeoff Log}{19}{section.9.1}
+\contentsline {section}{\numberline {9.2}Navigation Log}{19}{section.9.2}
+\contentsline {section}{\numberline {9.3}Landing Log}{19}{section.9.3}
+\contentsline {section}{\numberline {9.4}Mechanical Log}{19}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}UAV}{19}{subsection.9.4.1}
+\contentsline {subsection}{\numberline {9.4.2}UGV}{19}{subsection.9.4.2}
+\contentsline {section}{\numberline {9.5}Simulation Log}{19}{section.9.5}
 \contentsline {chapter}{\numberline {10}Research Results}{21}{chapter.10}
 \contentsline {section}{\numberline {10.1}Result 1}{21}{section.10.1}
 \contentsline {section}{\numberline {10.2}Result 2}{21}{section.10.2}
@@ -78,9 +86,9 @@
 \contentsline {chapter}{\numberline {B}Publications}{B-1}{appendix.B}
 \contentsline {chapter}{\numberline {C}Sprint Reports}{C-1}{appendix.C}
 \contentsline {section}{\numberline {1}Sprint Report \#1}{C-1}{section.C.1}
-\contentsline {section}{\numberline {2}Sprint Report \#2}{C-1}{section.C.2}
-\contentsline {section}{\numberline {3}Sprint Report \#3}{C-1}{section.C.3}
-\contentsline {section}{\numberline {4}Sprint Report ...}{C-1}{section.C.4}
+\contentsline {section}{\numberline {2}Sprint Report \#2}{C-3}{section.C.2}
+\contentsline {section}{\numberline {3}Sprint Report \#3}{C-3}{section.C.3}
+\contentsline {section}{\numberline {4}Sprint Report ...}{C-3}{section.C.4}
 \contentsline {chapter}{\numberline {D}Industrial Experience and Resumes}{D-1}{appendix.D}
 \contentsline {section}{\numberline {1}Resumes}{D-1}{section.D.1}
 \contentsline {section}{\numberline {2}ABET: Industrial Experience Reports}{D-1}{section.D.2}
@@ -93,4 +101,4 @@
 \contentsline {section}{\numberline {1}Introduction}{BM-1}{section.F.1}
 \contentsline {section}{\numberline {2}Ordinary Text}{BM-1}{section.F.2}
 \contentsline {section}{\numberline {3}Displayed Text}{BM-2}{section.F.3}
-\contentsline {section}{\numberline {4}Build process}{BM-3}{section.F.4}
+\contentsline {section}{\numberline {4}Build process}{BM-2}{section.F.4}
