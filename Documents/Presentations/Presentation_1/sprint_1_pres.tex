@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer}
+ \documentclass[11pt]{beamer}
 \usetheme{Warsaw}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -13,7 +13,7 @@
 %\setbeamercovered{transparent} 
 %\setbeamertemplate{navigation symbols}{} 
 %\logo{} 
-\institute{Dept. of Computer Science, SDSMT} 
+\institute{SDSMT MCS} 
 %\date{} 
 %\subject{} 
 \begin{document}
@@ -26,15 +26,33 @@
 %\tableofcontents
 %\end{frame}
 
-\begin{frame}{Team}
+\begin{frame}{Introduction}
+\textbf{UAV Autonomous Landing Project}\\
+\vspace{12mm}
 \textbf{Team Expeditus}\\
 Jonathan Dixon, Dylan Geyer, Christopher Smith, Steven Huerta\\ 
 \vspace{6mm}
 \textbf{Sponsor}\\
 Dr. Larry Pyeatt\\
-\vspace{6mm}
+\end{frame}
+
+\begin{frame}{Goal}
 \textbf{Goal}\\
-Software to autonomously take-off, navigate to set waypoints, return to launch pad, and land
+\begin{itemize}
+\item receive a set of waypoints
+\item autonomously take-off
+\item navigate through waypoints
+\item return to launch pad
+\item land on the pad with the correct orientation
+\end{itemize}
+\vspace{6mm}
+\textbf{Limitations}\\
+\begin{itemize}
+\item landing platform is a fixed position
+\item landing platform is a stable, horizontal surface
+\item environment is ideal(no wind, gps available, no obstacles)
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Phase Objectives}
@@ -55,15 +73,15 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 \begin{frame}{Testing}
 \textbf{Phase I}
 \begin{itemize}
-\item Manual Flight of UAV
-\item Autonomous Flight of UAV 
+\item Test manual flight of UAV
+\item Test of flight controller autonomy on a course 
 \end{itemize}
 \vspace{5mm}
 \textbf{Phase II}
 \begin{itemize}
-\item Autonomous Landing in Simulation
-\item Autonomous Landing of UAV
-\item Autonomous Take-off, Navigation, and Landing of UAV
+\item Test of simulated landing
+\item Test of UAV autonomous landing on landing pad
+\item Test of UAV task integration
 \end{itemize}
 \end{frame}
 
@@ -78,9 +96,9 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 
   \path (A) edge [loop below] node {Take-off} (A)
             edge [loop above]  node {Navigation} (A)
-            edge [anchor=center,bend left,above] node {Moved above Landing Area} (B)
+            edge [anchor=center,bend left,above] node {Moved above Landing Zone} (B)
         (B) edge [loop above] node {Landing} (B)
-            edge [anchor=center,bend left,left,below]  node {Moved out of Landing Region} (A);
+            edge [anchor=center,bend left,left,below]  node {Moved out of Landing Zone} (A);
 \end{tikzpicture}
 \end{frame}
 
@@ -91,7 +109,12 @@ Software to autonomously take-off, navigate to set waypoints, return to launch p
 \end{frame}
 
 \begin{frame}{Approach - Landing Vision}
-Put some stuff here about the landing vision approach, maybe a picture or two
+\begin{itemize}
+	\item AR/QR tags for orientation and range.
+	\item Colored blobs or LEDs for orientation.
+	\item Example of AR Tag and colored circles similar
+	\centerline{\includegraphics[scale=0.07]{images/example_pad_target.jpg}}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Approach - Landing AI}
@@ -134,18 +157,6 @@ Put some stuff here about the landing vision approach, maybe a picture or two
 \end{frame}
 
 \begin{frame}{Development - Hardware}
-\textbf{Hardware Constraints}
-\begin{itemize}
-	\item 6000mAh Battery
-	\item Power ODroid + Peripherals
-	\item Power 6x DC Motors
-\end{itemize}
-
-\centerline{\includegraphics[width=0.75\textwidth]{Power_BatteryLife}}
-
-\end{frame}
-
-\begin{frame}{Development - Hardware Continued...}
 
 	\begin{tabular}[c]{| c | c | c |}
 		\hline
@@ -167,19 +178,31 @@ Put some stuff here about the landing vision approach, maybe a picture or two
 		\hline
 	\end{tabular}
 	\hfill \break \\
-	1 Motor at 100\% produces 970g of lift\\
-	Maximum Lift = 5820g\\
+	6 Motors at 100\% produces 5820g of lift\\
+
 	Motors must run at 2557g / 5820g = 44\%
+\end{frame}
+
+\begin{frame}{Development - Hardware Continued...}
+	\textbf{Hardware Constraints}
+	\begin{itemize}
+		\item 6000mAh Battery
+		\item Power ODroid + Peripherals
+		\item Power 6x DC Motors
+	\end{itemize}
+	
+	\centerline{\includegraphics[width=0.75\textwidth]{Power_BatteryLife}}
+	
 \end{frame}
 
 \begin{frame}{Development - Hardware Continued...}
 	\textbf{Computational Constraints}
 	\begin{itemize}
-		\item Images: 976 x 582 pixels at $\ge$ 5 images/sec
-		\item Processing 1 image thus requires $\sim$570,000 operations
+		\item Images: 976 x 582 pixels at $\ge$ 30 images/sec
+		\item Real time image processing requires $30 * 976 * 582 = 17M  flops$
 		\item ODroid has 8 cores at 1.4 GHz
 		\begin{itemize}
-			\item Ideal throughput $\sim$10 Billion operations/sec
+			\item Ideal throughput $\sim$1 Billion operations/sec
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -249,8 +272,19 @@ Extra Parts & \$95.15 &  &\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Conclusion}
-Conclusion-y stuff here
+\begin{frame}[t]{Conclusion}
+\textbf{Team Expeditus}
+\begin{itemize}
+\item has adapted focus of tasks based on conditions
+\item is making progress on those tasks
+\item is on track to complete Phase I goals
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/quad}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
