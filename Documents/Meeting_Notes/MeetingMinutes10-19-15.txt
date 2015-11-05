@@ -1,0 +1,22 @@
+Possible ESCs from Jon for Quadrotor
+
+Quadrotor resurrection/ Possible loan from Jon
+
+UVG issues with power
+
+-Using 36 volts vs 48 
+
+-Analyse torque with power
+
+-
+
+-Use of Cone with clamps
+
+-Find weight of hex and quad
+
+-Multiple QR Codes
+
+-Landing on Cone 
+
+-Possiblility of Pusher
+

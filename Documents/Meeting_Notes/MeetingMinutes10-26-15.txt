@@ -1,0 +1,21 @@
+Nested Qr Codes
+
+Reinforced Learning may be best approach for AI landing
+
+
+Work Done 2nd Sprint
+Resurrection of Visual Code
+Simulation Environment Is UP
+Interface with MavROS through simulation
+Parts are ordered
+Submit Order
+
+Work for 3rd Sprint
+Finish Reinforced Learning Approach
+Finish Landing Approach
+Finish UAV Build
+Test UAV Manual Control
+Test UAV Flight Controller
+
+Optical Focusing set field of depth to obscure QR codes or bring them into focus
+May be accomplished through digital process

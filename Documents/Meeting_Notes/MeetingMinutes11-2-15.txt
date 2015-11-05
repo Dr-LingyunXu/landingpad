@@ -1,0 +1,61 @@
+Meeting Stuff
+
+Sprint 2 Review:
+Review visual tracking code - get a write-up 
+
+
+Simulation Environment Setup-
+Integrate MavRos and Gazebo in Simulation
+Interface with Mavros
+Take-off
+
+Ordering Parts-
+Coordinating with faculty for information on available funding
+Corfirm type of UAV
+Selecting Parts to Order within available budgets
+Coordinating with UAV team to ensure compatability
+Coordinating with faculty and admin for parts ordering
+
+Develop Repo Regs/Procedure 
+
+Pilot Training
+
+
+Delayed:
+UAV Built
+UAV Manual Control Flight
+UAV Autonomous Flight w/ PixHawk
+
+
+Sprint 3:
+USING GIT - 
+Branch from Master, Documentation Branch 
+Branch for each feature
+Code Review - Get Sign Off
+
+USE TRELLO - 
+
+Where I want to be on start of Sprint 4:
+-Ready to begin testing of landing algorithm in simulation
+-Finishing VH Landing
+-Finishing AI Landing
+
+Tasks:
+Build UAV - Pictures and Build Document
+UAV Manual Flight - Video and Written Analysis 
+UAV Autonomous Flight w/PixHawk - Video and Written Analysis
+
+V.H.A.L Task Breakout - 
+V.H. Landing Code substantially moved
+Test of Landing Code - What does this look like?
+
+A.I.A.L Task Breakout- 
+AI Landing Researched
+Initial AI Landing Framework built - what does this look like
+
+Simulation Task Breakout-
+Pixhawk ROS SITL functioning
+Simulation Environment Ready for Landing Integration
+
+
+
