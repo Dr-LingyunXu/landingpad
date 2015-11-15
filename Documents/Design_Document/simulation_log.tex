@@ -6,4 +6,14 @@
 \item [10/3/15] Went through tutorials on using Gazebo and Ros Jade. \hfill{Chris Smith}
 \item [10/9/15] Installed Rotors-Simulator for ROS and Gazebo. \hfill{Chris Smith}
 \item [10/15/15] Worked on Gazebo Simulation with Rotors-Simulator. \hfill{Chris Smith}
+\item [11/14/15] Worked on integrating waypoint passing with Pix4 SITL simulation.\\
+First attempt: Attempted to create a waypoint publisher to pass waypoints via ROS. Abandoned this method when waypoint file loader was found in Mavlink documentation.\\
+Second attempt: Attempted to utilize waypoint file loader to pass a file of waypoints and instructions to simulated UAV. Abandoned this method when we were unable to connect to MavROS implementation. Calling waypoint loader method would result in communication error.
+Third attempt: Attempted to use a different simulation of PixHawk and UAV in order to implement file loading. Abandoned after many unsuccessful attempts to load waypoint files.\\
+
+\hfill{Chris Smith, Steven Huerta}
+
+\item [11/14/15] Continued working on simulation waypoint passing. Returning to original conceived method of creating a waypoint publisher node to pass waypoints from a file to the simulated PixHawk.\\
+
+\hfill{Chris Smith, Steven Huerta}
 \end{description}
