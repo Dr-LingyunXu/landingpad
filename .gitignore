@@ -23,3 +23,9 @@
 *.out
 *.synctex.gz
 *.o
+cv_tracker/CMakeCache.txt
+cv_tracker/CMakeFiles/
+cv_tracker/cmake_install.cmake
+cv_tracker/Makefile
+cv_tracker/threshold
+cv_tracker/tracker
