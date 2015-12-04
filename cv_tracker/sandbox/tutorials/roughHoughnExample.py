@@ -1,3 +1,17 @@
+#AUTHOR: Jon Dixon
+
+#The purpose of this code is just a quick and dirty hough transform circle detector.
+#It just takes camera inputs and find circles, and plots them on the image.
+#It works alright, but it needs some tweaking:
+#
+# 1) Try to limit the number of circles that can be detected.
+# 2) Try to fiddle with the parameters for HoughCircles function.
+
+#This method will work well if we go with a pad target that has a number of concentric circles!
+
+#UPDATE: So it works pretty well, actually, the big problem seems to be that the results are noisy.
+#        So, see how to reduce the noise!
+
 import numpy as np
 import cv2
 
@@ -11,7 +25,7 @@ while(True):
 	frame = cv2.medianBlur(frame,5)
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-	circles = cv2.HoughCircles(gray,cv2.HOUGH_GRADIENT,1,20,param1=50,param2=30,minRadius=0,maxRadius=0)
+	circles = cv2.HoughCircles(gray,cv2.HOUGH_GRADIENT,1,200,param1=50,param2=30,minRadius=15,maxRadius=0)
 	circles = np.uint16(np.around(circles))
 
 	for i in circles[0,:]:
