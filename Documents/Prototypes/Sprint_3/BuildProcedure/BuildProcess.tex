@@ -71,16 +71,21 @@ Once all of the arms have been assembled they must be affixed to the top and bot
 \section{Motors}
 Once the whole frame has been constructed it is time to attach the DC motors. These DC motors will attach to the very tip of the each arm with their power cables routing through the hollow carbon fiber arms.
 \subsection{Mounting}
-One note for this particular build is that the leads that came attached to the motor were much too short to connect to the controllers in the center console. This was fixed by simply soldering some 16 gauge extension wires onto the motor leads and then connecting these to the ESC's. 
+One note for this particular build is that the leads that came attached to the motor were much too short to connect to the controllers in the center console. This was fixed by simply soldering some 16 gauge extension wires onto the motor leads and then connecting these to the ESC's. Once the DC motor leads have been extended route them through the carbon fiber tube arm and affix the motor to the arm using 4 - M3x6 Hex Head screws.
 \subsection{Electronic Speed Controllers}
-ESC's are attached to the DC motor leads \textbf{after} they come out of the arm holes and are in the center console.
+ESC's are attached to the DC motor leads \textbf{after} they come out of the arm holes and are in the center console. The ESC's are fixed to the frame of the hex-copter and the +/- leads from each ESC are attached to the power distribution board, and the signal wires from the ESC' are attached to the Pixhawk.
 
 \section{Controllers}
-\subsection{ODROID-XU4}
-\subsection{Pixhawk}
+Now it is time to attached the brains of the hex-copter to the frame and motors. To do this we will simply stack the Pixhawk, ODROID, and power distrubution boards in the center of the frame.
 \subsection{Power Distribution Board}
+The first level in the stack will hold the power distribution board which is simply just a way of connecting six different +/- motor leads to the single +/- terminal on the battery. This board will be the base of the controller tower in the center of the hex-copter.
+\subsection{Pixhawk}
+Once the power distribution board has been placed and the ESC's signal lines are connected to the Pixhawk, the Pixhawk can be mounted on top of the power distribution board.
+\subsection{ODROID-XU4}
+Finally mount the ODROID on top of the Pixhawk. The ODROID doesn't handle any controls at this point so its only connection right now is power and the camera data lines.
 
 \section{Camera}
+The final thing to mount on the hex-copter is the camera that will be used for viewing the landing pad. This is mounted in a position so that it is facing straight down so that it can see the landing pad from directly above it.
 
 
 \end{document}
