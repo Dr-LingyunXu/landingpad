@@ -7,10 +7,13 @@ MIN_MATCH_COUNT = 10
 img1 = cv2.imread('whatever.jpg')
 img2 = cv2.imread('whatever2.jpg')
 
-sift = cv2.SIFT()
+orb = cv2.ORB()
 
-kp1, des1 = sift.detectAndCompute(img1,None)
-kp2, des2 = sift.detectAndCompute(img2,None)
+kp1 = orb.detect(img1,None)
+kp2 = orb.detect(img2,None)
+
+kp1, des1 = orb.compute(img1,kp1)
+kp2, des2 = orb.compute(img2,kp2)
 
 FLANNJ_INDEX_KDTREE = 0
 
