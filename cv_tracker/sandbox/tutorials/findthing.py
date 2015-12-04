@@ -1,3 +1,10 @@
+#AUTHOR: Jon Dixon
+
+
+#IMPORTANT NOTE:
+#THIS CODE DOES NOT FUNCTION, BECAUSE SIFT IS A PAID OPENCV LIBRARY
+#otherwise, the purpose of this code was to use sift descriptors
+#in order to find an object in another image.
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
