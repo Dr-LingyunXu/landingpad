@@ -356,11 +356,11 @@ Task No. & Task & Date Completed & Sprint\\\hline
 % How do we plan to integrate the different systems together
 \begin{frame}{Integration - U-1}
 \textbf{As a user, I want to communicate the waypoints to the UAV.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous method/interface for communicating coordinates to UAV. & Test to verify  \\\hline
-	2 & Review code that communicates with quadrotor & Test to verify \\\hline
-	3 & Review code that allows a user to input waypoints & Test to verify\\\hline
+	1 & Review previous method/interface for communicating coordinates to UAV. & Connect GPS to pixhawk and verify it recieves a connection and in Mavros verify we can retrieve gps coordinates from gps in ROS.  \\\hline
+	2 & Review code that communicates with quadrotor & Verify that all commands in Mavros can be sent to and accepted by the Pixhawk and it acts appropiately \\\hline
+	3 & Review code that allows a user to input waypoints & Verify that user entered waypoints can be uploaded into Pixhawk Successfully with mavros.\\\hline
 	
 \end{tabular}
 \end{frame}
