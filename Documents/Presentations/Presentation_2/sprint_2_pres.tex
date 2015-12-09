@@ -316,18 +316,18 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{UAV Testing - O-2}
 \textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation for navigating waypoints. & Test to verify\\\hline
-	2 & Review code that enables the quadrotor to autonomously navigate through a series of way-points & Test to verify\\\hline
+	1 & Review previous implementation for navigating waypoints. & Send mission containing takeoff followed by waypoints and once the last waypoint is reached a hover command all in simulation.\\\hline
+	2 & Review code that enables the quadrotor to autonomously navigate through a series of way-points & Upload code to physical UAV and send mission again with manual override enabled\\\hline
 \end{tabular}
 \end{frame}
 \begin{frame}{UAV Testing - O-3}
 \textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation to autonomously return to location of landing pad & Test to verify\\\hline
-	2 & Review code that allows the autonomous return of the UAV to the landing pad. & Test to verify\\\hline
+	1 & Review previous implementation to autonomously return to location of landing pad & The last waypoint from the previous test should be the landing pad but to verify a image match will be used in simulation that will verify that the UAV is in fact above the landing pad.\\\hline
+	2 & Review code that allows the autonomous return of the UAV to the landing pad. & The physical UAV will match what it sees with its camera to a image it has stored of the landing pad at multiple heights.\\\hline
 \end{tabular}
 \end{frame}
 
