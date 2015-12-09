@@ -205,6 +205,7 @@ Task No. & Task & Date Completed & Sprint\\\hline
 		\item Many SITL simulations
 		\item Working image homography code
 		\item Assembled Frame, Motors, ESC's
+		\item Becoming familiar with python openCV libraries
 	\end{itemize}
 	\large{\textbf{Sprint 3 - Setbacks}}
 	\begin{itemize}
@@ -300,12 +301,18 @@ Autonomous Flight \\
 % How are we going to test the VH Landing Algorithm
 % Maybe discuss tests at the different stages (blob color recog, dist/dir output, real-time output (How many frames?)) 
 \begin{frame}{Visual Homography Landing Testing}
-
+	\begin{itemize}
+		\item Will start testing by giving our algorithm images of the pad
+		\item Will test by waving the camera around over target
+		\item Will later look at the commands that are generated
+	\end{itemize}
 \end{frame}
 
 % How do we plan to integrate the different systems together
 \begin{frame}{Integration}
-
+	\begin{itemize}
+		\item The vision system, running on the ODROID, will send commands to PixHawk
+	\end{itemize}
 \end{frame}
 
 
@@ -371,7 +378,7 @@ Parts are now in!!\\
 \item Simulation: SITL has proven to be problematic
 \item UAV Build: Borrowing items from UAV Team (Radio and Control)
 \item UAV Build: One UAV for physical testing and demonstration
-\item Landing Algorithm: ???
+\item Landing Algorithm: Many approaches, we may pick the wrong one
 \end{itemize}
 
 
@@ -526,6 +533,26 @@ Demos!!
 \begin{figure}
 \includegraphics[width=1\textwidth]{images/mission}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Vision-Based Landing}
+	\begin{itemize}
+		\item Began playing with last year's code
+		\item Able to detect three blobs and distance to target
+	\end{itemize}
+	\includegraphics[width=1\textwidth]{images/coolpic}
+\end{frame}
+
+\begin{frame}{Vision-Based Landing...continued}
+	\begin{itemize}
+		\item After our computer vision class, we considered adding a fourth circle
+		\item This gives us a square target instead of triangle
+	\end{itemize}
+\centering	\includegraphics[width=.5\textwidth]{images/landing_guide_small_x}
+\end{frame}
+
+\begin{frame}
+	\includegraphics[width=1\textwidth]{images/circles}
 \end{frame}
 
 %% END SECTION 5
