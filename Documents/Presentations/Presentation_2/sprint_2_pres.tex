@@ -307,10 +307,10 @@ Task No. & Task & Date Completed & Sprint\\\hline
 % How are we going to test the UAV 
 \begin{frame}{UAV Testing - O-1}
 \textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Testing\\\hline
-	1 & Review previous implementation for autonomous take-off. & Test to verify\\\hline
-	2 & Review code that enables the quadrotor to autonomously take-off from landing pad & Test to verify\\\hline
+	1 & Review previous implementation for autonomous take-off. & Send mission containing takeoff followed by hover command in simulation.\\\hline
+	2 & Review code that enables the quadrotor to autonomously take-off from landing pad & Upload code to physical UAV and send mission containing takeoff followed by hover command with manual override enabled.\\\hline
 \end{tabular}
 \end{frame}
 
