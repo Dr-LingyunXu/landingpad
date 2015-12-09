@@ -94,7 +94,6 @@ Task No. & Task & Date Completed & Sprint\\\hline
 Task No. & Task & Date Completed & Sprint\\\hline
 1 & Review previous implementation for autonomous take-off. & 10/05/15 & 1 \\\hline
 2 & Review code that enables the quadrotor to autonomously take-off from landing pad & 10/16/15 & 2 \\\hline
-
 \end{tabular}
 \end{frame}
 
@@ -105,7 +104,6 @@ Task No. & Task & Date Completed & Sprint\\\hline
 Task No. & Task & Date Completed & Sprint\\\hline
 1 & Review previous implementation for navigating waypoints. & 10/05/15 & 1 \\\hline
 2 & Review code that enables the quadrotor to autonomously navigate through a series of way-points & 10/16/15 & 2 \\\hline
-
 \end{tabular}
 \end{frame}
 
@@ -269,6 +267,11 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 % Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
 \begin{frame}{UAV Design \& Tech Specs}
+	Physical design of the hex-copter is the \textbf{Turnigy Talon Hexcopter}
+	
+	\begin{figure}
+		\includegraphics[width=4in]{images/TalonV1.jpg}
+	\end{figure}
 
 \end{frame}
 
@@ -301,35 +304,65 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 
 %% BEGIN SECTION 3
-\begin{frame}{Testing}
-PLACE HOLDER FOR THIS STUFF:
-Unit or Component Testing,  System Testing,  System Integration,  Remaining backlog,  Revised goals
-and Revised Deliverable
+% How are we going to test the UAV 
+\begin{frame}{UAV Testing - O-1}
+\textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	Task No. & Task & Testing\\\hline
+	1 & Review previous implementation for autonomous take-off. & Test to verify\\\hline
+	2 & Review code that enables the quadrotor to autonomously take-off from landing pad & Test to verify\\\hline
+\end{tabular}
 \end{frame}
 
-% How are we going to test the UAV 
-\begin{frame}{UAV Testing}
-
-Manual Flight \\
-Autonomous Flight \\
-
+\begin{frame}{UAV Testing - O-2}
+\textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	Task No. & Task & Test\\\hline
+	1 & Review previous implementation for navigating waypoints. & Test to verify\\\hline
+	2 & Review code that enables the quadrotor to autonomously navigate through a series of way-points & Test to verify\\\hline
+\end{tabular}
+\end{frame}
+\begin{frame}{UAV Testing - O-3}
+\textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	Task No. & Task & Test\\\hline
+	1 & Review previous implementation to autonomously return to location of landing pad & Test to verify\\\hline
+	2 & Review code that allows the autonomous return of the UAV to the landing pad. & Test to verify\\\hline
+\end{tabular}
 \end{frame}
 
 % How are we going to test the VH Landing Algorithm
 % Maybe discuss tests at the different stages (blob color recog, dist/dir output, real-time output (How many frames?)) 
-\begin{frame}{Visual Homography Landing Testing}
-	\begin{itemize}
-		\item Will start testing by giving our algorithm images of the pad
-		\item Will test by waving the camera around over target
-		\item Will later look at the commands that are generated
-	\end{itemize}
+\begin{frame}{Visual Homography Landing Testing - O-4}
+	\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}
+	\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+		Task No. & Task & Test \\\hline
+		1 & Review previous implementation for autonomous landing & Test to verify\\\hline
+		2 & Install previous implementation & Test to verify\\\hline
+		3 & Test previous implementation & Test to verify\\\hline
+		
+	\end{tabular}
+\end{frame}
+\begin{frame}{Visual Homography Landing Testing - O-5}
+\textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	Task No. & Task & Test\\\hline
+	1 & Review previous implementation for autonomous landing & Test to verify\\\hline
+	2 & Install previous implementation & Test to verify\\\hline
+	3 & Test previous implementation & Test to verify\\\hline
+\end{tabular}
 \end{frame}
 
 % How do we plan to integrate the different systems together
-\begin{frame}{Integration}
-	\begin{itemize}
-		\item The vision system, running on the ODROID, will send commands to PixHawk
-	\end{itemize}
+\begin{frame}{Integration - U-1}
+\textbf{As a user, I want to communicate the waypoints to the UAV.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	Task No. & Task & Test\\\hline
+	1 & Review previous method/interface for communicating coordinates to UAV. & Test to verify  \\\hline
+	2 & Review code that communicates with quadrotor & Test to verify \\\hline
+	3 & Review code that allows a user to input waypoints & Test to verify\\\hline
+	
+\end{tabular}
 \end{frame}
 
 
@@ -355,48 +388,6 @@ Project Goals remain fixed
 
 
 %% END SECTION 3
-
-
-%% BEGIN SECTION 4
-\begin{frame}{Successes and Issues}
-PLACE HOLDER FOR THIS STUFF:
-Successes (goals met), Issues or problems (goals not met), Risk Analysis, Risk Mitigation, Timeline,
-Budget/costs, Intellectual Property Aspects, Licensing
-\end{frame}
-
-\begin{frame}{Successes}
-\begin{itemize}
-\item \textbf{Simulation:}\\
-\begin{itemize}
-\item Manual Control
-\item Waypoint Publisher
-\end{itemize}
-\item \textbf{UAV:}\\
-\begin{itemize}
-\item Mostly Assembled
-\item All parts are in
-\end{itemize}
-\item \textbf{VH Landing Algorithm:}\\
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Issues}
-
-\begin{itemize}
-\item \textbf{Simulation:}\\
-\begin{itemize}
-\item Prevents testing landing algorithms safely(O-5,O-6)
-\end{itemize}
-\item \textbf{Waiting for Parts:}\\
-\begin{itemize}
-\item Prevents HIL Alternative
-\item Prevents UAV Manual Flight(C)
-\item Prevents UAV Autonomous Flight(U-1,O-1,O-2,O-3)
-\end{itemize}
-\item \textbf{VH Landing Algorithm:}\\
-\end{itemize}
-
-\end{frame}
 
 \begin{frame}{Risk Analysis}
 \begin{itemize}
@@ -514,8 +505,13 @@ Licensing for Dependencies:
 
 %% BEGIN SECTION 5
 \begin{frame}{Prototypes and Demos}
-PLACE HOLDER FOR THIS STUFF:
-Demos!!
+\large{\textbf{Demos}}
+\begin{itemize}
+	\item PX4 ROS SITL
+	\item Ground Control Station
+	\item Visual Homography
+\end{itemize}
+
 \end{frame}
 
 
@@ -585,6 +581,7 @@ Demos!!
 
 %% END SECTION 5
 \begin{frame}{ END}
+\centering	Questions
 \end{frame}
 
 
