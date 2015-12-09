@@ -205,11 +205,13 @@ Task No. & Task & Date Completed & Sprint\\\hline
 		\item Many SITL simulations
 		\item Working image homography code
 		\item Assembled Frame, Motors, ESC's
+		\item Waypoint Publisher publishes mavros commands
 	\end{itemize}
 	\large{\textbf{Sprint 3 - Setbacks}}
 	\begin{itemize}
 		\item Pixhawk delayed 2 weeks, build not completed
 		\item SITL simulations rejected waypoint files
+		\item SITL simulations rejected mavros commands
 	\end{itemize}
  \end{frame}
 
@@ -276,7 +278,7 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 % Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
 \begin{frame}{Simulation Design \& Tech Specs}
-
+\includegraphics[width=1\textwidth]{images/ardusitl.png}
 \end{frame}
 
 %% END SECTION 2
@@ -341,11 +343,19 @@ Budget/costs, Intellectual Property Aspects, Licensing
 \end{frame}
 
 \begin{frame}{Successes}
-
-Parts are now in!!\\
-
-
-
+\begin{itemize}
+\item \textbf{Simulation:}\\
+\begin{itemize}
+\item Manual Control
+\item Waypoint Publisher
+\end{itemize}
+\item \textbf{UAV:}\\
+\begin{itemize}
+\item Mostly Assembled
+\item All parts are in
+\end{itemize}
+\item \textbf{VH Landing Algorithm:}\\
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Issues}
@@ -485,6 +495,9 @@ Licensing for Dependencies:
 PLACE HOLDER FOR THIS STUFF:
 Demos!!
 \end{frame}
+
+
+
 
 \begin{frame}{Simulation - PX4 ROS SITL}
 \begin{figure}
