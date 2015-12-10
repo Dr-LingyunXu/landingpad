@@ -1,0 +1,265 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plasmati Graduate CV
+% LaTeX Template
+% Version 1.0 (24/3/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati (alessandro.plasmati@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template needs to be compiled with XeLaTeX.
+% The main document font is called Fontin and can be downloaded for free
+% from here: http://www.exljbris.com/fontin.html
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper]{article} % Default font size and paper size
+
+\usepackage{fontspec} % For loading fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin} % Main document font
+
+\usepackage{xunicode,xltxtra,url,parskip} % Formatting packages
+
+\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colors
+
+\usepackage[big]{layaureo} % Margin formatting of the A4 page, an alternative to layaureo can be \usepackage{fullpage}
+% To reduce the height of the top margin uncomment: \addtolength{\voffset}{-1.3cm}
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link color
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colors throughout the document
+
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{3pt}{3pt} % Spacing around sections
+
+
+\newcommand{\setmargins}{
+	\setlength{\topmargin}{-1in}
+	%\setlength{\rightmargin}{-0.25in}
+	%\setlength{\leftmargin}{-0.25in}
+	\setlength{\oddsidemargin}{-0.15in}
+	\setlength{\textwidth}{6.5in}
+	\setlength{\evensidemargin}{-0.5in}
+	\setlength{\textheight}{10.75in}
+}
+\setmargins
+
+\begin{document}
+
+\pagestyle{empty} % Removes page numbering
+
+\font\fb=''[cmr10]'' % Change the font of the \LaTeX command under the skills section
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\par{\centering{\Huge Christopher \textsc{Smith}}\bigskip\par} % Your name
+
+\section{Personal Data}
+
+\begin{tabular}{rl}
+%\textsc{Place and Date of Birth:} & Canada  | 20 November 1987 \\
+\textsc{Address:} & 6850 Suzie Ln, Black Hawk, South Dakota \\
+\textsc{Phone:} & (605) 786-6599 \\
+\textsc{Email:} & chris.sdsmt@gmail.com \\%\href{mailto:chris.sdsmt@gmail.com}{chris.sdsmt@gmail.com}\\
+\textsc{Objective:} & To gain experience in a work environment in a computer science field.\\
+& Also to be challenged continuosly to improve my critical thinking, \\
+& analyzing, programming, and math skills. \\
+%\textsc{email:} & \href{mailto:chris.sdsmt@gmail.com}{chris.sdsmt@gmail.com}
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\begin{tabular}{rl}	
+\textsc{May} 2017 & Bachelors of Science in \textsc{Computer Science} \\
+%& 110/110 \small\emph{First Class Honours} | Major: Quantitative Finance\\
+%& Thesis: ``Money is the Root of All Evil - Or is it?'' | \small Advisor: Prof. James \textsc{Smith}\\
+%&\normalsize \textsc{Gpa}: 8.0/9.0\hyperlink{grds}{\hfill | \footnotesize Detailed List of Exams}\\
+
+
+%------------------------------------------------
+
+\textsc{May} 2017 & Bachelors of Science in \textsc{Applied and Computational Mathematics} \\
+& South Dakota School of Mines, Rapid City, SD\\
+\\
+\textsc{Elecvtives:} & Cryptography (currently taking), Cybersecurity,  Natural, and Parallel Computing \\
+\end{tabular}
+
+
+
+%----------------------------------------------------------------------------------------
+%	Programming Experience 
+%----------------------------------------------------------------------------------------
+
+\section{Programming Experience}
+
+\begin{tabular}{r|p{11cm}}
+\textsc{Jan-May 2015} & Natural Computing (Final Project: Artificial Intelligence) \emph{}\\
+& \footnotesize{- Created an AI to play the board game Puerto Rico using artificial neural networks }\\
+& \footnotesize{- The AI was improved through a genetic algorithm} \\
+\multicolumn{2}{c}{} \\
+
+\textsc{Nov-Dec 2014} & Parrallel Computing (Final Project: Image Processing) \emph{}\\
+& \footnotesize{- Created a shared memory image processing library in Qt to benchmark performance} \\
+& \footnotesize{- Fast Fourier Transform, pixel, and mask based image operations were tested} \\
+\multicolumn{2}{c}{} \\
+
+%------------------------------------------------
+\textsc{Sept 2011-Present} & SDSMT Robotics Team \emph{}\\
+& \footnotesize{- Working as a team to design and build robots that can autonomously navigate courses for competitions based on input from sensors, GPS and cameras}\\
+& \footnotesize{- Focusing on programming camera interface with Opencv and ROS} \\
+\multicolumn{2}{c}{} \\
+\end{tabular}
+
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS 
+%----------------------------------------------------------------------------------------
+
+\section{Computer Skills}
+
+\begin{tabular}{rl}
+Programming Languages: & \textsc{C++}, \textsc{Python}, \textsc{Java}, \textsc{C\#}, \textsc{SQL}, \textsc{Common Lisp} \\
+General Knowledge: & \textsc{Linux}, \textsc{BASH}, \textsc{Makefiles}, \textsc{LaTeX},  \textsc{Microsoft Office and VS} \\
+\setmainfont[SmallCapsFont=Fontin SmallCaps]{Fontin-Regular}\\
+\end{tabular}
+%----------------------------------------------------------------------------------------
+%	Work Experience 
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\begin{tabular}{r|p{11cm}}
+\textsc{July 2012-Present} & Backroom Associate at \textsc{Target}, Rapid City SD \emph{}\\ 
+& \footnotesize{Responsible for:}\\
+& \footnotesize{ - Pulling merchandise down for stocking on the sales floor} \\
+& \footnotesize{ - Placing extra merchandise in the appropriate areas in the stockroom} \\
+\multicolumn{2}{c}{} \\
+\textsc{May 2010-Aug 2011} & Summer Hire(Laborer) at \textsc{Ellsworth AFB}, SD \emph{}\\ 
+d& \footnotesize{- Organized chemical warfare gear for Maintenance Squadron} \\
+& \footnotesize{- Inventoried chemical warfare gear for Logistics Readiness Squadron} \\
+\multicolumn{2}{c}{} \\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	SCHOLARSHIPS AND ADDITIONAL INFO
+%----------------------------------------------------------------------------------------
+
+\section{Volunteer Experience}
+
+\begin{tabular}{rl}
+\textsc{SDSMT Robotics} & 2012-2015 \\ 
+& \footnotesize{- Helped boy scouts recieve their Robotics Merit Badge by teaching them about robots (mechanical, }\\
+& \footnotesize{sensors, design, and programming)} \\
+& \footnotesize{- Assisted in teaching students programming and design so they could complete their challeges }\\
+& \footnotesize{in First Lego League }\\
+\textsc{JROTC} & 2006-2011 \\
+& \footnotesize{- Cleaned up Liberty Blvd twice a year}\\
+& \footnotesize{- Bought gifts for children with low income families in the school district around Christmass}\\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+
+%\section{Languages}
+
+%\begin{tabular}{rl}
+%\textsc{English:} & Fluent\\
+
+%\textsc{Italian:} & Mothertongue\\
+
+%\textsc{French:} & Basic Knowledge\\
+%\end{tabular}
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS AND ACTIVITIES
+%----------------------------------------------------------------------------------------
+
+%\section{Interests and Activities}
+
+%Technology, Programming, Archery\\
+%Paradoxes in Decision Making, Psychoanalysis, Behavioural Finance\\
+%Football, Travelling
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	GRADE TABLES
+%----------------------------------------------------------------------------------------
+
+%\par{\centering\Large \hypertarget{grds}{Master of Science in \textsc{Finance}}\par}\large{\centering Grades\par}\normalsize
+
+%\begin{center}
+%\begin{tabular}{lcc}
+%\multicolumn{1}{c}{\textsc{Exam}} & \textsc{Grade}&\textsc{Credit Hrs}\\ \hline
+%Corporate Finance (Valuation) & 25 & 6\\
+%Financial Statement Analysis & 28 & 6\\
+%Statistics & 27 & 6\\
+%Theory of Finance & 26 & 6\\
+%Quantitative Methods for Finance & 30 & 6\\
+%Econometrics & 24 & 6\\
+%erivatives & 31 & 6\\
+%Management of Financial and Insurance Companies & 30 & 6\\
+%Business Law & 31 & 6\\
+%Investment Banking	& 28 & 6\\ \\		
+%Behavioral Models for Economics and Finance	 & 29 & 6\\
+%Numerical Methods for Finance & 29 & 6\\
+%Advanced Derivatives & 30 & 6\\
+%Fixed Income (Advanced Methods) & 30 & 6\\ \\
+%English Language & 30 &	4\\
+%French Language & 31 &	4\\	
+%Internship & & 8\\		
+%Final Thesis & & 20\\	
+%& Total & 120\\\cline{2-3}
+%&\textsc{Gpa}&\textbf{8.0}
+%\end{tabular}
+%\end{center}
+%\bigskip
+%\hrule
+%\bigskip
+
+%------------------------------------------------
+
+%\bigskip
+
+%\par{\centering\Large \hypertarget{grds_usc}{Exchange Program at \textsc{usc}, Los Angeles}\par}\large{\centering Grades\par}\normalsize
+
+%\begin{center}
+%\begin{tabular}{lcc}
+%\multicolumn{1}{c}{\textsc{Exam}} & \textsc{Grade} & \textsc{Grade Points}\\ 
+%\hline
+%Corporate Financial Strategy & A & 4\\
+%Derivatives & A & 4\\
+%Money, Credit, and Banking & A & 4\\
+%Business Strategy & A- & 3.5\\
+%& &\\\cline{2-3}
+%& \textsc{Gpa} & \textbf{3.875}
+%\end{tabular}
+%\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
