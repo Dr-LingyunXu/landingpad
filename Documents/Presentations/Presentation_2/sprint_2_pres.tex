@@ -256,6 +256,7 @@ Task No. & Task & Date Completed & Sprint\\\hline
 \begin{frame}{Software Requirements}
 \begin{itemize}
 \item Mavlink
+\item Python
 \item OpenCV
 \item Robot Operating System(ROS) Indigo/Jade Distro
 \item Ubuntu 14.04
@@ -277,7 +278,21 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 % Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
 \begin{frame}{Visual Homography Design \& Tech Specs}
+	\begin{itemize}
+		\item Blob detection is used to detect colored circles
+		\item For each color we are looking for, look for a group of pixels over a certain size
+		\item that is considered a "blob"
+	\end{itemize}
+\end{frame}
 
+\begin{frame}{Homography}
+	\centering
+	\includegraphics[width=.66\textwidth]{images/skewball}
+\end{frame}
+
+\begin{frame}{Homography}
+	\centering
+	\includegraphics[width=.66\textwidth]{images/img_reconstruction02}
 \end{frame}
 
 \begin{frame}{Reinforcement Learning Design \& Tech Specs}
@@ -335,21 +350,21 @@ Task No. & Task & Date Completed & Sprint\\\hline
 % Maybe discuss tests at the different stages (blob color recog, dist/dir output, real-time output (How many frames?)) 
 \begin{frame}{Visual Homography Landing Testing - O-4}
 	\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}
-	\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+	\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 		Task No. & Task & Test \\\hline
-		1 & Review previous implementation for autonomous landing & Test to verify\\\hline
-		2 & Install previous implementation & Test to verify\\\hline
-		3 & Test previous implementation & Test to verify\\\hline
+		1 & Review previous implementation for autonomous landing & The UAV should be able to detect the landing pad\\\hline
+		2 & Install previous implementation & The UAV should be able to begin to lower onto the pad\\\hline
+		3 & Test previous implementation & The UAV should land gently on the pad\\\hline
 		
 	\end{tabular}
 \end{frame}
 \begin{frame}{Visual Homography Landing Testing - O-5}
 \textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | c | c |}\hline
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation for autonomous landing & Test to verify\\\hline
-	2 & Install previous implementation & Test to verify\\\hline
-	3 & Test previous implementation & Test to verify\\\hline
+	1 & Review previous implementation for autonomous landing & The UAV should be able to calculate its angle wrt the pad\\\hline
+	2 & Install previous implementation & The UAV should be able to rotate to match the pad\\\hline
+	3 & Test previous implementation & UAV should maintain orientation throughout descent \\\hline
 \end{tabular}
 \end{frame}
 
@@ -381,8 +396,9 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 
 \begin{frame}{Revised Goals}
-
-Project Goals remain fixed
+	\begin{itemize}
+		\item Project Goals remain fixed
+	\end{itemize}
 
 \end{frame}
 
