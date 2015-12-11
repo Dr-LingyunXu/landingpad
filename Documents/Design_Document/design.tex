@@ -1,24 +1,46 @@
 % !TEX root = SystemTemplate.tex
 
 \chapter{Design  and Implementation}
-This section is used to describe the design details for each of the major components in the system. The autonomous systems of teh UAV can be broken into individual components and the following sections will be divided by such. The first section will overview the software environment, the second section will cover our simulation environment, the third will cover the autonomous takeoff and waypoint navigation, the fourth section will discuss our two autonomous landing approaches, and finally the fifth section will cover the UAV.      
-\section{Software Environment}
-\subsection{Technologies  Used}
-\subsection{Component  Overview}
-\subsection{Phase Overview}
-\subsection{Design Details}
+This section is used to describe the design details for each of the major components in the system. The autonomous systems of teh UAV can be broken into individual components and the following sections will be divided by such. The first section will cover our simulation environment, the second will cover the autonomous takeoff and waypoint navigation, the third section will discuss our two autonomous landing approaches, and finally the fourth section will cover the UAV.      
 
 \section{Simulation Environment}
 \subsection{Technologies  Used}
+The simulation environment will be implemented using Gazebo as the actual environment itself and will use ROS so we can use the message passing services to communicate with different modules of code that will be written. This environment will handle all testing so nothing is tested on the physical UAV until it is verified working in a simulated environment that utilizes a pixhawk.
 \subsection{Component  Overview}
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item Gazebo
+  \item Mavlink
+  \item python
+  \item c++
+  \item R.O.S.
+  \item Mavros (Ros wrapper around Mavlink)
+\end{itemize}
 \subsection{Phase Overview}
+The simulation environment is still a work in progress on setting up communication with a simulated pixhawk with software in the loop (SITL), however as soon as the pixhawk is received hardware in the loop (HITL) will be attempted because of issues simulating the device. Issues as of now are loading a waypoint file and sending commands. A file checksum appears to be invalid for the waypoint file and a invalid flight controller unit is returned after sending commands to the simulated pixhawk with the mavros cmd node.
 \subsection{Design Details}
+Currently the Design for the simulation is relying on outside sources for installing the environment and setting up packages. These details are discussed in the Prototype section within sprint report \#3.
 
-\section{Autonomous Takeoff and Waypoint Navigation}
+
+\section{Autonomous Takeoff and Waypoint Navigation} 
 \subsection{Technologies  Used}
+The autonomouse takeoff and waypoint navigation system is seperate from the simulation environment and landing approaches because these will be contained in a mission that will be uploaded into the pixhawk. There will be a waypoint publisher (wpt\_pub) node that will recieve input from a user and create a mission file out of that input. Another module within the node will start publishing waypoints to the node so that it nodes what path to take what to do using mavros messages.
 \subsection{Component  Overview}
+wpt\_pub dependencies:
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item python
+  \item c++
+  \item R.O.S.
+  \item Mavros
+  \item Mavros msgs
+\end{itemize}
 \subsection{Phase Overview}
+The wpt\_pub node can currently publish mavros messages that contain take off, land, and arm commands successfully, however the simulated pixhawk reports back that it is an invalid flight controller unit most times. It does Recieve waypoints successfully through mavros messages.
 \subsection{Design Details}
+\lstinputlisting[language=C++]{code/wpt_pub.hpp}
+\lstinputlisting[language=C++]{code/wpt_pub.cpp}
+\lstinputlisting[language=C++]{code/wpt_pub_node.cpp}
 
 \section{Landing Approaches}
 \subsection{Visual Homography}
