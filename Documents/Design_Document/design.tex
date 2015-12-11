@@ -24,7 +24,7 @@ Currently the Design for the simulation is relying on outside sources for instal
 
 \section{Autonomous Takeoff and Waypoint Navigation} 
 \subsection{Technologies  Used}
-The autonomouse takeoff and waypoint navigation system is seperate from the simulation environment and landing approaches because these will be contained in a mission that will be uploaded into the pixhawk. There will be a waypoint publisher (wpt\_pub) node that will recieve input from a user and create a mission file out of that input. Another module within the node will start publishing waypoints to the node so that it nodes what path to take what to do using mavros messages.
+The autonomous takeoff and waypoint navigation system is separate from the simulation environment and landing approaches because these will be contained in a mission that will be uploaded into the pixhawk. There will be a waypoint publisher (wpt\_pub) node that will receive input from a user and create a mission file out of that input. Another module within the node will start publishing waypoints to the node so that it nodes what path to take what to do using mavros messages.
 \subsection{Component  Overview}
 wpt\_pub dependencies:
 \begin{itemize}
@@ -36,7 +36,7 @@ wpt\_pub dependencies:
   \item Mavros msgs
 \end{itemize}
 \subsection{Phase Overview}
-The wpt\_pub node can currently publish mavros messages that contain take off, land, and arm commands successfully, however the simulated pixhawk reports back that it is an invalid flight controller unit most times. It does Recieve waypoints successfully through mavros messages.
+The wpt\_pub node can currently publish mavros messages that contain take off, land, and arm commands successfully, however the simulated pixhawk reports back that it is an invalid flight controller unit most times. It does receive waypoints successfully through mavros messages.
 \subsection{Design Details}
 \lstinputlisting[language=C++]{code/wpt_pub.hpp}
 \lstinputlisting[language=C++]{code/wpt_pub.cpp}
