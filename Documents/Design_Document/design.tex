@@ -44,10 +44,31 @@ The wpt\_pub node can currently publish mavros messages that contain take off, l
 
 \section{Landing Approaches}
 \subsection{Visual Homography}
+One of the approaches we will be using for the task of landing the UAV will be using visual homography. The basic goal here is to take an image that will contain the landing pad, and, based on the how the target looks on the pad, determine range to pad, orientation with respect to the pad, and the angle above the horizon with respect to the pad. This information will then be used to determine how to actually fly the UAV so that it will be able to safely land on the pad.
 \subsubsection{Technologies  Used}
+In order to accomplish this, we will use a number of tools. First and foremost, we will be using OpenCV as our image recognition library. OpenCV is a powerful open-source toolkit that will be able to handle any image processing that we need to do. The algorithm will be developed in Python, as this provides an easy-to-understand syntax, and will be able to deliver the performance that we need.
 \subsubsection{Component  Overview}
+\begin{itemize}
+	\item Ubuntu 14.04 LTS
+	\item Python
+	\item OpenCV
+\end{itemize}
 \subsubsection{Phase Overview}
+The algorithm is still a work in progress, but steps have been made. We have been able to compile and run last year's code, and have a working blob detection system up and running. This system is able to detect a pad with three colored circles by looking for the colors of the circles. The circles are red, green, and blue. It is then able to calculate the distance to the target, since it knows what size the target should be. This should be very helpful moving forward, as we are able to find the pad. In the coming sprints, we will attempt to move toward a pad that has four circles, as we believe this will give us more information to use for our homography computations.
 \subsubsection{Design Details}
+In the following image, you can see results from last year's code running and detecting the colored circles on a large target with three circles.
+
+\begin{center} \includegraphics[width=.5\textwidth]{coolpic.png} \end{center}
+
+It may be hard to notice, but the text that is currently being displayed in the terminal window shows that there are three blobs detected, exactly one for each color. It is also displaying the range to target, which is correct as far as we can tell.
+
+The next image is what we are going to attempt to use for the next target. It has four colored circles, so we should be able to compute homography more accurately.
+
+\begin{center} \includegraphics[width=.35\textwidth]{landing_guide_small_x.jpg} \end{center}
+
+The final image is just another possible method that we have briefly explored where instead of blob detection we use hough transforms to detect only circles in the images. We have seen papers where others have had successes using targets consisting of concentric circles, so we think that we may be able to have some amount of success with this, in the event that the above methods don't end up panning out.
+
+\begin{center} \includegraphics[width=.5\textwidth]{circles.png} \end{center}
 
 \subsection{Reinforcement Learning}
 \subsubsection{Technologies  Used}
