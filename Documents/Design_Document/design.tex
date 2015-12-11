@@ -75,6 +75,46 @@ The final image is just another possible method that we have briefly explored wh
 \subsubsection{Component  Overview}
 \subsubsection{Phase Overview}
 \subsubsection{Design Details}
+\begin{algorithm} [tbh]                     % enter the algorithm environment
+\caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}          % give the algorithm a caption
+\label{Sarsa}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \STATE Initialize $\vec{\theta}$ arbitrily and $\vec{e} = \vec{0}$
+    \FOR{Each Episode}
+      \STATE $s \leftarrow$ initial state of episode
+      \FOR{all $a \in A(s)$}
+        \STATE $F_a \leftarrow$ set of features present in s, a
+        \STATE $Q_a \leftarrow \sum_{i \in F_a}\theta(i)$
+      \ENDFOR
+      \STATE $a \leftarrow$ arg $max_a Q_a$
+      \STATE With probability $\epsilon: a \leftarrow$ a random action $\in A(s)$
+      \FOR{ Each Step of Episode}
+        \STATE $\vec{e} \leftarrow \gamma \lambda \vec{e}$
+        \FOR{ All $\bar{a} \neq a$}
+          \FOR{All $i \in F_{\bar{a}}$}
+            \STATE $e(i) \leftarrow 0 $
+          \ENDFOR
+        \ENDFOR
+        \FOR{All $i \in F_a$}
+          \STATE $e(i) \leftarrow 1 $
+        \ENDFOR
+        \STATE Take action $a$, observe reward, r, and next state, s'
+        \STATE $\delta \leftarrow r - Q_a$
+        \FOR{All $a \in A(s')$}
+          \STATE $F_a \leftarrow$ set of features present in s', a
+          \STATE $Q_a \leftarrow \sum_{i \in F_a}\theta(i)$
+        \ENDFOR
+        \STATE $a' \leftarrow$ arg $max_a Q_a$
+        \STATE With probability $\epsilon:a' \leftarrow$ a random action $\in A(s)$
+        \STATE $\delta \leftarrow \delta + \gamma Q_{a'}$
+        \STATE $\vec{\theta} \leftarrow \vec{\theta} + \alpha \delta \vec{e}$
+        \STATE $a \leftarrow a'$
+      \ENDFOR
+      \STATE until $s'$ is terminal
+    \ENDFOR
+\end{algorithmic}
+\end{algorithm} 
+
 
 \section{UAV Build}
 This section details the physical building of the UAV that will be used in autonomous landing.
