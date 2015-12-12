@@ -72,8 +72,22 @@ The final image is just another possible method that we have briefly explored wh
 
 \subsection{Reinforcement Learning}
 \subsubsection{Technologies  Used}
+To accomplish the reinforcement learning approach we will be using gazebo and ROS so that we can visually see that the agent is learning the states and actions required to land the UAV.  
 \subsubsection{Component  Overview}
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item Python
+  \item C++
+  \item ROS pose messages
+  \item sarsa\_alg: \\
+  \\
+  The class that instantiates the agent and performs the appropriate calculations to pick an action to move on to the next state and recieves a reward. Each action will send the appropriate messages to gazebo so that the UAV moves accordingly and allows the user to visually see what the agen is doing.
+  \item sarsa\_node: \\
+  \\
+  The ROS nod that creates the sarsa\_alg class and handles initial topics to publish to and receive from.
+\end{itemize}
 \subsubsection{Phase Overview}
+The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$-greedy policy will be the algorithm of reinforcement learning that will be implemented. Currently ideas for using a 2-D state space are in the works with a vector field graient to be the actions to funnel the UAV into the center of a cone at a given height and radius. Because of the setbacks of the simulation no coding as been accomplished, but will be as soon as an environment is set up.
 \subsubsection{Design Details}
 \begin{algorithm} [tbh]                     % enter the algorithm environment
 \caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}          % give the algorithm a caption
