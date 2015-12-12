@@ -88,9 +88,11 @@ To accomplish the reinforcement learning approach we will be using gazebo and RO
 \end{itemize}
 \subsubsection{Phase Overview}
 The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$-greedy policy will be the algorithm of reinforcement learning that will be implemented. Currently ideas for using a 2-D state space are in the works with a vector field graient to be the actions to funnel the UAV into the center of a cone at a given height and radius. Because of the setbacks of the simulation no coding as been accomplished, but will be as soon as an environment is set up.
+\newpage
 \subsubsection{Design Details}
-\begin{algorithm} [tbh]                     % enter the algorithm environment
-\caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}          % give the algorithm a caption
+\begin{algorithm} [h]                     % enter the algorithm environment
+\caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}         
+ % give the algorithm a caption
 \label{Sarsa}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}                    % enter the algorithmic environment
     \STATE Initialize $\vec{\theta}$ arbitrily and $\vec{e} = \vec{0}$
@@ -128,7 +130,6 @@ The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$
     \ENDFOR
 \end{algorithmic}
 \end{algorithm} 
-
 
 \section{UAV Build}
 This section details the physical building of the UAV that will be used in autonomous landing.
