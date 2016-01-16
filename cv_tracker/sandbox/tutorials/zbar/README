@@ -1,0 +1,6 @@
+AFTER A LOT OF RIGAMAROLL OR WHATEVER, TO GET SET UP FOR ZBAR JUST RUN install_zbar.sh
+
+Then you can mess around with the examples in the 'examples' directory
+
+These are QR CODES, not AR TAGS, so I'm still going to play around with that stuff to try to get some AR TAG stuff up and working
+
