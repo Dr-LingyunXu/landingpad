@@ -40,10 +40,13 @@ Offboard control was successfully achieved. After the successful flights using j
 
 \noindent Once we achieved this connectivity we wrote an simple offboard flight control node that would send location setpoints of a pose message in ROS composed of a position (x, y, z) and yaw. The first message that was tested was the position [0, 0, 0], and 0 yaw. When the drone was switched to offboard mode once setpoint data was being streamed nothing happened as was expected. The motors did not increase in velocity.\par
 
-\begin{wrapfigure}{r}{0.25\textwidth} %this figure will be at the right
-    \centering
-    \includegraphics[width=0.25\textwidth]{messages.jpeg}
-\end{wrapfigure}
+
+\begin{figure}[h]
+\includegraphics[width=3in]{messages.jpg}
+\centering
+\caption{Pose Estimation by Flight Controller}
+\label{fig:messages}
+\end{figure}
 
 \noindent The second test was to send a setpoint of [0, 0, 1], and 0 yaw. During this test the motors did increase in velocity significantly as the controller switched the uav from stabilize mode to offboard mode. We switched it back and forth between the two modes making sure all motors were increasing in speed. Once we did that we physically picked it up and moved it up and to the 1 meter mark. Once the setpoint position was either reached or passed the motors did slow down in speed to try and hold that position or lower itself to that position.\par
 
