@@ -1,0 +1,24 @@
+
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+
+\title{Installing Alvar}
+\date{3/17/2016}
+\author{Jon Dixon, Dylan Geyer}
+
+\begin{document}
+	\maketitle
+	\newpage
+	
+	\section{Introduction}
+	This document will give a brief description on how to install Alvar. It is important to note that this is not AR Track Alvar, which is the ROS library for AR tracking, but just a standalone AR track software.
+	
+	\section{Installing Alvar}
+	Installing Alvar is easy! All you do is just run the installalvar.sh script. This will download and build all dependencies for Alvar, including OpenCV and ROS. The most important thing to note is that the shell script must be located in build directory of the Alvar directory that can be downloaded from the Alvar website.
+
+	\lstinputlisting[breaklines]{installalvar.sh}
+\end{document}
