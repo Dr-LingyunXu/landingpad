@@ -310,6 +310,7 @@ Task No. & Task & Date Completed & Sprint\\\hline
 \end{frame}
 
 % Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
+<<<<<<< HEAD
 \begin{frame}{Visual Homography Design \& Tech Specs}
 	\begin{itemize}
 		\item Blob detection is used to detect colored circles
@@ -319,8 +320,18 @@ Task No. & Task & Date Completed & Sprint\\\hline
 \end{frame}
 
 \begin{frame}{Homography}
+=======
+\begin{frame}{Localization Software Architecture}
+	Architecture for communication between ROS nodes for evaluating a local position: \\
 	\centering
-	\includegraphics[width=.66\textwidth]{images/skewball}
+	\includegraphics[width=.9\textwidth]{images/localization.png}
+\end{frame}
+
+\begin{frame}{Navigation Software Architecture}
+	Architecture for communication between ROS nodes to accomplish laninding on the landing pad: \\
+>>>>>>> f701c3d569105d217fa298e0fb3b2653b2a40889
+	\centering
+	\includegraphics[width=.9\textwidth]{images/navigation.png}
 \end{frame}
 
 \begin{frame}{Homography}
@@ -399,8 +410,8 @@ Task No. & Task & Date Completed & Sprint\\\hline
 	\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 		Task No. & Task & Test \\\hline
 		1 & Review previous implementation for autonomous landing & The UAV should be able to detect the landing pad\\\hline
-		2 & Install previous implementation & The UAV should be able to begin to lower onto the pad\\\hline
-		3 & Test previous implementation & The UAV should land gently on the pad\\\hline
+		2 & Install \& modify previous implementation & The UAV should be able to begin to lower onto the pad\\\hline
+		3 & Test implementation & The UAV should land gently on the pad\\\hline
 		
 	\end{tabular}
 \end{frame}
@@ -409,8 +420,8 @@ Task No. & Task & Date Completed & Sprint\\\hline
 \begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 	Task No. & Task & Test\\\hline
 	1 & Review previous implementation for autonomous landing & The UAV should be able to calculate its angle wrt the pad\\\hline
-	2 & Install previous implementation & The UAV should be able to rotate to match the pad\\\hline
-	3 & Test previous implementation & UAV should maintain orientation throughout descent \\\hline
+	2 & Install\& modify implementation & The UAV should be able to rotate to match the pad\\\hline
+	3 & Test implementation & UAV should maintain orientation throughout descent \\\hline
 \end{tabular}
 \end{frame}
 
@@ -429,13 +440,8 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{Remaining Backlog}
 \begin{itemize}
-\item \textbf{User 1(U-1)}
-\item \textbf{Owner 1(O-1)}
-\item \textbf{Owner 2(O-2)}
-\item \textbf{Owner 3(O-3)}
 \item \textbf{Owner 4(O-4)}
 \item \textbf{Owner 5(O-5)}
-\item \textbf{Common}
 \end{itemize}
 
 \end{frame}
@@ -443,7 +449,8 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{Revised Goals}
 	\begin{itemize}
-		\item Project Goals remain fixed
+		\item User will need to create file containing missions for offboard control to use, not 
+		\item Use of only AR Tag, not AR Tag + Landing Lights.
 	\end{itemize}
 
 \end{frame}
@@ -453,10 +460,8 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{Risk Analysis}
 \begin{itemize}
-\item Simulation: SITL has proven to be problematic
-\item UAV Build: Borrowing items from UAV Team (Radio and Control)
-\item UAV Build: One UAV for physical testing and demonstration
-\item Landing Algorithm: Many approaches, we may pick the wrong one
+\item Localization: Without a better approach to localization, our estimates of our current pose are very poor. As a result our UAV is unable to nav
+\item Navigation: Many approaches, we may pick the wrong one
 \end{itemize}
 
 
@@ -464,61 +469,29 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{Risk Mitigation}
 \begin{itemize}
-\item Simulation:
-\begin{itemize}
-\item Attempt HIL as Alternative
-\end{itemize}
-
-\item UAV Build(Sharing)
+\item Localization
 \begin{itemize}
 \item Schedule use of tools to prevent conflict
 \item Request more funding if schedule is untenable
 \end{itemize}
 
-\item UAV Build(One Shot)
+\item Navigation
 \begin{itemize}
 \item Integrate manual control override
 \item Validate solutions through simulation
 \end{itemize}
-
 \end{itemize}
+
 \end{frame}
 
 
 \begin{frame}{Timeline}
-\textbf{Sprint 3.5 12/16/15 to 1/10/16}
-\begin{itemize}
-\item Finish UAV Build(C)
-\item Manual Flight of UAV(C)
-\item Autonomous Flight of UAV(C,U-1,O-1,O-2,O-3)
-\item Resolve Simulation Issues(C)
-\end{itemize}
-\vspace{2mm}
-At the end of break, 3 backlog items will have been completed\\
-\vspace{4mm}
-\textbf{Sprint 4 1/18/16~2/5/16}
+\textbf{Sprint 6 3/21/16~4/15/16}
 \begin{itemize}
 \item Finish Landing Algorithm Simulations(O-4,O-5)
 \end{itemize}
 \vspace{2mm}
-At the end of sprint 4, we should have a landing approach validated by simulation.
-\end{frame}
-
-
-\begin{frame}{Timeline...continued}
-\textbf{Sprint 5 2/15/16~3/4/16}
-\begin{itemize}
-\item Integration of Landing Autonomy on UAV(O-4,O-5)
-\end{itemize}
-\vspace{2mm}
-At the end of sprint 5, we should have completed the remainder of backlog items.\\
-\vspace{4mm}
-\textbf{Sprint 6 3/21/16~4/15/16}
-\begin{itemize}
-\item Refinement
-\end{itemize}
-\vspace{2mm}
-At the end of sprint 6, project will be complete
+Sprint 6 necessitates solving our localization issues, so that we can combine our vision and message passing framework to complete this project.
 \end{frame}
 
 \begin{frame}{Budget}
@@ -557,8 +530,16 @@ Licensing for Dependencies:
 \item ROS: BSD
 \item Mavlink: LGPL version 3
 \item QGroundControl: GPL version 3
+\item ROS Packages
+\begin{itemize}
+\item mavros: GPLv3, LGPLv3, BSD
+\item ar\_track\_alvar: BSD
+\item pointgrey\_camera\_driver: BSD
+\item usb\_cam: BSD
+\end{itemize} 
 \end{itemize}
 
+Additionally, all members of the team are registered with the FAA and have received their drone pilot's license.
 
 \end{frame}
 
