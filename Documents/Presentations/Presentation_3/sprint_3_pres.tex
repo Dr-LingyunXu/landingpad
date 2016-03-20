@@ -310,17 +310,6 @@ Task No. & Task & Date Completed & Sprint\\\hline
 \end{frame}
 
 % Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
-<<<<<<< HEAD
-\begin{frame}{Visual Homography Design \& Tech Specs}
-	\begin{itemize}
-		\item Blob detection is used to detect colored circles
-		\item For each color we are looking for, look for a group of pixels over a certain size
-		\item that is considered a "blob"
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Homography}
-=======
 \begin{frame}{Localization Software Architecture}
 	Architecture for communication between ROS nodes for evaluating a local position: \\
 	\centering
@@ -329,46 +318,14 @@ Task No. & Task & Date Completed & Sprint\\\hline
 
 \begin{frame}{Navigation Software Architecture}
 	Architecture for communication between ROS nodes to accomplish laninding on the landing pad: \\
->>>>>>> f701c3d569105d217fa298e0fb3b2653b2a40889
 	\centering
 	\includegraphics[width=.9\textwidth]{images/navigation.png}
 \end{frame}
 
-\begin{frame}{Homography}
+\begin{frame}{AR Track Alvar}
+	AR Track Alvar can provide pose and orientation of the AR tag relative to the frame of the camera: \\
 	\centering
-	\includegraphics[width=.66\textwidth]{images/img_reconstruction02}
-\end{frame}
-
-\begin{frame}{Reinforcement Learning Design \& Tech Specs}
-\begin{columns}
-	\begin{column}{0.5\textwidth}
-\large{\textbf{Design \& Tech}}
-	\begin{itemize}
-		\item Linear, gradient-decent sarsa
-		\item 2D State Space 
-		\item 3D State Space
-	\end{itemize}
-	\end{column}
-	\begin{column}{0.5\textwidth}
-	\includegraphics[width=.9\textwidth]{images/coolpic.png}
-	\end{column}
-\end{columns}
-\begin{columns}
-	\begin{column}{0.5\textwidth}
-\large{\textbf{Setbacks}}
-	\begin{itemize}
-		\item Research and familiarizing
-		\item Simulation Environment
-	\end{itemize}
-	\end{column}
-	\begin{column}{0.5\textwidth}
-	\end{column}
-\end{columns}
-\end{frame}
-
-% Include Architecture/Design/Tech Specs/& Tools ---Likely will take a few slides 
-\begin{frame}{Simulation Design \& Tech Specs}
-\includegraphics[width=1\textwidth]{images/ardusitl.png}
+	\includegraphics[width=1\textwidth]{images/alvar2.png}
 \end{frame}
 
 
@@ -550,77 +507,14 @@ Additionally, all members of the team are registered with the FAA and have recei
 \begin{frame}{Prototypes and Demos}
 \large{\textbf{Demos}}
 \begin{itemize}
-	\item PX4 ROS SITL
-	\item Ground Control Station
-	\item Visual Homography
+	\item Communication
+	\item Offboard Control
+	\item AR Track Alvar
 \end{itemize}
 
 \end{frame}
 
 
-
-
-\begin{frame}{Simulation - PX4 ROS SITL}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/flight1}
-\end{figure}
-\end{frame}
-
-\begin{frame}{PX4 ROS SITL...continued}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/px4graph}
-\end{figure}
-\end{frame}
-
-\begin{frame}{PX4 ROS SITL...continued}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/mavros_sitl}
-\end{figure}
-\end{frame}
-
-\begin{frame}{PX4 ROS SITL...continued}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/params}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Ground Control Station - QGroundControl}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/qgroundcontrol}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Ground Control Station...continued}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/selectmission}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Ground Control Station...continued}
-\begin{figure}
-\includegraphics[width=1\textwidth]{images/mission}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Vision-Based Landing}
-	\begin{itemize}
-		\item Began playing with last year's code
-		\item Able to detect three blobs and distance to target
-	\end{itemize}
-	\includegraphics[width=1\textwidth]{images/coolpic}
-\end{frame}
-
-\begin{frame}{Vision-Based Landing...continued}
-	\begin{itemize}
-		\item After our computer vision class, we considered adding a fourth circle
-		\item This gives us a square target instead of triangle
-	\end{itemize}
-\centering	\includegraphics[width=.5\textwidth]{images/landing_guide_small_x}
-\end{frame}
-
-\begin{frame}
-	\includegraphics[width=1\textwidth]{images/circles}
-\end{frame}
 
 %% END SECTION 5
 \begin{frame}{ END}
