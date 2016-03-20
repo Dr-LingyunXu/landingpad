@@ -4,7 +4,7 @@
   <arg name="camera_serial" default="0" />
   <arg name="calibrated" default="0" />
 
-  <node pkg="tf" type="static_transform_publisher" name="map_to_camera" output="screen" args="0 0 0 0 0 0 camera head_camera 10" />
+  <node pkg="tf" type="static_transform_publisher" name="map_to_camera" output="screen" args="0 0 0 0 0 0 world camera 10" />
 
   <group ns="camera">
       <node pkg="nodelet" type="nodelet" name="camera_nodelet_manager" args="manager" />
@@ -25,13 +25,13 @@
       </node>
   </group>
  
-  <arg name="marker_size" default="165.0" />
+  <arg name="marker_size" default="12.7" />
   <arg name="max_freq" default="10.0" />
   <arg name="max_new_marker_error" default="0.08" />
   <arg name="max_track_error" default="0.2" />
-  <arg name="cam_image_topic" default="/camera/camera_nodelet/image_raw" />
-  <arg name="cam_info_topic" default="/camera/camera_nodelet/camera_info" /> 
-  <arg name="output_frame" default="head_camera" />
+  <arg name="cam_image_topic" default="/camera/image_raw" />
+  <arg name="cam_info_topic" default="/camera/camera_info" /> 
+  <arg name="output_frame" default="/camera" />
    
   <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen" args="$(arg marker_size) $(arg max_new_marker_error) $(arg max_track_error) $(arg cam_image_topic) $(arg cam_info_topic) $(arg output_frame) 30" />
   
