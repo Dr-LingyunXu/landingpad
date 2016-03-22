@@ -322,8 +322,13 @@ Task No. & Task & Date Completed & Sprint\\\hline
 	\includegraphics[width=.9\textwidth]{images/navigation.png}
 \end{frame}
 
-\begin{frame}{AR Track Alvar}
+\begin{frame}{AR Track Alvar Framework}
 	AR Track Alvar can provide pose and orientation of the AR tag relative to the frame of the camera: \\
+	\centering
+	\includegraphics[width=1\textwidth]{images/artrackgraph.png}
+\end{frame}
+
+\begin{frame}{AR Track Alvar}
 	\centering
 	\includegraphics[width=1\textwidth]{images/alvar2.png}
 \end{frame}
@@ -332,68 +337,73 @@ Task No. & Task & Date Completed & Sprint\\\hline
 %% END SECTION 2
 
 
+
 %% BEGIN SECTION 3
+% How do we plan to integrate the different systems together
+\begin{frame}{Testing: U-1}
+\textbf{As a user, I want to communicate the waypoints to the UAV.}
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Task No. & Task & Test\\\hline
+	3 & Modify mission communication implementation as necessary & User is able to create mission file with ground control station.\\\hline
+	3 & Modify mission communication implementation as necessary & User is able to load mission file on offboard(ODroid).\\\hline
+	3 & Modify mission communication implementation as necessary & Landing Algorithm on offboard starts after completing last mission.\\\hline
+	
+\end{tabular}
+
+\end{frame}
 % How are we going to test the UAV 
-\begin{frame}{UAV Testing - O-1}
+\begin{frame}{Testing: O-1}
 \textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}
 \begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Testing\\\hline
-	1 & Review previous implementation for autonomous take-off. & Send mission containing takeoff followed by hover command in simulation.\\\hline
-	2 & Review code that enables the quadrotor to autonomously take-off from landing pad & Upload code to physical UAV and send mission containing takeoff followed by hover command with manual override enabled.\\\hline
+	3 & Modify/Rewrite take-off imlementation as necessary
+ & FCU recieves take-off mission from mission from offboard control.\\\hline	
+	3 & Modify/Rewrite take-off imlementation as necessary
+ & FCU executes take-off mission.\\\hline	
 \end{tabular}
 \end{frame}
 
-\begin{frame}{UAV Testing - O-2}
+\begin{frame}{Testing: O-2}
 \textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}
 \begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation for navigating waypoints. & Send mission containing takeoff followed by waypoints and once the last waypoint is reached a hover command all in simulation.\\\hline
-	2 & Review code that enables the quadrotor to autonomously navigate through a series of way-points & Upload code to physical UAV and send mission again with manual override enabled\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU receives navigation missions from offboard control.\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU executes navigation in sequence.\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU follows, reasonably, the planned navigation.\\\hline
 \end{tabular}
 \end{frame}
-\begin{frame}{UAV Testing - O-3}
+\begin{frame}{Testing: O-3}
 \textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}
 \begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation to autonomously return to location of landing pad & The last waypoint from the previous test should be the landing pad but to verify a image match will be used in simulation that will verify that the UAV is in fact above the landing pad.\\\hline
-	2 & Review code that allows the autonomous return of the UAV to the landing pad. & The physical UAV will match what it sees with its camera to a image it has stored of the landing pad at multiple heights.\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU receives last navigation mission from offboard control.\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU executes navigation mission.\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\\hline
 \end{tabular}
 \end{frame}
 
 % How are we going to test the VH Landing Algorithm
 % Maybe discuss tests at the different stages (blob color recog, dist/dir output, real-time output (How many frames?)) 
-\begin{frame}{Visual Homography Landing Testing - O-4}
+\begin{frame}{Testing: O-4}
 	\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}
 	\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 		Task No. & Task & Test \\\hline
-		1 & Review previous implementation for autonomous landing & The UAV should be able to detect the landing pad\\\hline
-		2 & Install \& modify previous implementation & The UAV should be able to begin to lower onto the pad\\\hline
-		3 & Test implementation & The UAV should land gently on the pad\\\hline
+		4 & Modify landing pose implementation as necessary & UAV accurately estimates pose of AR tag\\\hline
+		4 & Modify landing pose implementation as necessary & UAV centers over AR tag(\textless 0.1m).\\\hline
+		4 & Modify landing pose implementation as necessary & The UAV remains centered during descent.\\\hline
+		4 & Modify landing pose implementation as necessary & The UAV lands without damaging craft or legs.\\\hline
 		
 	\end{tabular}
 \end{frame}
-\begin{frame}{Visual Homography Landing Testing - O-5}
+\begin{frame}{Testing: O-5}
 \textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}
 \begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
 	Task No. & Task & Test\\\hline
-	1 & Review previous implementation for autonomous landing & The UAV should be able to calculate its angle wrt the pad\\\hline
-	2 & Install\& modify implementation & The UAV should be able to rotate to match the pad\\\hline
-	3 & Test implementation & UAV should maintain orientation throughout descent \\\hline
+		4 & Modify landing orientation implementation as necessary & UAV accurately estimates the orientation of AR tag\\\hline
+		4 & Modify landing orientation implementation as necessary & UAV changes orientation to align with AR tag.\\\hline
+		4 & Modify landing orientation implementation as necessary & UAV maintains correct orientation during descent.\\\hline
 \end{tabular}
 \end{frame}
-
-% How do we plan to integrate the different systems together
-\begin{frame}{Integration - U-1}
-\textbf{As a user, I want to communicate the waypoints to the UAV.}
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
-	Task No. & Task & Test\\\hline
-	1 & Review previous method/interface for communicating coordinates to UAV. & Connect GPS to pixhawk and verify it recieves a connection and in Mavros verify we can retrieve gps coordinates from gps in ROS.  \\\hline
-	2 & Review code that communicates with quadrotor & Verify that all commands in Mavros can be sent to and accepted by the Pixhawk and it acts appropiately \\\hline
-	3 & Review code that allows a user to input waypoints & Verify that user entered waypoints can be uploaded into Pixhawk Successfully with mavros.\\\hline
-	
-\end{tabular}
-\end{frame}
-
 
 \begin{frame}{Remaining Backlog}
 \begin{itemize}
@@ -474,7 +484,7 @@ TOTAL              &     &          & \$957.70 \\ \hline
 \begin{frame}{IP \& Licensing}
 Intellectual Property:\\
 Project is owned by SDSMT\\
-\vspace{4mm}
+\vspace{2mm}
 Licensing for Dependencies:
 \begin{itemize}
 \item OpenCV: BSD 
@@ -484,6 +494,7 @@ Licensing for Dependencies:
 \item ROS Packages
 \begin{itemize}
 \item mavros: GPLv3, LGPLv3, BSD
+\item svo: GPLv3 licence
 \item ar\_track\_alvar: BSD
 \item pointgrey\_camera\_driver: BSD
 \item usb\_cam: BSD
