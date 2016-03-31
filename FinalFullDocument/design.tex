@@ -1,163 +1,199 @@
-
-% !TEX root = DesignDocument.tex
+% !TEX root = SystemTemplate.tex
 
 \chapter{Design  and Implementation}
-This section is used to describe the design details for each of the major components 
-in the system.    Note that this chapter is critical for all tracks.  Research tracks would do experimental design here where other tracks would include the engineering design aspects.    This section is not brief and requires the necessary detail that 
-can be used by the reader to truly understand the architecture and implementation 
-details without having to dig into the code.    Sample algorithm:  Algorithm~\ref{alg1}.  This algorithm environment is automatically placed - meaning it floats.   You don't have to worry about placement or numbering.  
+This section is used to describe the design details for each of the major components in the system. The autonomous systems of teh UAV can be broken into individual components and the following sections will be divided by such. The first section will cover our simulation environment, the second will cover the autonomous takeoff and waypoint navigation, the third section will discuss our two autonomous landing approaches, and finally the fourth section will cover the UAV.      
 
-\begin{algorithm} [tbh]                     % enter the algorithm environment
-\caption{Calculate $y = x^n$}          % give the algorithm a caption
-\label{alg1}                           % and a label for \ref{} commands later in the document
+\section{Simulation Environment}
+\subsection{Technologies  Used}
+The simulation environment will be implemented using Gazebo as the actual environment itself and will use ROS so we can use the message passing services to communicate with different modules of code that will be written. This environment will handle all testing so nothing is tested on the physical UAV until it is verified working in a simulated environment that utilizes a pixhawk.
+\subsection{Component  Overview}
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item Gazebo
+  \item Mavlink
+  \item python
+  \item c++
+  \item R.O.S.
+  \item Mavros (Ros wrapper around Mavlink)
+\end{itemize}
+\subsection{Phase Overview}
+The simulation environment is still a work in progress on setting up communication with a simulated pixhawk with software in the loop (SITL), however as soon as the pixhawk is received hardware in the loop (HITL) will be attempted because of issues simulating the device. Issues as of now are loading a waypoint file and sending commands. A file checksum appears to be invalid for the waypoint file and a invalid flight controller unit is returned after sending commands to the simulated pixhawk with the mavros cmd node.
+\subsection{Design Details}
+Currently the Design for the simulation is relying on outside sources for installing the environment and setting up packages. These details are discussed in the Prototype section within sprint report \#3.
+
+
+\section{Autonomous Takeoff and Waypoint Navigation} 
+\subsection{Technologies  Used}
+The autonomous takeoff and waypoint navigation system is separate from the simulation environment and landing approaches because these will be contained in a mission that will be uploaded into the pixhawk. There will be a waypoint publisher (wpt\_pub) node that will receive input from a user and create a mission file out of that input. Another module within the node will start publishing waypoints to the node so that it nodes what path to take what to do using mavros messages.
+\subsection{Component  Overview}
+wpt\_pub dependencies:
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item python
+  \item c++
+  \item R.O.S.
+  \item Mavros
+  \item Mavros msgs
+\end{itemize}
+\subsection{Phase Overview}
+The wpt\_pub node can currently publish mavros messages that contain take off, land, and arm commands successfully, however the simulated pixhawk reports back that it is an invalid flight controller unit most times. It does receive waypoints successfully through mavros messages.
+\subsection{Design Details}
+\lstinputlisting[language=C++]{code/wpt_pub.hpp}
+\lstinputlisting[language=C++]{code/wpt_pub.cpp}
+\lstinputlisting[language=C++]{code/wpt_pub_node.cpp}
+
+\section{Landing Approaches}
+\subsection{Visual Homography}
+One of the approaches we will be using for the task of landing the UAV will be using visual homography. The basic goal here is to take an image that will contain the landing pad, and, based on the how the target looks on the pad, determine range to pad, orientation with respect to the pad, and the angle above the horizon with respect to the pad. This information will then be used to determine how to actually fly the UAV so that it will be able to safely land on the pad.
+\subsubsection{Technologies  Used}
+In order to accomplish this, we will use a number of tools. First and foremost, we will be using OpenCV as our image recognition library. OpenCV is a powerful open-source toolkit that will be able to handle any image processing that we need to do. The algorithm will be developed in Python, as this provides an easy-to-understand syntax, and will be able to deliver the performance that we need.
+\subsubsection{Component  Overview}
+\begin{itemize}
+	\item Ubuntu 14.04 LTS
+	\item Python
+	\item OpenCV
+\end{itemize}
+\subsubsection{Phase Overview}
+The algorithm is still a work in progress, but steps have been made. We have been able to compile and run last year's code, and have a working blob detection system up and running. This system is able to detect a pad with three colored circles by looking for the colors of the circles. The circles are red, green, and blue. It is then able to calculate the distance to the target, since it knows what size the target should be. This should be very helpful moving forward, as we are able to find the pad. In the coming sprints, we will attempt to move toward a pad that has four circles, as we believe this will give us more information to use for our homography computations.
+\subsubsection{Design Details}
+In the following image, you can see results from last year's code running and detecting the colored circles on a large target with three circles.
+
+\begin{center} \includegraphics[width=.5\textwidth]{coolpic.png} \end{center}
+
+It may be hard to notice, but the text that is currently being displayed in the terminal window shows that there are three blobs detected, exactly one for each color. It is also displaying the range to target, which is correct as far as we can tell.
+
+The next image is what we are going to attempt to use for the next target. It has four colored circles, so we should be able to compute homography more accurately.
+
+\begin{center} \includegraphics[width=.35\textwidth]{landing_guide_small_x.jpg} \end{center}
+
+The final image is just another possible method that we have briefly explored where instead of blob detection we use hough transforms to detect only circles in the images. We have seen papers where others have had successes using targets consisting of concentric circles, so we think that we may be able to have some amount of success with this, in the event that the above methods don't end up panning out.
+
+\begin{center} \includegraphics[width=.5\textwidth]{circles.png} \end{center}
+
+\subsection{Reinforcement Learning}
+\subsubsection{Technologies  Used}
+To accomplish the reinforcement learning approach we will be using gazebo and ROS so that we can visually see that the agent is learning the states and actions required to land the UAV.  
+\subsubsection{Component  Overview}
+\begin{itemize}
+  \item Ubuntu 14.04 LTS
+  \item Python
+  \item C++
+  \item ROS pose messages
+  \item sarsa\_alg: \\
+  \\
+  The class that instantiates the agent and performs the appropriate calculations to pick an action to move on to the next state and recieves a reward. Each action will send the appropriate messages to gazebo so that the UAV moves accordingly and allows the user to visually see what the agen is doing.
+  \item sarsa\_node: \\
+  \\
+  The ROS nod that creates the sarsa\_alg class and handles initial topics to publish to and receive from.
+\end{itemize}
+\subsubsection{Phase Overview}
+The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$-greedy policy will be the algorithm of reinforcement learning that will be implemented. Currently ideas for using a 2-D state space are in the works with a vector field graient to be the actions to funnel the UAV into the center of a cone at a given height and radius. Because of the setbacks of the simulation no coding as been accomplished, but will be as soon as an environment is set up.
+\newpage
+\subsubsection{Design Details}
+\begin{algorithm} [h]                     % enter the algorithm environment
+\caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}         
+ % give the algorithm a caption
+\label{Sarsa}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}                    % enter the algorithmic environment
-    \REQUIRE $n \geq 0 \vee x \neq 0$
-    \ENSURE $y = x^n$
-    \STATE $y \Leftarrow 1$
-    \IF{$n < 0$}
-        \STATE $X \Leftarrow 1 / x$
-        \STATE $N \Leftarrow -n$
-    \ELSE
-        \STATE $X \Leftarrow x$
-        \STATE $N \Leftarrow n$
-    \ENDIF
-    \WHILE{$N \neq 0$}
-        \IF{$N$ is even}
-            \STATE $X \Leftarrow X \times X$
-            \STATE $N \Leftarrow N / 2$
-        \ELSE[$N$ is odd]
-            \STATE $y \Leftarrow y \times X$
-            \STATE $N \Leftarrow N - 1$
-        \ENDIF
-    \ENDWHILE
+    \STATE Initialize $\vec{\theta}$ arbitrily and $\vec{e} = \vec{0}$
+    \FOR{Each Episode}
+      \STATE $s \leftarrow$ initial state of episode
+      \FOR{all $a \in A(s)$}
+        \STATE $F_a \leftarrow$ set of features present in s, a
+        \STATE $Q_a \leftarrow \sum_{i \in F_a}\theta(i)$
+      \ENDFOR
+      \STATE $a \leftarrow$ arg $max_a Q_a$
+      \STATE With probability $\epsilon: a \leftarrow$ a random action $\in A(s)$
+      \FOR{ Each Step of Episode}
+        \STATE $\vec{e} \leftarrow \gamma \lambda \vec{e}$
+        \FOR{ All $\bar{a} \neq a$}
+          \FOR{All $i \in F_{\bar{a}}$}
+            \STATE $e(i) \leftarrow 0 $
+          \ENDFOR
+        \ENDFOR
+        \FOR{All $i \in F_a$}
+          \STATE $e(i) \leftarrow 1 $
+        \ENDFOR
+        \STATE Take action $a$, observe reward, r, and next state, s'
+        \STATE $\delta \leftarrow r - Q_a$
+        \FOR{All $a \in A(s')$}
+          \STATE $F_a \leftarrow$ set of features present in s', a
+          \STATE $Q_a \leftarrow \sum_{i \in F_a}\theta(i)$
+        \ENDFOR
+        \STATE $a' \leftarrow$ arg $max_a Q_a$
+        \STATE With probability $\epsilon:a' \leftarrow$ a random action $\in A(s)$
+        \STATE $\delta \leftarrow \delta + \gamma Q_{a'}$
+        \STATE $\vec{\theta} \leftarrow \vec{\theta} + \alpha \delta \vec{e}$
+        \STATE $a \leftarrow a'$
+      \ENDFOR
+      \STATE until $s'$ is terminal
+    \ENDFOR
 \end{algorithmic}
-\end{algorithm}
-Citations look like~\cite{Choset:2005:PRM, arkin2009governing, lavalle2006}  and~\cite{wiki:asimo,lumelsky:1987, nolfi2000evolutionary}.  These are done automatically.  Just fill in the database {\tt designrefs.bib} using the same field structure as the other entries.  Then pdflatex the document, bibtex the document and pdflatex twice again.  The first pdflatex creates requests for bibliography entries.
-The bibtex extracts and formats the requested entries.  The next pdflatex puts them in order and assigns labels.  The final pdflatex replaces references in the text with the assigned labels.
-The bibliography is automatically constructed.  
- 
- \section{Architecture and System Design}
- This is where you will place the overall system design or the architecture.   This section should be image rich.  There is the old phrase {\it a picture is worth a thousand words}, in this class it could be worth a hundred points (well if you sum up over the entire team).   One needs to enter the design and why a particular design has been done.   
- 
- \subsection{Design Selection}
- Failed designs, design ideas, rejected designs here.
- 
- \subsection{Data Structures and Algorithms}
- Describe the special data structures and any special algorithms.
- 
- \subsection{Data Flow}
- 
- \subsection{Communications}
- 
- \subsection{Classes}
- 
- \subsection{UML}
- 
- \subsection{GUI}
- 
- \subsection{MVVM, etc}
+\end{algorithm} 
 
-\section{Major Component \#1 }
-
+\section{UAV Build}
+This section details the physical building of the UAV that will be used in autonomous landing.
 \subsection{Technologies  Used}
-This section provides a list of technologies used for this component.  The details 
-for the technologies have already been provided in the Overview section. 
-
-\subsection{Component  Overview}
-This section can take the form of a list of features. 
-
+The technologies that we currently have are listed below and include the controllers required for autonomous flight.
+\begin{itemize}
+	\item Turnigy Talong V1.0 Hexcopter
+	\item 6x DC Motors
+	\item 6x Electronic Speed Controllers
+	\item 3DR Pixhawk
+	\item Odroid-XU4
+\end{itemize}
 \subsection{Phase Overview}
-This is an extension of the Phase Overview above, but specific to this component. 
- It is meant to be basically a brief list with space for marking the phase status. 
-
-\subsection{ Architecture  Diagram}
-It is important to build and maintain an architecture diagram.  However, it may 
-be that a component is best described visually with a data flow diagram. 
-
-
-\subsection{Data Flow Diagram}
-It is important to build and maintain a data flow diagram.  However, it may be 
-that a component is best described visually with an architecture diagram. 
-
-
+We are currently in the first phase of UAV construction. In this phase we have completed the construction of the \textbf{Turnigy Talong V1.0 Hexcopter} frame, and mounting all of the DC motors and electronic speed controllers.
 \subsection{Design Details}
-This is where the details are presented and may contain subsections.   Here is an example code listing:
-\begin{lstlisting}
-#include <stdio.h>
-#define N 10
-/* Block
- * comment */
+Current documentation on the build progress made in Sprint 3 is shown below in our BuildProcess.pdf document.
+\includepdf[pages={1,2,3,4,5}]{../Prototypes/Sprint_3/BuildProcedure/BuildProcess.pdf}
+
+
+%\begin{algorithm} [tbh]                     % enter the algorithm environment
+%\caption{Calculate $y = x^n$}          % give the algorithm a caption
+%\label{alg1}                           % and a label for \ref{} commands later in the document
+%\begin{algorithmic}                    % enter the algorithmic environment
+%    \REQUIRE $n \geq 0 \vee x \neq 0$
+%    \ENSURE $y = x^n$
+%    \STATE $y \Leftarrow 1$
+%    \IF{$n < 0$}
+%        \STATE $X \Leftarrow 1 / x$
+%        \STATE $N \Leftarrow -n$
+%    \ELSE
+%        \STATE $X \Leftarrow x$
+%        \STATE $N \Leftarrow n$
+%    \ENDIF
+%    \WHILE{$N \neq 0$}
+%        \IF{$N$ is even}
+%            \STATE $X \Leftarrow X \times X$
+%            \STATE $N \Leftarrow N / 2$
+%        \ELSE[$N$ is odd]
+%            \STATE $y \Leftarrow y \times X$
+%            \STATE $N \Leftarrow N - 1$
+%        \ENDIF
+%    \ENDWHILE
+%\end{algorithmic}
+%\end{algorithm} 
  
-int main()
-{
-    int i;
- 
-    // Line comment.
-    puts("Hello world!");
- 
-    for (i = 0; i < N; i++)
-    {
-        puts("LaTeX is also great for programmers!");
-    }
- 
-    return 0;
-}
-\end{lstlisting}
-This code listing is not floating or automatically numbered.  If you want auto-numbering, but it in the algorithm environment (not algorithmic however) shown above.
-
-
-
-\section{Major Component \#2 }
-
-\subsection{Technologies  Used}
-This section provides a list of technologies used for this component.  The details 
-for the technologies have already been provided in the Overview section. 
-
-\subsection{Component  Overview}
-This section can take the form of a list of features. 
-
-\subsection{Phase Overview}
-This is an extension of the Phase Overview above, but specific to this component. 
- It is meant to be basically a brief list with space for marking the phase status. 
-
-\subsection{ Architecture  Diagram}
-It is important to build and maintain an architecture diagram.  However, it may 
-be that a component is best described visually with a data flow diagram. 
-
-
-\subsection{Data Flow Diagram}
-It is important to build and maintain a data flow diagram.  However, it may be 
-that a component is best described visually with an architecture diagram. 
-
-
-\subsection{Design Details}
-This is where the details are presented and may contain subsections. 
-
-
-\section{Major Component \#3 }
-
-\subsection{Technologies  Used}
-This section provides a list of technologies used for this component.  The details 
-for the technologies have already been provided in the Overview section. 
-
-\subsection{Component  Overview}
-This section can take the form of a list of features. 
-
-\subsection{Phase Overview}
-This is an extension of the Phase Overview above, but specific to this component. 
- It is meant to be basically a brief list with space for marking the phase status. 
-
-\subsection{ Architecture  Diagram}
-It is important to build and maintain an architecture diagram.  However, it may 
-be that a component is best described visually with a data flow diagram. 
-
-
-\subsection{Data Flow Diagram}
-It is important to build and maintain a data flow diagram.  However, it may be 
-that a component is best described visually with an architecture diagram. 
-
-
-\subsection{Design Details}
-This is where the details are presented and may contain subsections. 
-
-
+%\begin{lstlisting}
+%#include <stdio.h>
+%#define N 10
+%/* Block
+% * comment */
+% 
+%int main()
+%{
+%    int i;
+% 
+%    // Line comment.
+%    puts("Hello world!");
+% 
+%    for (i = 0; i < N; i++)
+%    {
+%        puts("LaTeX is also great for programmers!");
+%    }
+% 
+%    return 0;
+%}
+%\end{lstlisting}
+%This code listing is not floating or automatically numbered.  If you want auto-numbering, but it in the algorithm environment (not algorithmic however) shown above.
