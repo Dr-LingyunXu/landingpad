@@ -1,0 +1,23 @@
+% !TEX root = SystemTemplate.tex
+\section{Landing Log}
+
+\begin{description}
+\item [10/15/15]  Ran modified filter on data sets 1 - 6.  Results were ...\hfill{First Last}
+
+\item [11/14/15] \textbf{AI Landing}. Created vague sketch of AI approach to landing problem. Utilizing resource provided by Dr. Larry Pyeatt (Advisor/Client) to learn more on the subject of Reinforcement Learning. \\
+Initial thoughts are:\\
+Visualize an inverted cone above the landing pad, so that the point is located in the center of the landing pad. The cone is divided horizontally into slices which represent the height above the landing pad. Each slice is further segmented into wedges, much like a pie. Each one of these pie wedges will represent the state of the UAV. \\
+The goal is to land the UAV on the center of the landing pad with correct orientation. The AI will be penalized for choices that result in greater distance from landing pad, greater distance from correct orientation, greater distance from the vertical center of the cone. Getting closer will be rewarded.\\
+The inputs will be the image, motor speeds, IMU(roll, pitch, yaw). The outputs will motor speeds.\\
+
+\hfill{Christopher Smith, Steven Huerta}
+
+\item [11/15/15] \textbf{AI Landing}. Briefly discussed inputs, outputs, and rewards. Uploaded Dr. Pyeatt's Artificial Neural Net to repo. We will review this code and likely use some or most of it as a foundation for the Landing AI.\\
+
+\hfill{Christopher Smith, Steven Huerta}\
+
+\item [11/22/15] \textbf{AI Landing}. Discussed Sarsa algorithm to solve our landing problem. Outlined rewards as -1 penalty for every time step landing has not been found, and +1 reward for minimizing distance from landing pad. We discussed how to use Dr. Pyeatt's work to inform our own. Decided that using a 2-agent solution would make use of the gradient field for radial distance and height.\\
+
+\hfill{Christopher Smith, Steven Huerta}
+
+\end{description}

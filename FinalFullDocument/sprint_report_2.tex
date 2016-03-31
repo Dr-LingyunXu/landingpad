@@ -1,0 +1,104 @@
+% !TEX root = sprints.tex
+\noindent \Large{\textbf{Summary}}\\
+\normalsize Team Expeditus was able to adapt to setbacks, and make progress on other tasks and goals of the project. Specifically, the team was able to make progress on the landing software, as well as find and implement a visual simulation that models the Pixhawk flight controller. The team was also able to coordinate with our advisor and school faculty for funding and ordering of our UAV platform and components. The restructuring of tasks for Sprint 2, does have a knock-on effect for Sprint 3. Sprint 3 will focus heavily on the building and testing of the UAV and its off-the-shelf components. Additionally, our client/advisor has suggested a different AI approach than the Artificial Neural Network(ANN). We will pursue this development during Sprint 3. Lastly, after meeting with the CENG/EE team several times, it was determined that while there is an opportunity for collaboration, time frames for both teams will not support collaboration.  Our team will continue, however, to work with the ME UGV team on the development of a landing pad functional for both teams.\\
+\vspace{5mm}
+\\
+\noindent \Large{\textbf{Team Work}}
+\normalsize
+\begin{itemize}
+\item \textbf{Julian Brackins:} Worked on tasks relating to Autonomous Landing.
+\item \textbf{Jonathan Dixon:} Worked on tasks relating to Autonomous Landing.
+\item \textbf{Dylan Geyer:} Worked on tasks relating to ordering parts for the UAV,
+\item \textbf{Christopher Smith:} Worked on tasks relating to ordering parts for the UAV, as well as tasks relating to setting up a Simulation Environment.
+\item \textbf{Steven Huerta:} Worked on tasks relating to ordering parts for the UAV, as well as tasks relating to setting up a Simulation Environment.
+\end{itemize}
+
+\vspace{5mm}
+\noindent\Large{\textbf{Completed Backlog}}\\
+\vspace{2mm}\\
+\large{\textbf{Common Development Tasks}}
+\normalsize
+\begin{itemize}
+\item \textbf{Setup Simulation Environment.}\\
+The team now has a working software simulation of the Pixhawk 4, the flight controller for this build, that utilizes both ROS and Gazebo.
+\item \textbf{Identify Parts Needed for UAV.} \\
+The team was supplied with funding source. The team needed to additionally coordinate with the SDSMT UAV Team to order correct parts, as well as parts that would be useful to both groups to ensure redundancy in the event of component failure.
+\item \textbf{Acquire parts needed for quadrotor} \\
+Received approval for the ordering of the parts. Parts ordered. Expected delivery date of 11/9/15.
+\end{itemize}
+
+\vspace{3mm}
+\noindent \large{\textbf{As a user, I want to communicate the waypoints to the UAV}}
+\normalsize
+\begin{itemize}
+\item \textbf{Review code that communicates with quadrotor.}\\
+ Software is available to access the flight controller through a GUI called APM Planner, available for Linux/Windows. Additionally, there is Mission Planner, available for Windows. Both will provide the ability of a user to communicate with the UAV.
+\item \textbf{Review code that allows a user to input waypoints.}\\
+Both APM Planner and Mission Planner allow the user to input waypoints through the GUI.  
+\end{itemize}
+
+\vspace{4mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}}
+\normalsize
+\begin{itemize}
+\item \textbf{Review code that enables the quadrotor to autonomously take-off from landing pad.}\\
+ This will be handled by Mission Planner/APM Planner.
+\end{itemize}
+
+\vspace{3mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}}
+\normalsize
+\begin{itemize}
+\item \textbf{Review previous implementation for navigating waypoints.}\\
+This will be handled by Mission Planner or APM Planner
+\end{itemize}
+
+\vspace{3mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}} 
+\normalsize
+\begin{itemize}
+\item \textbf{Review code that allows the autonomous return of the UAV to the landing pad.}\\
+ This will be handled by Mission Planner or APM Planner. The built in autonomy will bring the UAV to a position near the landing pad, where either Visual Homography, Artificial Intelligence, or combination of the two will be responsible for landing the craft. It is estimated that the craft will be within 10 meters of the designated area. Discussions with UAV team members provide an estimate of 5 meters from their observations.
+\end{itemize}
+
+\vspace{3mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}}
+\normalsize
+\begin{itemize}
+\item \textbf{Review previous implementation for autonomous landing.}\\
+ The code was reviewed and is running. The software is correctly identifying the RGB lights and accurately reporting distance.
+\end{itemize}
+
+\vspace{3mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}}
+\normalsize
+\begin{itemize}
+\item \textbf{Review previous implementation for autonomous landing.}\\
+ As reported above, the software is running and is able to detect the lights. This detection will allow the UAV to orient itself to align correctly with the landing pad.
+\end{itemize}
+
+\vspace{5mm}
+\noindent\Large{\textbf{Uncompleted Tasks}}\\
+\vspace{2mm}\\
+\large{\textbf{Common Development Tasks}}
+\normalsize
+\begin{itemize}
+\item \textbf{Build UAV}\\
+ This will be completed during Sprint 3. Waiting for UAV parts to arrive.
+\item \textbf{Test flight under manual control} \\
+ Testing will be completed by Sprint 3. Waiting for UAV to be built.
+\end{itemize}
+
+
+\vspace{6mm}
+\noindent\Large{\textbf{Prototype}}\\
+\normalsize
+There is a prototype document for Sprint 2 (found \href{https://github.com/SDSMT-CSC464-F15/landingpad/tree/master/Documents/Prototypes/Sprint_2}{here} in the repository), where this same material will be covered in much greater detail. This is only a brief description.
+\begin{itemize}
+\item \textbf{Visual Homography Code}\\
+ The Visual Homography Code that was developed last year for the UAV Landing Project has been reviewed. The program successfully builds and much of it is likely to be reused towards providing the landing algorithm. The code can be found \href{https://github.com/SDSMT-CSC464-F15/landingpad/tree/master/2014-2015/led}{here} in the repository. The code requires that OpenCV has been installed. A cmake file is contained within the directory, so that after running cmake and make the program can be run by ./tracker. The tracker is looking for RGB blobs, so it may be better for testing to have some primary colors about to test. This program is currently providing correct distance in centimeters. 
+\item \textbf{Simulation} \\
+To test our landing algorithms in simulation, it would be very useful to have something that approximates the Pixhawk flight controller to communicate with for the purpose of supplying instructions to the controller, as well as receiving flight data. The PX4 development team have provided both Software-In-The-Loop and Hardware-In-The-Loop simulation environments. This will require Linux 14.04, ROS Distro Indigo or Jade, and the installation of a few repositories. These are detailed well in the setup document provided by the group \href{https://pixhawk.org/dev/ros/sitl#px4_ros_sitl_setup}{here}. However, \textbf{catkin\_ make} command did not build the meta-package correctly, as detailed in the instructions. Rather, \textbf{catkin build} will build the meta-package properly and the simulation will run with the assistance of an XBox controller (PS controllers will not work).
+ \item \textbf{Ordering Parts} \\
+ Over the course of Sprint 2, the team met with our advisor and faculty for purpose of receiving funding to create a new UAV platform for this project. The team also met with members of the UAV team to receive assistance and guidance in purchasing hardware that would be compatible with UAV team hardware. In the event of a component not functioning, our team would be able to utilize a component from the UAV team. After building a parts list for a hexrotor, we received approval from faculty for our purchase. A complete order list will be detailed in the Prototype document.
+\end{itemize}
