@@ -1,0 +1,109 @@
+% !TEX root = sprints.tex
+\Large{\textbf{Team Overview}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Name}}
+\\Expeditus
+\\[3mm]
+\normalsize{\textbf{Members}}
+\\ Jonathan Dixon, Dylan Geyer, Steven Huerta, Christopher Smith
+\\[3mm]
+\normalsize{\textbf{Project Title}}
+\\ UAV Landing Pad
+\\[3mm]
+\normalsize{\textbf{Sponsor}}
+\\ Dr. Larry Pyeatt, SDSMT MCS
+\\[10mm]
+\Large{\textbf{Sponsor Overview}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Sponsor Description}}
+\\ The Math and Computer Science Department of South Dakota School of Mines and Technology, in addition to providing ABET certified education to students, conducts software-side robotics research including autonomy, navigation, and computer vision. 
+\\[3mm]
+\normalsize{\textbf{Sponsor Problem}}
+\\ The capability of UAVs to rapidly search a large area, especially one that is difficult to traverse by foot or vehicle, would be invaluable to operations such as search \& rescue. However, small UAVs have a very limited flight time. A system incorporating a UVG equipped with a landing pad that also serves as a charging station would allow the UAV to be delivered to areas of limited access. The UAV could then, being provided with waypoints by the user, autonomously take-off, and navigate through the waypoints. After moving through the waypoints, or when the UAV requires recharging, the UAV will return to the UVG and safely land in such a way that the charging unit can connect to the UAV.
+\\[3mm]
+\normalsize{\textbf{Sponsor Needs}}
+\begin{itemize}
+\item Ability to communicate waypoints to UAV.
+\item UAV can autonomously take-off.
+\item UAV can autonomously navigate through waypoints.
+\item UAV can autonomously navigate back to landing pad.
+\item UAV can autonomously land safely and with the correct orientation.
+\end{itemize}
+\vspace{6mm}
+\Large{\textbf{Project Overview}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Phase 1}}
+First phase will focus on finalizing the autonomous take-off and waypoint navigation by the UAV. Previous development will be reviewed, implemented, and tested. Simulation environment will be created for the purpose of testing landing algorithms. 
+\\[3mm]
+\normalsize{\textbf{Phase 2}}
+Second phase will focus on finalizing autonomous landing
+\\[10mm]
+\Large{\textbf{Project Environment}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Project Boundaries}}
+\begin{itemize}
+\item Project is constrained to the UAV autonomy problems of take-off, navigation, and landing. 
+\item Autonomous landing is constrained by fixed position landing platform with ideal operating conditions.
+\item Autonomous take-off is constrained by taking flight from a fixed position platform, with ideal operating conditions.
+\item Autonomous waypoint navigation is constrained by absence of obstacles, and operating with ideal operating conditions.
+\end{itemize}
+\vspace{3mm}
+\normalsize{\textbf{Project Context}}
+\begin{itemize}
+\item Project will utilize stable ROS distribution
+\item Project simulations will utilize Gazebo 6.+ \& ROS package Rviz
+\item Project will be developed in Linux environment compliant with ROS \& Gazebo 
+\end{itemize}
+\vspace{6mm}
+\Large{\textbf{Deliverables}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Phase 1}}
+\begin{itemize}
+\item Requirements documentation
+\item Overview documentation
+\end{itemize}
+\vspace{3mm}
+\normalsize{\textbf{Phase 2}}
+\begin{itemize}
+\item Project software
+\item Log
+\item Refence manual (software documentation)
+\item User documentation
+\item System design documentation
+\item Testing documentation
+\item Deployment documentation
+\end{itemize}
+\vspace{6mm}
+\Large{\textbf{Product Backlog}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Phase 1}}
+\begin{itemize}
+\item \textbf{O-1}: As an owner, I want the UAV to autonomously take-off from the landing pad
+\item \textbf{O-2}: As an owner, I want the UAV to autonomously navigate through a series of waypoints
+\end{itemize}
+\vspace{3mm}
+\normalsize{\textbf{Phase 2}}
+\begin{itemize}
+\item \textbf{U-1}: As a user, I want to communicate the waypoints to the UAV
+\item \textbf{O-3}: As an owner, I want the UAV to autonomously return to the location of the landing pad
+\item \textbf{O-4}: As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft
+\item \textbf{O-5}: As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation
+\end{itemize}
+\vspace{6mm}
+\Large{\textbf{Sprint Report}}
+\\[-3mm]\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\normalsize{\textbf{Completed Tasks}}
+\begin{itemize}
+\item Install Ubuntu 14.04 or some other ROS Indigo/Jade distro compliant OS.
+\item Setup Gazebo 6.+
+\item Download Rviz package
+\item Review previous iteration of project documentation
+\item Inspect current quadrotor configuration
+\item Identify parts needed for quadrotor
+\end{itemize}
+\vspace{3mm}
+\normalsize{\textbf{Tasks Carried to Next Sprint}}
+\begin{itemize}
+\item Acquire parts needed for quadrotor
+\end{itemize}
+\vspace{6mm}
