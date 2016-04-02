@@ -1,22 +1,39 @@
 <launch>
 
-    <node pkg="tf" type="static_transform_publisher" name="mav_to_camera" 
-    args="0.0 0.0 0.0 0.0 0.0 0.0 camera head_camera 10" />
+    <node pkg="tf" type="static_transform_publisher" name="world_to_camera" 
+    args="0.0 0.0 0.0 0.0 0.0 0.0 world camera 10" />
 
-    <node ns="camera" pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-	    <param name="video_device" type="string" value="/dev/video0"/>
-	    <param name="image_width" type="int" value="1280" />
-	    <param name="image_height" type="int" value="720" />
-	    <param name="pixel_format" type="string" value="yuyv"/>
-	    <param name="frame" value="camera" />
-    </node>
+    <group ns="camera">
+        <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
+    	    <param name="video_device" type="string" value="/dev/video0"/>
+    	    <param name="image_width" type="int" value="640" />
+    	    <param name="image_height" type="int" value="480" />
+    	    <param name="pixel_format" type="string" value="yuyv"/>
+    	    <param name="camera_frame_id" value="camera" />
+        </node>
+
+        <node name="proc" pkg="image_proc" type="image_proc" args="">
+            <remap from="image_raw" to="usb_cam/image_raw"/>
+            <remap from="camera_info" to="usb_cam/camera_info"/>
+        </node>
+     
+        <node name="camera_output" pkg="image_view" type="image_view" respawn="false" output="screen">
+                <remap from="image" to="usb_cam/image_raw"/>
+                <param name="autosize" value="true" />
+        </node>
+
+        <node name="image_proc_output" pkg="image_view" type="image_view" respawn="false" output="screen">
+                    <remap from="image" to="image_mono"/>
+                    <param name="autosize" value="true" />
+        </node>
+    </group>
 
     <arg name="marker_size" default="12.7" />
     <arg name="max_new_marker_error" default="0.08" />
     <arg name="max_track_error" default="0.2" />
     <arg name="cam_image_topic" default="camera/usb_cam/image_raw" />
     <arg name="cam_info_topic" default="camera/usb_cam/camera_info" />
-    <arg name="output_frame" default="head_camera" />
+    <arg name="output_frame" default="/camera" />
 
     <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen" args="$(arg marker_size) $(arg max_new_marker_error) $(arg max_track_error) $(arg cam_image_topic) $(arg cam_info_topic) $(arg output_frame)" />
 
