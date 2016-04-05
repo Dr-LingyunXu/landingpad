@@ -1,38 +1,71 @@
-% !TEX root = DesignDocument.tex
-
+% !TEX root = SystemTemplate.tex
 
 \chapter{System  and Unit Testing}
 
 This section describes the approach taken with regard to system and unit testing. 
 
 \section{Overview}
-Provides a brief overview of the testing approach, testing frameworks, and general 
-how testing is/will be done to provide a measure of success for the system. 
-
-Each requirement (user story component) should be tested.    A review of objectives and
-constraints might be needed here.  
+The testing approach for this project was a bit different from traditional software testing. We did not have an automated testing framework to run unit tests or regression tests, instead we verified visually when a piece of the project was behaving as expected. This project used many off the shelf hardware and software products where testing the functionality of these pieces has already been done by the manufacturer of that technology. The tests described below allowed us to evaluate whether or not the different subsystems of the UAV were functioning correctly.
 
 \section{Dependencies}
-Describe the basic dependencies which should include unit testing frameworks and 
-reference material. 
+There were no testing frameworks used for this project. All testing was verified manually.
 
 
 \section{Test Setup and Execution}
-Describe how test cases were developed, setup, and executed.  This section can 
-be extremely involved if a complete list of test cases was warranted for the system.   One 
-approach is to list each requirement, module, or component and describe the test.
+\subsection{Testing: U-1}
+\textbf{As a user, I want to communicate the waypoints to the UAV.}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Task No. & Task & Test\\\hline
+	3 & Modify mission communication implementation as necessary & User is able to create mission file with ground control station.\\\hline
+	3 & Modify mission communication implementation as necessary & User is able to load mission file on offboard(ODroid).\\\hline
+	3 & Modify mission communication implementation as necessary & Landing Algorithm on offboard starts after completing last mission.\\\hline
+	
+\end{tabular}
 
-The unit tests are described here.
+\subsection{Testing: O-1}
+\textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Task No. & Task & Testing\\\hline
+	3 & Modify/Rewrite take-off implementation as necessary
+ & FCU recieves take-off mission from mission from offboard control.\\\hline	
+	3 & Modify/Rewrite take-off implementation as necessary
+ & FCU executes take-off mission.\\\hline	
+\end{tabular}
 
-\section{System Testing}
+\subsection{Testing: O-2}
+\textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Task No. & Task & Test\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU receives navigation missions from offboard control.\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU executes navigation in sequence.\\\hline
+	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU follows, reasonably, the planned navigation.\\\hline
+\end{tabular}
 
-\section{System Integration Analysis}
+\subsection{Testing: O-3}
+\textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Task No. & Task & Test\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU receives last navigation mission from offboard control.\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU executes navigation mission.\\\hline
+	3 & Modify navigate to landing waypoint implementation as necessary & FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\\hline
+\end{tabular}
 
-\section{Risk Analysis}
+\subsection{Testing: O-4}
+\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
+	Task No. & Task & Test \\\hline
+	4 & Modify landing pose implementation as necessary & UAV accurately estimates pose of AR tag\\\hline
+	4 & Modify landing pose implementation as necessary & UAV centers over AR tag within (\textless 0.1m).\\\hline
+	4 & Modify landing pose implementation as necessary & The UAV remains centered during descent within (\textless 0.1m).\\\hline
+	4 & Modify landing pose implementation as necessary & The UAV lands without damaging craft or legs.\\\hline
+\end{tabular}
 
-\subsection{Risk Mitigation}
-
-\section{Successes, Issues and Problems}
-
-\subsection{Changes to the Backlog}
+\subsection{Testing: O-5}
+\textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}\\
+\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
+	Task No. & Task & Test \\\hline
+		4 & Modify landing orientation implementation as necessary & UAV accurately estimates the orientation of AR tag\\ \hline
+		4 & Modify landing orientation implementation as necessary & UAV changes orientation to align with AR tag, within 15$\deg$ \\ \hline
+		4 & Modify landing orientation implementation as necessary & UAV maintains correct orientation during descent within 15$\deg$ \\ \hline
+\end{tabular}
 

@@ -1,113 +1,177 @@
 % !TEX root = DesignDocument.tex
-
-\chapter{User Stories,  Requirements, and Product Backlog}
+\chapter{User Stories, Backlog and Requirements}
 \section{Overview}
+%The overview should take the form of an executive summary.  Give the reader a feel 
+%for the purpose of the document, what is contained in the document, and an idea 
+%of the purpose for the system or product. 
 
+% The userstories 
+%are provided by the stakeholders.  You will create he backlogs and the requirements, and document here.  
+%This chapter should contain 
+%details about each of the requirements and how the requirements are or will be 
+%satisfied in the design and implementation of the system.
 
-The overview should take the form of an executive summary.  Give the reader a feel 
-for the purpose of the document, what is contained in the document, and an idea 
-of the purpose for the system or product. 
-
- The user stories 
-are provided by the stakeholders.  You will create he backlogs and the requirements, and document here.  
-This chapter should contain 
-details about each of the requirements and how the requirements are or will be 
-satisfied in the design and implementation of the system.
-
-Below:   list, describe, and define the requirements in this chapter.  
-There could be any number of sub-sections to help provide the necessary level of 
-detail. 
-
-
-
-
-\section{User Stories}
-This section can really be seen as the guts of the document.  This section should 
-be the result of discussions with the stakeholders with regard to the actual functional 
-requirements of the software.  It is the user stories that will be used in the 
-work breakdown structure to build tasks to fill the product backlog for implementation 
-through the sprints.
-
-This section should contain sub-sections to define and potentially provide a breakdown 
-of larger user stories into smaller user stories.   Each component must have a test identified, 
-meaning you need to know how you plan to test it.  If a requirement is not testable, then 
-some justification needs to be made on why the requirement has been included.  
- The results of the tests should go in the testing chapter. 
+%Below:   list, describe, and define the requirements in this chapter.  
+%There could be any number of sub-sections to help provide the necessary level of 
+%detail. 
+This section details the requirements(defined by the user stories) that set the goals, and subsequent tasks, of the project. This document will provide a more detailed view of the user stories. Additionally, this document will describe the client and developers more thoroughly.\\
 
 
 
-\subsection{User Story \#1}
-User story \#1 discussed. 
 
-\subsubsection{User Story \#1 Breakdown}
-Does the first user story need some division into smaller, consumable parts by 
-the reader?  This does not need to go to the level of actual task definition and 
-may not be required. 
+\subsection{Scope}
+This section includes the client information, user stories, and requirements. \\
 
-\subsection{User Story \#2} 
-
-\subsubsection{User Story \#2 Breakdown}
-User story \#2  .... 
-
-\subsection{User Story \#3} 
-
-\subsubsection{User Story \#3 Breakdown}
-User story \#3  .... 
+%What scope does this document cover?  This document would contain stakeholder information, 
+%initial user stories, requirements, proof of concept results, and various research 
+%task results. 
 
 
+
+\subsection{Purpose of the System}
+The purpose of this project is to provide a prototype of implementing autonomous navigation and landing on a UAV platform. This project is a proof of concept, concentrating on landing algorithm approaches that will provide minimal error in terms of distance and orientation when landing. Ultimately, this technology will be integrated into the larger project where the UAV is capable of launching from an Unmanned Ground Vehicle(UVG), navigate in mild weather conditions, return, and land to recharge.\\
+
+
+\section{ Stakeholder Information}
+The Math and Computer Science Department of South Dakota School of Mines and Technology, in addi-
+tion to providing ABET certified education to students, conducts software-side robotics research including
+autonomy, navigation, and computer vision. Dr. Pyeatt is representing the school as the project sponsor, advisor, and project owner.\\
+
+
+\subsection{Customer or End User (Product Owner)}
+Dr. Pyeatt, representing the school, has articulated the project requirements. The team has used these requirements to create user stories as a means to factor the project into work products that can be more easily tracked. Dr. Pyeatt will provide feedback, as the project owner, to the team.\\ 
+
+\subsection{Management or Instructor (Scrum Master)}
+Dr. Pyeatt, as previously mentioned, is also the team's advisor. Dr. Pyeatt will provide the team with experience and expertise to assist the team with project development. Dr. Pyeatt assistance also includes providing feedback on approaches taken by the team, as well as providing recommendations. Dr. Pyeatt regularly attends weekly meeting, and has provided very liberal access for consultation outside of meetings.\\
+
+
+\subsection{Investors}
+The South Dakota School of Mines and Technology are the sole investors in this project.\\
+
+%Are there any?  Who?  What role will they play? 
+
+
+\subsection{Developers --Testers}
+All team members will serve as developers, designers, and testers. Team members will initially be divided up to concentrate in areas of the project that are required. As the project progresses and development needs change, team members will be reassigned to other project areas. Team member assignments are:
+\begin{itemize}
+\item \textbf{Christopher Smith:} Simulation, AI Landing
+\item \textbf{Steven Huerta:} Simulation, AI Landing
+\item \textbf{Dylan Geyer:} UAV Build
+\item \textbf{Jonathan Dixon:} Visual Homography Landing
+\end{itemize}
+%Who?  Is there a defined project manager, developer, tester, designer, architect, 
+%etc.? 
+\noindent The team 
+
+%\section{Business Need}
+%Use this section to define what business need exist and how this software will 
+%meet and/or exceed that business need.   
 
 \section{Requirements and Design Constraints}
-Use this section to discuss what requirements exist that deal with meeting the 
-business need.  These requirements might equate to design constraints which can 
-take the form of system, network, and/or user constraints.  Examples:  Windows 
-Server only, iOS only, slow network constraints, or no offline, local storage capabilities. 
-
-
-\subsection{System  Requirements}
-What are they?  How will they impact the potential design?  Are there alternatives? 
-
-
-\subsection{Network Requirements}
-What are they? 
-
-
-\subsection{Development Environment Requirements}
-What are they?  Is the system supposed to be cross-platform? 
-
-\subsection{Project  Management Methodology}
-The stakeholders might restrict how the project implementation will be managed. 
- There may be constraints on when design meetings will take place.  There might 
-be restrictions on how often progress reports need to be provided and to whom. 
-
-
-\section{Specifications}
-Any specifications that need to be understood?  Put it here.  
-
-\section{Product Backlog}
-The full product backlog should go here.  The sprint backlogs are located in the project chapter.
-
- 
+%Use this section to discuss what requirements exist that deal with meeting the 
+%business need.  These requirements might equate to design constraints which can 
+%take the form of system, network, and/or user constraints.  Examples:  Windows 
+%Server only, iOS only, slow network constraints, or no offline, local storage capabilities. 
+The requirements for this project are:
 \begin{itemize}
-\item What system will be used to keep track of the backlogs and sprint status?
-\item Will all parties have access to the Sprint and Product Backlogs?
-\item How many Sprints will encompass this particular project?
-\item How long are the Sprint Cycles?
-\item Are there restrictions on source control? 
+\item Ability to communicate waypoints to UAV.
+\item UAV can autonomously take-off.
+\item UAV can autonomously navigate through waypoints.
+\item UAV can autonomously navigate back to landing pad.
+\item UAV can autonomously land safely and with the correct orientation.
 \end{itemize}
 
+The only client defined constraint on this project is funding. We have limited funds, around \$1,000, to complete this project. However, more funds may become available depending on need and funding sources. Otherwise, this project does not have hard constraints set by the client, but rather are informed as a consequence of our design decisions.\\
 
-\section{Research or Proof of Concept Results}
-This section is reserved for the discussion centered on any research that needed 
-to take place before full system design.  The research efforts may have led to 
-the need to actually provide a proof of concept for approval by the stakeholders. 
- The proof of concept might even go to the extent of a user interface design or 
-mockups. 
+\subsection{System  Requirements}
+%What are they?  How will they impact the potential design?  Are there alternatives? 
+The Pixhawk was selected as the flight controller for this project because of its built-in autonomy and open-source communication protocol, Mavlink, that will allow the team to use for message passing. \\
+
+The ODroid was selected as the single board processor because of its processing power. The team will be running a ROS environment on Ubuntu 14.04. This eliminated a great number of boards from being candidates. The ODroid XU4 provides the power needed to run the environment without greatly impacting our project budget.\\ 
+
+\subsection{Network Requirements}
+%What are they? 
+There are no network requirements for this project in regards to implementation.\\
+
+\subsection{Development Environment Requirements}
+%What are they?  Is the system supposed to be cross-platform? 
+Development environment is Ubuntu 14.04. This is required because of our use of ROS. ROS distros Indigo/Jade require Ubuntu 14.04. The system will not be further developed to be cross-platform. As the purpose of this project is to provide a proof of concept, and there is not reliable Windows or Mac support for ROS, it would not be a responsible or worthwhile effort in producing cross-platform compatibility.\\
+
+\subsection{Project  Management Methodology}
+%The stakeholders might restrict how the project implementation will be managed. 
+% There may be constraints on when design meetings will take place.  There might 
+%be restrictions on how often progress reports need to be provided and to whom. 
+% 
+%\begin{itemize}
+%\item What system will be used to keep track of the backlogs and sprint status?
+%\item Will all parties have access to the Sprint and Product Backlogs?
+%\item How many Sprints will encompass this particular project?
+%\item How long are the Sprint Cycles?
+%\item Are there restrictions on source control? 
+%\end{itemize}
+
+The team has elected to use Trello to keep track of backlogs and tasks. All team members have access to the trello web application. The Trello board is populated with a backlog representing the user stories. Each of these user stories will factor into a series of tasks that will be assigned at the beginning of each sprint.\\
+
+This project will encompass a total of six sprints. Each sprint will span three weeks. Each semester will correspond with a phase, made up of three sprints. There will typically be a period of a week between each sprint, where a sprint report and prototypes will be made available for review.\\
+
+The code and documentation for the project is maintained on github within a project repository. All team members, sponsor/advisor, and course instructor will have access to the repository. The agreed upon use of the repository is for team members to branch the repo to make changes as they are working on their functional area. When that team member is ready to integrate that branch back into the master, the team will conduct a code review. Each team member must be able to provide feedback before a merge can occur. The exception to this is documentation. Documentation may be merged as needed, so long as the team member has taken appropriate steps to ensure that the documentation is still in a function state after merging.\\
+
+\section{User Stories}
+
+\subsection{User Story \#1}
+\textbf{User-1:} As a user, I want to communicate the waypoints to the UAV.
+
+\subsubsection{User Story \#1 Breakdown}
+The user will require some means of supplying waypoints and other mission parameters to the UAV. The team needs to explore possible approaches, as well as look at last year's attempt. \\
+%Does the first user story need some division into smaller, consumable parts by 
+%the reader?  This does not need to go to the level of actual task definition and 
+%may not be required. 
+
+\subsection{User Story \#2} 
+\textbf{Owner-1:} As an owner, I want the UAV to autonomously take-off from the landing pad.
+
+\subsubsection{User Story \#2 Breakdown}
+The UAV will need to operate autonomously for the duration of the demonstration, to include take-off. The team will need to explore possible approaches, and refer to last year's attempt if possible. After some research, the team will need to implement this functionality. The team understands that this functionality will be gained through the use of the autonomy supplied with the flight controller, however the team needs to interface with the flight controller to enable that autonomy. \\
+
+\subsection{User Story \#3} 
+\textbf{Owner-2:} As an owner, I want the UAV to autonomously navigate through a series of waypoints.
+
+\subsubsection{User Story \#3 Breakdown}
+The UAV will need to be able to navigate through a series of waypoints defined ahead of time by the user. The team will need to explore possible approaches and refer to last year's attempt. The team will then need to implement this functionality. The team understands that this functionality is supplied with the flight controller. However, the team will still need to find a way to enable this functionality.\\
+
+\subsection{User Story \#4} 
+\textbf{Owner-3:} As an owner, I want the UAV to autonomously return to the location of the landing pad.
+
+\subsubsection{User Story \#4 Breakdown}
+The UAV will need to return the landing pad. Naively, this will occur after visiting the waypoints, however, there are other conditions that may necessitate the need to return to the landing pad such as finding the object of interest or running low on power. The team plans to address the first case (return after visiting all waypoints). Extension to this item may be addressed if the team completes the project with sufficient time remaining.\\ 
 
 
-\section{Supporting Material}
+\subsection{User Story \#5} 
+\textbf{Owner-4:} As an owner, I want the UAV to autonomously land on the landing pad without damaging the
+craft
+
+\subsubsection{User Story \#5 Breakdown}
+The UAV will need to land on the landing pad with $\pm$.1m distance error. The team will explore visual homography and AI approaches. Each approach will have the goal of moving the UAV to the landing pad.\\ 
 
 
-This document might contain references or supporting material which should be documented 
-and discussed  either here if appropriate or more often in the appendices at the end.  This material may have been provided by the stakeholders  
-or it may be material garnered from research tasks.
+\subsection{User Story \#6} 
+\textbf{Owner-5:} As an owner, I want the UAV to autonomously land on the landing pad with the correct orienta-
+tion
+
+\subsubsection{User Story \#6 Breakdown}
+Building from the previous user story, the UAV will need to land with the correct orientation. Each of the previously mentioned algorithms will require that the UAV lands with $\pm$15$^{\circ}$ of correct orientation. However, the final project may see the fusion of different approaches to achieve the desired result. \\
+
+
+%\section{Research or Proof of Concept Results}
+%This section is reserved for the discussion centered on any research that needed 
+%to take place before full system design.  The research efforts may have led to 
+%the need to actually provide a proof of concept for approval by the stakeholders. 
+%The proof of concept might even go to the extent of a user interface design or 
+%mockups. 
+
+
+%\section{Supporting Material}
+%This document might contain references or supporting material which should be documented 
+%and discussed  either here if appropriate or more often in the appendices at the end.  This material may have been provided by the %stakeholders  
+%or it may be material garnered from research tasks.
 

@@ -2,106 +2,71 @@
 
 
 \chapter{Project Overview}
-This section provides some housekeeping type of information with regard to the 
-team, project, environment, etc. 
+This section provides an overview of project management and a brief overview of the phases of the project.
 
 
 
-\section{Team Member's Roles}
-Describe who was involved and what role(s) were played. 
+\section{Team Members and Roles}
+Team members and assigned roles:
+\begin{itemize}
+\item \textbf{Steven Huerta} - Team Lead, Simulation, AI Landing
+\item \textbf{Christopher Smith} - Simulation, AI Landing
+\item \textbf{Jonathan Dixon} - Visual Homography Landing
+\item \textbf{Julian Brackins} - Visual Homography Landing
+\item \textbf{Dylan Geyer} - UAV Build, Visual Homography Landing
+\end{itemize}
+
+\noindent Role assignments:
+\begin{itemize}
+\item \textbf{UAV Build} - Responsible for the physical assembly of the hexrotor, including wiring and mounting of hardware on the UAV.
+\item \textbf{Visual Homography Landing} - Responsible for the development of an algorithm to calculate the distance and direction to the center of the landing pad. 
+\item \textbf{AI Landing} - Responsible for the development of a landing algorithm utilizing an AI approach such as a neural net.
+\item \textbf{Simulation} - Responsible for the development of a test environment wherein a simulated hexrotor utilizes the developed landing algorithms to evaluate the fitness of the landing algorithm.  
+\end{itemize}
+
 
 
 \section{Project  Management Approach}
-This section will provide an explanation of the basic approach to managing the 
-project.  Typically, this would detail how the project will be managed through 
-a given Agile methodology.  The sprint length (i.e. 2 weeks) and product backlog 
-ownership and location (ex. Trello) are examples of what will be discussed.  An 
-overview of the system used to track sprint tasks, bug or trouble tickets, and 
-user stories would be warranted. 
+This project is managed through the Agile framework. The sprints are three weeks with a one week pause between for evaluation and plan adaptation before the next sprint. Sprints 1, 2, and 3 comprise Phase 1. Sprints 4, 5, and 6 comprise Phase 2. Requirements for the project were collected by interviewing the client to form a set of user stories. These user stories provide a backlog managed on Trello. The user stories for this project represent composition of several tasks. Tasks are factored from the user stories and assigned to team members as that task relates to the project. These task assignments and their progress are managed on Trello. Issues and troubleshooting is handled through email and team meetings. The team division of work is to limit the dependencies between team members, so that issues encountered by one team member does not impact the progress of other team members. Tasks are sometimes added, altered, or removed so as to reflect a better size-up of the backlog item.
 
 
-\section{ Stakeholder Information}
+
+%This section will provide an explanation of the basic approach to managing the 
+%project.  Typically, this would detail how the project will be managed through 
+%a given Agile methodology.  The sprint length (i.e. 2 weeks) and product backlog 
+%ownership and location (ex. Trello) are examples of what will be discussed.  An 
+%overview of the system used to track sprint tasks, bug or trouble tickets, and 
+%user stories would be warranted. 
 
 
-This section would provide the basic description of all of the stakeholders for 
-the project.  Who has an interest in the successful and/or unsuccessful completion 
-of this project? 
+\section{Phase  Overview}
+\normalsize{\textbf{Phase 1}}
+\begin{itemize}
+\item \textbf{O-1}: As an owner, I want the UAV to autonomously take-off from the landing pad.
+\item \textbf{O-2}: As an owner, I want the UAV to autonomously navigate through a series of waypoints.
+\end{itemize}
 
+\vspace{3mm}
+\noindent\normalsize{\textbf{Phase 2}}
+\begin{itemize}
+\item \textbf{U-1}: As a user, I want to communicate the waypoints to the UAV.
+\item \textbf{O-3}: As an owner, I want the UAV to autonomously return to the location of the landing pad.
+\item \textbf{O-4}: As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft.
+\item \textbf{O-5}: As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.
+\end{itemize}
 
-\subsection{Customer or End User (Product Owner)}
-Who?  What role will they play in the project?  Will this person or group manage 
-and prioritize the product backlog?  Who will they interact with on the team to 
-drive product backlog priorities if not done directly? 
-
-\subsection{Management or Instructor (Scrum Master)}
-Who?  What role will they play in the project?  Will the Scrum Master drive the 
-Sprint Meetings? 
-
-
-\subsection{Investors}
-Are there any?  Who?  What role will they play? 
-
-
-\subsection{Developers --Testers}
-Who?  Is there a defined project manager, developer, tester, designer, architect, 
-etc.? 
-
-\section{Budget}
-Describe the budget for the project including gifted equipment and salaries for 
-people on the project.
-
-\section{Intellectual Property and Licensing}
-Describe the IP ownership and issues surrounding IP.
-
-\section{Sprint  Overview}
-If the system will be implemented in phases, describe those phases/sub-phases (design, 
-implementation, testing, delivery) and the various milestones in this section. 
- This section should also contain a correlation between the phases of development 
-and the associated versioning of the system, i.e. major version, minor version, 
-revision. 
-
-All of the Agile decisions are listed here.  For example, how do you order your backlog?   
-Did you use planning poker?   
+%If the system will be implemented in phases, describe those phases/sub-phases (design, 
+%implementation, testing, delivery) and the various milestones in this section. 
+% This section should also contain a correlation between the phases of development 
+%and the associated versioning of the system, i.e. major version, minor version, 
+%revision. 
 
 \section{Terminology and Acronyms}
-Provide a list of terms used in the document that warrant definition.  Consider 
-industry or domain specific terms and acronyms as well as system specific. 
-
-\section{Sprint Schedule}
-The sprint schedule.  Can be tables or graphs.   This can be a list of dates with the visual 
-representation given below.
-
-\section{Timeline}
-Gantt chart or other type of visual representation of the project timeline.
-
-\section{Backlogs}
-Place the sprint backlogs here.    The product backlog will be in the chapter with the user 
-stories.
-
-\section{Burndown Charts}
-Place your burndown charts, team velocity information, etc here.   
-
-
-\section{Development Environment}
-The basic purpose for this section is to give a developer all of the necessary 
-information to setup their development environment to run, test, and/or develop. 
-
-
-\section{Development IDE and Tools}
-Describe which IDE and provide links to installs and/or reference material. 
-
-\section{Source  Control}
-Which source control system is/was used?  How was it setup?  How does a developer 
-connect to it? 
-
-\section{Dependencies}
-Describe all dependencies associated with developing the system. 
-
-\section{Build  Environment}
-How are the packages built?  Are there build scripts? 
-
-\section{Development Machine Setup}
-If warranted, provide a list of steps and details associated with setting up a 
-machine for use by a developer. 
-
-
+\begin{itemize}
+\item FCU - Flight Control Unit
+\item ROS - Robot Operating System
+\item GCS - Ground Conrol Station
+\item UAV - Unmanned Aerial Vehicle
+\end{itemize}
+%Provide a list of terms used in the document that warrant definition.  Consider 
+%industry or domain specific terms and acronyms as well as system specific. 
