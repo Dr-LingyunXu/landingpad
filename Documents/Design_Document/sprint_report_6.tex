@@ -1,0 +1,57 @@
+% "!TEX root = sprints.tex"
+\noindent \large{\textbf{Summary}}\\
+\normalsize Team Expeditus was unable to succeed in completing the project with the conclusion of Sprint 6. The last deliverable of this project was the autonomous landing. While the team developed a method for finding the landing pad ad communicating movements to the flight controllers, 
+\vspace{5mm}
+\\
+\noindent \Large{\textbf{Team Work}}
+\normalsize
+\begin{itemize}
+\item \textbf{Jonathan Dixon:} Worked on documentation.
+\item \textbf{Dylan Geyer:} Worked on documentation.
+\item \textbf{Christopher Smith:} Worked on UAV localization.
+\item \textbf{Steven Huerta:} Worked on UAV localization. 
+\end{itemize}
+
+\vspace{5mm}
+\noindent \Large{\textbf{Uncompleted Tasks}}\\
+\vspace{2mm}\\
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}}
+\normalsize
+\begin{itemize}
+\item \textbf{Modify/Rewrite implementation as necessary}\\
+To achieve this task, the team required the UAV to localize itself as soon as it entered offboard control by the ODroid. The purpose of this was to overcome the very poor flight controller data that the team was encountering when conducting initial tests of offboard control. Localization using the GPS and IMU data alone can result in poor estimations of distance travelled, particularly when obstacles to GPS are nearby. While our team was not intending to ensure stability of our landing in GPS denied or poor environments, we felt that this was necessary after poor localization estimates while testing outdoors in relatively unobstructed areas.\par 
+The method for localization follows documentation found at \href{https://pixhawk.org/dev/ros/visual_estimation}{\textbf{Visual Position Estimation}}. This involves the installation of some ROS packages to estimate the position by fusing IMU data with visual odometry. Below is a brief description of the two largest components of this approach.
+\begin{itemize}
+\item \textbf{Visual Odometry}\\
+The Visual Odometry package is an implementation of the fast semi-direct monocular visual odometery algorithm. This method is particularly advantageous as it overcomes the problem of high computation needs associated with SIFT/SURF based feature detection/matching. Features are extracted from the initial image and compared with features extracted in the next sequential image. Features that are matched between images can be compared for relative motion. Unlike Stereo Visual Odometry, Monocular VO provides relative (unitless) distances without calibration.\par 
+The work done by the team previously required the calibration of the camera for the use of AR\_Track\_Alvar. The information in this calibration file needed to be be extracted and placed into another calibration file specifically for the purpose of SVO. Both packages use very different formats for reading in the calibration. After this step, SVO was tested and found the pose estimation to be extremely sensitive to movement. It was so sensitive that simple movements that mostly consist of translation (althouth there was some minor rotation, skewing, and scaling) would cause the pose estimation to drop due to a failure of successful feature matching.\par 
+There was some improvement made by experimenting with different values such as dropping the number of inliers needed, as well as raising the tolerance on pixel distance for the feature distance error. Additionally, for the Point Grey camera, the shutter speed was greatly reduced, as well as increasing and decreasing frames per second. None of these methods produced results similar to those shared by the developers. The likely culprit is the camera. Both a low-end webcam and the Point Grey camera were tested by our group. Another point of weakness of the cameras used is that both have external methods of focusing the camera. As a result, bumping the camera may result in a change in focus. The developers recommend a PS3 Eye because of its resolution and frame rate. It would be appropriate to acquire this or a similar camera to continue this project.
+\item \textbf{Sensor Fusion}\\
+Sensor fusion seemed to be successful. When moving the camera very slowly, so as not to break the VO, the pose information seemed to be appropriate. However, when the VO did break, the IMU would become the largest contributor to the sensor readings. This would result in very poor estimates of the pose of the UAV. This results underlines the importance of achieving a robust VO measurement, so that pose estimates will remain relatively constant and make the landing of the UAV possible.
+\end{itemize}
+
+\end{itemize}
+
+
+
+\vspace{3mm}
+\noindent \large{\textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}}
+\normalsize
+\begin{itemize}
+\item \textbf{Modify/Rewrite implementation as necessary}\\
+As mentioned in the previous section, our team has not completed the tasks relating to the landing, which are dependent on:
+\begin{itemize}
+\item Estimate of Pose
+\item Providing the commands to the flight controller to move the UAV to the landing pad.
+\end{itemize}
+AR\_TRACK\_ALVAR will provide estimation of the orientation of the AR tag relative to the camera. This will be used to correct the orientation of the craft. As message passing from and to the flight controller is solved through the use of MavROS, the team will now concentrate its efforts to correct issues offboard movement control. This, as mentioned previously, is the result of insufficient information for the flight controller to estimate its position.
+\end{itemize}
+
+
+\begin{thebibliography}{9}
+\bibitem{SVO} 
+Forster, Christian and Pizzoli, Matia and Scaramuzza, Davide
+\textit{SVO: Fast Semi-Direct Monocular Visual Odometry}. 
+IEEE International Conference on Robotics and Automation (ICRA), 2014
+\end{thebibliography}
+ 
