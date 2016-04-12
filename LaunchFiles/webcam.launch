@@ -4,6 +4,7 @@
     args="0.0 0.0 0.0 0.0 0.0 0.0 world camera 10" />
 
     <group ns="camera">
+
         <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
     	    <param name="video_device" type="string" value="/dev/video0"/>
     	    <param name="image_width" type="int" value="640" />
