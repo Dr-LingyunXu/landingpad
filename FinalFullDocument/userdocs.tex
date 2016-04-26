@@ -19,7 +19,80 @@ The source for the user guide can go here.    You have some options for how to h
 
 %% \newpage  %%  if needed ...
 \section{Installation Guide}
-\input{environment_setup.tex}
+The following two sections will go through the set up of a laptop or desktop as a workstation and the odroid that will be attached to the UAV.
+\subsection{Setting Up a Workstation}
+To set up the workstation the first thing that is required is a computer with \href{http://www.ubuntu.com/download/desktop}{Ubuntu} 14.04 Long Term Support(LTS) installed as the operating system. 
+\subsubsection{Dependencies}
+Once a Ubuntu machine is acquired make sure git and cmake are installed by running the follwoing commands: 
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install git
+$ sudo apt-get install cmake
+\end{lstlisting}
+Then create the following two directories:
+\begin{lstlisting}[language=bash]
+$ mkdir -p catkin_ws/src cmake_ws
+\end{lstlisting}
+These directories will be used to manage the libraries and software required by the UAV. The cmake\_ws will contain the source of the libraries required by a semi-direct monocular visual odometry pipeline package in ROS also known as SVO. The catkin\_ws directory will contain the source for SVO and other packages that will be written and downloaded for the UAV. Before any of the ROS packages can be installed the dependencies for SVO will need to be installed. \\
+\\
+The following commands will install Sophus which is required by SVO:
+\begin{lstlisting}[language=bash]
+$ cd cmake_ws
+$ git clone https://github.com/strasdat/Sophus.git
+$ cd Sophus
+$ git checkout a621ff
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+\end{lstlisting}
+The following commands will install Fast detector which is used by SVO to detect corners:
+\begin{lstlisting}[language=bash]
+$ cd cmake_ws
+$ git clone https://github.com/uzh-rpg/fast.git
+$ cd fast
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+\end{lstlisting}
+Once Sophus and Fast are installed the ROS packages can start to be installed to the system.
+\subsubsection{ROS}
+To install ROS refer to \url{http://wiki.ros.org/indigo/Installation/Ubuntu}. It will always have the most up to date installation instructions for installing ROS indigo onto Ubuntu. Everything has successfully worked under both indigo and jade versions of ROS. If ROS jade has reached EOL then indigo should be used. The commands and links are given with ros-indigo instead of ros-jade for this purpose.\\
+\\ 
+To install mavros, ar-track-alvar, and the camera driver the following commands needs to be executed:
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install ros-indigo-mavros*
+$ sudo apt-get install ros-indigo-ar-track alvar
+$ sudo apt-get install ros-indigo-pointgrey-camera-driver
+\end{lstlisting}
+In order to install ROS packages the catkin workspace will have to be initialized so that ROS libraries can be found for ROS packages that are written by a user or to compile source code. \\
+\\
+To initialize the catkin workspace execute the following:
+\begin{lstlisting}[language=bash]
+$ cd catkin_ws/src
+$ catkin_init_workspace
+$ cd ..
+$ catkin_make
+$ source devel/setup.bash
+\end{lstlisting}
+The source command above can be added to the .bashrc file in the home directory so the workspace doesn't have to be explicitly sourced. This will allow usage of packages compiled in this directory without having to remember to source it. \\
+\\
+Before SVO can be installed a ROS dependency vikit will need to be downloaded into the workspace alongside SVO.
+\begin{lstlisting}[language=bash]
+$ cd catkin_ws/src
+$ git clone https://github.com/uzh-rpg/rpg_vikit.git
+$ git clone https://github.com/uzh-rpg/rpg_svo.git
+$ cd ..
+$ catkin_make
+\end{lstlisting}
+\subsection{Setting Up the Odroid}
+To set up the odroid that will be attached to the UAV the instructions for burning an image can be found here \url{http://odroid.com/dokuwiki/doku.php?id=en:odroid_flashing_tools}. The image that is required is the same as the odroid xu3 found at \url{http://odroid.com/dokuwiki/doku.php?id=en:xu3_release_linux_ubuntu}. It will be less demanding on the odroid if the sever version of the xu3 is used instead a desktop variant. Also space will be saved since a user interface is not necessary to run the commands on the odroid.\\
+\\
+Once the odroid is booting properly connect it to a monitor or ssh into it through the network to complete the rest of the installation. Before installing anything run the following command in the console:
+\begin{lstlisting}[language=bash]
+$ export ARM_ARCHITECTURE=True
+\end{lstlisting}
+After the above command is run the instructions for creating the directories and compiling the cmake libraries will work just like the workstation. However, the link above for the ROS directions is for a laptop or desktop computer that will be running ROS. The directions change since the odroid is a single board computer that uses the ARM architecture. The instructions for this can be found on the ROS website at \url{http://wiki.ros.org/indigo/Installation/UbuntuARM}. The rest of the instructions in the workstation section can be followed once ROS is installed on the odroid.
 
 %% \newpage  %%  if needed ...
 \section{Programmer Manual}
