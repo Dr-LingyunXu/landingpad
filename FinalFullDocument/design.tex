@@ -42,6 +42,7 @@ The wpt\_pub node can currently publish mavros messages that contain take off, l
 \lstinputlisting[language=C++]{code/wpt_pub.cpp}
 \lstinputlisting[language=C++]{code/wpt_pub_node.cpp}
 
+\newpage
 \section{Landing Approaches}
 \subsection{Visual Homography}
 One of the approaches we will be using for the task of landing the UAV will be using visual homography. The basic goal here is to take an image that will contain the landing pad, and, based on the how the target looks on the pad, determine range to pad, orientation with respect to the pad, and the angle above the horizon with respect to the pad. This information will then be used to determine how to actually fly the UAV so that it will be able to safely land on the pad.
@@ -88,13 +89,13 @@ To accomplish the reinforcement learning approach we will be using gazebo and RO
 \end{itemize}
 \subsubsection{Phase Overview}
 The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$-greedy policy will be the algorithm of reinforcement learning that will be implemented. Currently ideas for using a 2-D state space are in the works with a vector field graient to be the actions to funnel the UAV into the center of a cone at a given height and radius. Because of the setbacks of the simulation no coding as been accomplished, but will be as soon as an environment is set up.
-\newpage
+
 \subsubsection{Design Details}
 \begin{algorithm} [h]                     % enter the algorithm environment
 \caption{Linear, gradient-descent Sarsa($\lambda$) with binary features and $\epsilon$-greedy policy}         
  % give the algorithm a caption
 \label{Sarsa}                           % and a label for \ref{} commands later in the document
-\begin{algorithmic}                    % enter the algorithmic environment
+\begin{algorithmic}                  % enter the algorithmic environment
     \STATE Initialize $\vec{\theta}$ arbitrily and $\vec{e} = \vec{0}$
     \FOR{Each Episode}
       \STATE $s \leftarrow$ initial state of episode
@@ -131,6 +132,7 @@ The Linear, gradient-descent Sarsa($lambda$) with binary features and $\epsilon$
 \end{algorithmic}
 \end{algorithm} 
 
+\newpage
 \section{UAV Build}
 This section details the physical building of the UAV that will be used in autonomous landing.
 \subsection{Technologies  Used}
@@ -149,7 +151,7 @@ Current documentation on the build progress made in Sprint 3 is shown below in o
 \includepdf[pages={1,2,3,4,5}]{../Documents/Prototypes/Sprint_3/BuildProcedure/BuildProcess.pdf}
 
 
-%\begin{algorithm} [tbh]                     % enter the algorithm environment
+%\begin{algorithm} [h]                     % enter the algorithm environment
 %\caption{Calculate $y = x^n$}          % give the algorithm a caption
 %\label{alg1}                           % and a label for \ref{} commands later in the document
 %\begin{algorithmic}                    % enter the algorithmic environment
@@ -197,3 +199,231 @@ Current documentation on the build progress made in Sprint 3 is shown below in o
 %}
 %\end{lstlisting}
 %This code listing is not floating or automatically numbered.  If you want auto-numbering, but it in the algorithm environment (not algorithmic however) shown above.
+
+\newpage
+\section{Software: ROS Vision}
+This section serves as an overview of the packages used to determine the landing pad, as well as estimate pose, by means of monocular vision. This description will include the packages, launch files, as well as other files needed to implement the AR tag tracking and pose estimation activities. This section is divided into sections covering the different portions of the ROS Vision build, as follows:
+\begin{itemize}
+\item Camera Operation
+\item Camera Calibration
+\item Image Processing
+\item AR Tag Tracking
+\item Pose Estimation
+\end{itemize}
+
+\subsection{Camera}
+\textbf{usb\_cam}: this ros package provides a method for bringing usb cameras into the ros environment. The node will publish an image topic. 
+
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item image width:
+\item image height:
+\item pixel\_format:
+\item io\_method:
+\item camera\_frame\_id:
+\item framerate:
+\item brightness:
+\item saturation:
+\item sharpness:
+\item autofocus:
+\item camera\_info\_url:
+\item camera\_name:
+\end{itemize}
+\item Published Topics
+\begin{itemize}
+\item /image - containing the sensor\_msgs/Image message
+\end{itemize}
+\item installation: sudo apt-get-install ros-jade-usb-cam
+\item Sample Launch File
+\lstset{language=XML}
+\begin{lstlisting}
+<launch>
+	<node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
+		<param name="video_device" type="string" value="/dev/video0"/>
+		<param name="image_width" type="int" value="640" />
+		<param name="image_height" type="int" value="480" />
+		<param name="pixel_format" type="string" value="yuyv"/>
+		<param name="camera_frame_id" value="camera" />
+	</node>
+</launch>
+\end{lstlisting}
+\end{itemize}
+
+
+
+ 
+\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item video\_mode:
+\item frame\_rate:  the camera speed in frames per second
+\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
+\item exposure: 
+\item auto\_shutter:
+\item auto\_gain:
+\item gain:
+\item pan:
+\item tilt:
+\item brightness:
+\item gamma:
+\item auto\_white\_balance:
+\item white\_balance\_blue:
+\item white\_balance\_red:
+\end{itemize}
+\item Published Topics
+\begin{itemize}
+\item /image - containing the sensor\_msgs/Image message
+\end{itemize}
+\item installation: sudo apt-get install ros-jade-pointgrey-camera-driver
+\item Usage:
+\lstset{language=XML}
+\begin{lstlisting}
+<launch>
+   <!-- Determine this using rosrun pointgrey_camera_driver list_cameras.
+       If not specified, defaults to first camera found. -->
+  <arg name="camera_serial" default="0" />
+  <arg name="calibrated" default="0" />
+
+  <group ns="camera">
+    <node pkg="nodelet" type="nodelet" name="camera_nodelet_manager" 
+     args="manager" />
+
+    <node pkg="nodelet" type="nodelet" name="camera_nodelet"
+          args="load pointgrey_camera_driver/PointGreyCameraNodelet 
+                camera_nodelet_manager" >
+      <param name="frame_id" value="camera" />
+      <param name="serial" value="$(arg camera_serial)" />
+
+      <!-- When unspecified, the driver will use the default framerate 
+           as given by the camera itself. Use this parameter to override
+           that value for cameras capable of other framerates. -->
+      <!-- <param name="frame_rate" value="15" /> -->
+      
+      <!-- Use the camera_calibration package to create this file -->
+      <param name="camera_info_url" if="$(arg calibrated)"
+             value="file://$(env HOME)/.ros/camera_info/
+                    $(arg camera_serial).yaml" />
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="image_proc_debayer"
+          args="load image_proc/debayer camera_nodelet_manager">
+    </node>
+  </group>
+</launch>
+\end{lstlisting}
+NOTE: This launch file is THE launch file provided by the repository, and will be available when you install this package. A few notes about what is occuring in this file before we go any further. The call for a camera calibration file will become clear in the next subsection. Additionally, this launch file is somewhat complicated by the use of nodelets which is a thing in ROS designed to reduce the complexity of the node networks in terms of communication. In the words of the ROS deities at \href{http://www.clearpathrobotics.com/guides/ros/Nodelet%20Everything.html}{Clear Path Robotics}
+\begin{quotation}
+The primary advantage is the automagic zero-copy transport between nodelets (in one nodelet manager). This means that the pointcloud created by a hardware driver doesn’t need to get copied or serialized before it hits your code, assuming you inject the nodelet into the camera’s manager, saving you time and trouble.
+
+You get all the modularity of nodes, and all the efficiency of having one monolithic process. This makes nodelets more flexible than bare plugins (via pluginlib) - you can implicitly tap into any of the intra-process communication that occurs.
+\end{quotation}
+We leave it to the reader to learn more about nodelets should that be a path that appears to offer substantial benefit. The team made modifications to this file that will be discussed in a later subsection.
+\end{itemize}
+
+\subsection{Camera Calibration}
+\noindent \textbf{camera\_calibration}: This package is used to calibrate both monocular and stereo cameras. The package has two functions, camera calibration and camera check. Camera check is to check the calibration of the camera. This may be a good idea to use after calibration is performed as an extra measure to ensure a good calibration was made by the calibration step. \par 
+
+\noindent Before starting, it is necessary to get a calibration board. For this calibration, a chess board image is required. The interior corner count and size of chess board square in meters is needed.
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item video\_mode:
+\item frame\_rate:  the camera speed in frames per second
+\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
+\item exposure: 
+\item auto\_shutter:
+\item auto\_gain:
+\item gain:
+\item pan:
+\item tilt:
+\item brightness:
+\item gamma:
+\item auto\_white\_balance:
+\item white\_balance\_blue:
+\item white\_balance\_red:
+\end{itemize}
+\item installation: ssudo apt-get install ros-jade-camera-calibration
+\item Usage:
+\begin{enumerate}
+\item start camera in ROS environment
+\item begin camera calibration by using the following sample (\href{http://wiki.ros.org/camera_calibration}{found at the package documentation site}):
+\begin{lstlisting}[language=bash]
+$ rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=/my_camera/image camera:=/my_camera
+\end{lstlisting}
+\end{enumerate}
+\end{itemize}
+
+\subsection{Image Processing}
+\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item video\_mode:
+\item frame\_rate:  the camera speed in frames per second
+\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
+\item exposure: 
+\item auto\_shutter:
+\item auto\_gain:
+\item gain:
+\item pan:
+\item tilt:
+\item brightness:
+\item gamma:
+\item auto\_white\_balance:
+\item white\_balance\_blue:
+\item white\_balance\_red:
+\end{itemize}
+\item installation: sudo apt-get install ros-jade-pointgrey-camera-driver
+\end{itemize}
+
+\subsection{Tag Tracking}
+\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item video\_mode:
+\item frame\_rate:  the camera speed in frames per second
+\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
+\item exposure: 
+\item auto\_shutter:
+\item auto\_gain:
+\item gain:
+\item pan:
+\item tilt:
+\item brightness:
+\item gamma:
+\item auto\_white\_balance:
+\item white\_balance\_blue:
+\item white\_balance\_red:
+\end{itemize}
+\item installation: sudo apt-get install ros-jade-pointgrey-camera-driver
+\end{itemize}
+
+\subsection{Localization}
+\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+
+\begin{itemize}
+\item Parameters
+\begin{itemize}
+\item video\_mode:
+\item frame\_rate:  the camera speed in frames per second
+\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
+\item exposure: 
+\item auto\_shutter:
+\item auto\_gain:
+\item gain:
+\item pan:
+\item tilt:
+\item brightness:
+\item gamma:
+\item auto\_white\_balance:
+\item white\_balance\_blue:
+\item white\_balance\_red:
+\end{itemize}
+\item installation: sudo apt-get install ros-jade-pointgrey-camera-driver
+\end{itemize}

@@ -74,6 +74,7 @@
 \definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
 \definecolor{DarkBlue}{cmyk}{0.76,0.76,0,0.20}
 \definecolor{DarkRed}{cmyk}{0,1,1,0.45}
+\definecolor{whitesmoke}{cmyk}{0,0,0,0.04}
 \lstset{language=c,frame=ltrb,framesep=5pt,basicstyle=\normalsize,
  keywordstyle=\ttfamily\color{DarkRed},
 identifierstyle=\ttfamily\color{DarkBlue}\bfseries,
@@ -214,5 +215,10 @@ showstringspaces=false,tabsize = 3}
 %\newtheorem{summary}{Summary:}
 %\newtheorem{example}{Example:}
 
-
+\lstset{
+	backgroundcolor=\color{whitesmoke},
+	commentstyle=\color{OliveGreen}, 
+    frame=single,
+    breaklines=true
+}
 
