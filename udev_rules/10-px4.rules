@@ -1,0 +1,2 @@
+# All 3D Robotics (includes PX4) devices
+SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0011", GROUP="plugdev", SYMLINK+="px4", MODE="0666"
