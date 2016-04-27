@@ -324,9 +324,10 @@ We leave it to the reader to learn more about nodelets should that be a path tha
 \end{itemize}
 
 \subsection{Camera Calibration}
-\noindent \textbf{camera\_calibration}: This package is used to calibrate both monocular and stereo cameras. The package has two functions, camera calibration and camera check. Camera check is to check the calibration of the camera. This may be a good idea to use after calibration is performed as an extra measure to ensure a good calibration was made by the calibration step. \par 
+\noindent \textbf{camera\_calibration}: This package is used to calibrate both monocular and stereo cameras. The package has two functions, camera calibration and camera check. Camera check is to check the calibration of the camera. This may be a good idea to use after calibration is performed as an extra measure to ensure a good calibration was made by the calibration step.\\ 
 
-\noindent Before starting, it is necessary to get a calibration board. For this calibration, a chess board image is required. The interior corner count and size of chess board square in meters is needed.
+\noindent Before starting, it is necessary to get a calibration board. For this calibration, a chess board image is required. The interior corner count and size of chess board square in meters is needed. A sample board is shown in the figure HERE below. This board can be found \href{http://wiki.ros.org/camera_calibration/Tutorials/
+MonocularCalibration?action=AttachFile&do=view&target=check-108.pdf}{here}. This board is a 6 $\times$ 8 board (count the interior corners of the squares along the width and height, you should get 6 and 8). Be sure to measure a square after printing in meters and use that value in the call to run this package.\\ 
 \begin{itemize}
 \item Subscribed Topics
 \begin{itemize}
@@ -355,9 +356,9 @@ A quick peek into this directory will reveal, yaml files for the calibrated came
 $ ls
 0.yaml	head_camera.yaml
 \end{lstlisting}
-In this example, the firefly and webcam have both been calibrated, represented by the 0.yaml and head\_camera.yaml files respectively.\par
+In this example, the firefly and webcam have both been calibrated, represented by the 0.yaml and head\_camera.yaml files respectively.\\
 
-This calibration will be used by the tag tracking directly, and there will 
+This calibration will be used by the tag tracking directly, and there will some changes that will need to be made to make it usable. That will be covered in the localization section. However, it is very important to understand where this file is located. You can change this location, but the parameter in the launch file will need to be altered as well to ensure that the package can find the calibration file for reference. Note in the image file we can see that camera name, image dimensions, camera matrix, and distortion coefficients. These become very, very important later on.
 %YAML not supported by listings, python best surrogate
 \begin{lstlisting}[language=python] 
 image_width: 640
