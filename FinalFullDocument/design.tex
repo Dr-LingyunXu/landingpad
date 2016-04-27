@@ -330,22 +330,13 @@ We leave it to the reader to learn more about nodelets should that be a path tha
 \begin{itemize}
 \item Subscribed Topics
 \begin{itemize}
-\item video\_mode:
-\item frame\_rate:  the camera speed in frames per second
-\item auto\_exposure:  Allow the camera to automatically change exposure (Combined Gain, Iris \& Shutter control).
-\item exposure: 
-\item auto\_shutter:
-\item auto\_gain:
-\item gain:
-\item pan:
-\item tilt:
-\item brightness:
-\item gamma:
-\item auto\_white\_balance:
-\item white\_balance\_blue:
-\item white\_balance\_red:
+\item image: this is the image being published by the respective camera 
+\item camera: this is the camera topic being published by the respective camera
 \end{itemize}
-\item installation: ssudo apt-get install ros-jade-camera-calibration
+\item installation:
+\begin{lstlisting}[language=bash]
+$ sudo apt-get install ros-jade-camera-calibration
+\end{lstlisting}
 \item Usage:
 \begin{enumerate}
 \item start camera in ROS environment
@@ -353,11 +344,48 @@ We leave it to the reader to learn more about nodelets should that be a path tha
 \begin{lstlisting}[language=bash]
 $ rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=/my_camera/image camera:=/my_camera
 \end{lstlisting}
+\item A window will open containing an image like that in figure HERE. It is important to move the chess board about traversing the frame near and distant, and about the extremes of the image frame. It is VERY important to be slow and deliberate with your movements while calibrating. Quick jerky movements will still result in a valid calibration, but the calibration may not be accurate enough when it comes time to track the AR tag or use this information for visual odometry, discussed later in the localization subsection.
+\item After the calibration is complete, the file will be saved to in the ros camera calibration file found by navigating to:
+\begin{lstlisting}[language=bash]
+$ cd ~/.ros/camera_info
+\end{lstlisting}
+
+A quick peek into this directory will reveal, yaml files for the calibrated camera.
+\begin{lstlisting}[language=bash]
+$ ls
+0.yaml	head_camera.yaml
+\end{lstlisting}
+In this example, the firefly and webcam have both been calibrated, represented by the 0.yaml and head\_camera.yaml files respectively.\par
+
+This calibration will be used by the tag tracking directly, and there will 
+%YAML not supported by listings, python best surrogate
+\begin{lstlisting}[language=python] 
+image_width: 640
+image_height: 480
+camera_name: head_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [974.876804668264, 0, 310.0364238884084, 0, 977.9747558767541, 183.9139863795955, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.09363555823455676, -0.1141346935352986, -0.008866235140581833, -0.0048644735641969, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [962.1740112304688, 0, 307.6517383159608, 0, 0, 965.6265258789062, 181.2353823390822, 0, 0, 0, 1, 0]
+\end{lstlisting}
 \end{enumerate}
 \end{itemize}
 
 \subsection{Image Processing}
-\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+\noindent \textbf{image\_proc}: This package is necessary for color cameras, as the svo step requires the use of grayscale images. This package provides a number of convenient tools in addition to translating color to grayscale. The images can also be rectified through this tool. However, for the purpose of this project, it is important that the launch file is NOT configured to do this, as the rectification will occur
 
 \begin{itemize}
 \item Parameters
@@ -381,7 +409,9 @@ $ rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:
 \end{itemize}
 
 \subsection{Tag Tracking}
-\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+\noindent \textbf{ar\_track\_alvar}: this package tracks ar tags in the image frame and performs the visual homography necessary to calculate the distance and orientation of the tag in reference to the camera. It is capable of tracking multiple tags, however, we only need it to track one. Another nice feature of this package is that it will identify the tag being observed. This may be advantageous in later iterations if there are multiple UAVs requiring multiple landing pads.
+
+
 
 \begin{itemize}
 \item Parameters
@@ -405,7 +435,7 @@ $ rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:
 \end{itemize}
 
 \subsection{Localization}
-\noindent \textbf{pointgrey\_camera\_driver}: this ros package provides a method for bringing point grey cameras into the ros environment. 
+Localization is the backbone of pose estimation. The downside to relying upon a GPS localization is that in an area with weak or no GPS signal (indoors, near buildings, in canyons or ravines), the 
 
 \begin{itemize}
 \item Parameters
