@@ -1,0 +1,146 @@
+\documentclass[11pt]{book}
+
+\usepackage[width=7.0in, height=9.0in, top=1.0in, papersize={8.5in,11in}]{geometry}
+\usepackage[pdftex]{graphicx}
+%\usepackage{datetime}
+\usepackage{anyfontsize}
+\usepackage{hyperref}
+\usepackage{t1enc}
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{framed}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{upquote}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+%   rulecolor=,
+    language=[GNU]C++,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=false,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        numbers=left,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.026,0.112,0.095},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+%        \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+\lstset{
+    backgroundcolor=\color{lbcolor},
+    tabsize=4,
+  language=C++,
+  captionpos=b,
+  tabsize=3,
+  frame=lines,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\footnotesize,
+%  identifierstyle=\color{magenta},
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color{green},
+  stringstyle=\color{red}
+  }
+
+\pagestyle{empty}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+\section*{Legacy Computer Vision Code}
+\noindent The purpose of this section is to document the code from previous years that the team attempted to use for the vision portion of the project. While the team did eventually end up deciding not to take this approach, which involves blob detection, a lot was learned about the process, and if nothing else, we were required to think about the problem of vision much more thoroughly. The code is split up into multiple source files, each file having its own purpose. While this topic is indeed briefly touched upon in the prototypes section of this document, this section will go into much more depth in examining the code, and describing how it functions. The files used are:
+\begin{itemize}
+\item Camera.h/cpp
+\item Coord.h/cpp
+\item LED.h/cpp
+\item Triangle.h/cpp
+\item tracker.cpp
+\end{itemize}
+
+\section*{tracker.cpp}
+\large{\textbf{Overview}}\\
+\normalsize
+\noindent The file tracker.cpp contains the main control structure for the blob detection and tracking used by previous teams. Julian Brackins (the original author of the file) provided the following description of the file, which is included in the listing of the contents of the file as well:
+
+\begin{quote}
+\centering
+This software should hopefully soon be adapted into a ROS publisher that is capable of sending messages to our UAV to indicate the craft's distance from our landing pad situated on our Unmanned Ground Vechicle (UGV). This is done using three equidistant coloured dots, or "blobs" situated on our landing pad. Utilizing OpenCv's libraries for tracking specific colours, these three blobs are recognized by the software's camera feed, with corresponding coordinates in relation to the camera feed's image plane. The software compares these values to the stored points read in from the configuration file in order to compare the observed size of the objects being tracked to the known size of these objects that has been previously calibrated and written to a config file.
+\end{quote}
+
+
+\lstinputlisting{tracker.cpp}
+
+
+\section*{Camera.h/cpp}
+\large{\textbf{Overview}}\\
+\normalsize
+\noindent The Camera class is used to take an image feed that has three colored blobs detected on it, and calculate the distance to the target, based on the known size of the target. Within Camera.h, you can see that there are a couple of options for the paper size, and these will need to be changed at the time of compilation so that the system will be able to accurately calculate the distance to the target. The method used to calculate the distance to the target is to simply take some known distance to the target that has a pixel width associated with it, and calculate the focal length for the camera. Then, we just divide the focal length by the pixel distance on our measurement and multiply that result by the known width of the target in order to get the new distance.
+
+\[focal\_length = pixel\_width * known\_dist\_to\_target / known\_width\_of\_target \]
+\[measured\_dist\_to\_target = known\_width\_of\_target * focal\_length / pixel\_width \]
+
+\large{\textbf{Camera.h}}
+\lstinputlisting{Camera.h}
+\large{\textbf{Camera.cpp}}
+\lstinputlisting{Camera.cpp}
+
+\section*{Coord.h/cpp}
+\large{\textbf{Overview}}\\
+\normalsize
+\noindent The Coord class is used to provide coordinate functionality, which is to say that it will be used by later classes to allow them to store coordinates.
+
+\large{\textbf{Coord.h}}
+\lstinputlisting{Coord.h}
+\large{\textbf{Coord.cpp}}
+\lstinputlisting{Coord.cpp}
+
+
+\section*{Triangle.h/cpp}
+\large{\textbf{Overview}}\\
+\normalsize
+\noindent The Triangle class is used to allow the program to store a set of three coordinates that make up the triangle of the blobs on the target. The class stores the coordinates of each vertex of the triangle, along with the lengths of each triangle edge. Additionally, it will store the angle between the edges, that can be used to see how "straight on" the image has been taken from.
+
+\large{\textbf{Triangle.h}}
+\lstinputlisting{Triangle.h}
+\large{\textbf{Triangle.cpp}}
+\lstinputlisting{Triangle.cpp}
+
+\section*{LED.h/cpp}
+\large{\textbf{Overview}}\\
+\normalsize
+\noindent The LED class essentially is there to allow definitions of the different colors that are in the blobs being searched for. While the class is named LED, it would be more accurate to rename it to blobs, since detecting colored LEDs was replaced with detecting colored blobs.
+
+\large{\textbf{LED.h}}
+\lstinputlisting{LED.h}
+\large{\textbf{LED.cpp}}
+\lstinputlisting{LED.cpp}
+
+
+\section*{Final Conclusions About Legacy Code}
+\large{\textbf{Functionality}}\\
+\normalsize
+\noindent Fortunately, the legacy code provided by the 2014-2015 UAV/UGV team is definitely functional. However, due to time constraints, that team was unable to "ROSify" the code by creating a ROS publisher for the data being generated within tracker.cpp. While three blobs being detected should be plenty to determine orientation of and distance to the target, after having members complete the Computer Vision course at school, it was decided that it may be worthwhile to pursue a four-blob approach to allow use of some homography techniques that were used in that course. However, this never ended up turning into anything. Eventually, it was decided that it would be best to use the ROS library AR\_Track\_Alvar, since it is already implemented in ROS, and provides all functionality that would be needed by the team.\\\\
+\large{\textbf{Using the Legacy Code}}\\
+\normalsize
+\noindent It is important to understand how to run this code to see the progress made by previous teams. This provided a huge amount of help to the current team, as we were able to have a jumping off point to begin work from, and understand some approaches that worked well, and some things that maybe didn't work as well. To find instructions on running this code, look to the prototypes section of this document, and find the prototypes for Sprint 2, as that will provide information on building and running this code. 
+
+
+
+
+\end{document}
