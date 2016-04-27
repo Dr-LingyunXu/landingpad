@@ -1,0 +1,20 @@
+<launch>
+  
+    <node pkg="svo_ros" type="vo" name="svo" clear_params="true" output="screen">
+    
+        <!-- Camera topic to subscribe to -->
+        <param name="cam_topic" value="/camera/image_raw" type="str" />
+        <param name="max_fts" value="200" type="int" />
+        <param name="min_fts" value="20" type="int" />
+        <param name="init_min_disparity" value="10.0" type="double" />
+        
+        <!-- Camera calibration file -->
+        <rosparam file="$(find svo_ros)/param/firefly.yaml" />
+        
+        <!-- Default parameter settings: choose between vo_fast and vo_accurate -->
+        <rosparam file="$(find svo_ros)/param/vo_px4.yaml" />
+
+    </node>
+        
+</launch>
+	
