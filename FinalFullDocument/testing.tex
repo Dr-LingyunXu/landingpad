@@ -20,8 +20,28 @@ There were no testing frameworks used for this project. All testing was verified
 	3 & Modify mission communication implementation as necessary & User is able to load mission file on offboard(ODroid). & Yes\\\hline
 	3 & Modify mission communication implementation as necessary & Landing Algorithm on offboard starts after completing last mission. & Yes\\\hline
 \end{tabular}
-\vfill
-Creating mission files from the ground control station was completed using the QGroundControl software. Once GPS way-points were set up a mission file could be generated. A figure showing the use of QGroundControl is below.
+
+\begin{enumerate}
+\item \textbf{TEST: U-1-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} User is able to create mission file with ground control station.\\
+\textbf{Results:} The team found that QGroundControl worked more reliably, for the purpose of creating navigation files, within a Windows environment. Specifically, the files were created on an install on Windows 10.\par 
+The team was able to create a series of missions including takeoff, navigate to waypoints, and landing. The waypoint mission file is exported.
+
+\item \textbf{TEST: U-1-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} User is able to load mission file on offboard(ODroid).\\
+\textbf{Results:} The team is able to load a mission on the ODroid by connecting directly to the ODroid via network cable. The files are then transferred from a laptop to the ODroid.
+
+\item \textbf{TEST: U-1-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} Landing Algorithm on offboard starts after completing last mission.\\
+\textbf{Results:} The team has tested that missions will feed the pixhawk via the Mavlink protocol when the pixhawk has indicated that the previous mission parameter has been met. 
+\end{enumerate}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{images/route1.PNG}
@@ -38,14 +58,27 @@ Creating mission files from the ground control station was completed using the Q
 	3 & Modify/Rewrite take-off implementation as necessary
  & FCU executes take-off mission. & Yes\\\hline	
 \end{tabular}
-\vfill
-Similar to the previous user story, autonomous takeoff was handled by the flight controller in conjunction with the mission planner. In the previous figure you can see a mission in the QGroundControl software. What is not as obvious as the way-points on the map is the list of events to be executed on the right side of the screen. As you can see in the figure below, autonomous take-off is part of the mission file generated and uploaded to the ODroid.
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.8\textwidth]{images/events.PNG}
+\includegraphics[height=0.5\textwidth]{images/events.PNG}
 \caption{QGroundControl showing autonomous takeoff event.}
+\label{fig:mission}
 \end{figure}
+
+\begin{enumerate}
+\item \textbf{TEST: O-1-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite take-off implementation as necessary \\
+\textbf{Task Test:} FCU recieves take-off mission from offboard control..\\
+\textbf{Results:} The team successfully tested this by uploading a mission file that included a takeoff event. A sample mission with takeoff event is shown in Figure \ref{fig:mission}.
+
+\item \textbf{TEST: O-1-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite take-off implementation as necessary\\
+\textbf{Task Test:} FCU executes take-off mission\\
+\textbf{Results:} The team successfully tested the execution of a takeoff mission by uploading a takeoff mission to the FCU and then allowing the flight controller to run the current mission. 
+\end{enumerate}
 
 \newpage
 \subsection{Testing: O-2}
@@ -56,12 +89,30 @@ Similar to the previous user story, autonomous takeoff was handled by the flight
 	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU executes navigation in sequence. & Yes\\\hline
 	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU follows, reasonably, the planned navigation. & Yes\\\hline
 \end{tabular}
-\vfill
-As can been seen in the previous two figures QGroundControl was able to handle the autonomous takeoff and way-point navigation of the UAV. What remained to be tested was our UAV's ability to execute these missions. This was tested by uploading missions to off-board control (ODROID) and letting them be run. There are videos showing the UAV perform the autonomous takeoff and way-point navigation which verify that the UAV was able to perform those operations. Finally we needed to ensure the UAV followed the GPS way-points 'reasonably' well so we measured the error in the UAV's target landing location. As you can see from the picture below the UAV was able to land within 18 inches of its target using only GPS.
+
+\begin{enumerate}
+\item \textbf{TEST: O-2-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary\\
+\textbf{Task Test:} FCU receives navigation missions from offboard control.\\
+\textbf{Results:} This was successfully tested by simply observing a flight to a single way-point at the end of a driveway.
+
+\item \textbf{TEST: O-2-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary \\
+\textbf{Task Test:} FCU executes navigation in sequence.\\
+\textbf{Results:} This was verified by creating a multi-way-point mission and ensuring that each way-point was reached in the correct order. For a mission that traced a semicircle in GPS coordinates the UAV traveled along the desired path and made a semicircle before arriving at the final way-point.
+
+\item \textbf{TEST: O-2-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary \\
+\textbf{Task Test:} FCU follows, reasonably, the planned navigation.\\
+\textbf{Results:} Now that we are sure the way-points are being traversed in order, we must ensure they are being reached accurately. This was verified by having the UAV take off and land on the same exact way-point and marking its takeoff position. The UAV returned and landed with 2 feet of its original takeoff position.
+\end{enumerate}
 
 \begin{figure}[H]
 \centering
-\includegraphics{images/UAVLanding}
+\includegraphics[width=0.7\textwidth]{images/UAVLanding}
 \caption{UAV landing error.}
 \end{figure}
 
@@ -75,7 +126,27 @@ As can been seen in the previous two figures QGroundControl was able to handle t
 	3 & Modify navigate to landing waypoint implementation as necessary & FCU navigates within a reasonable distance(\textless 10m) to waypoint. & Yes\\\hline
 \end{tabular}
 
-In order to return to the location of the landing pad, the mission must specify the final GPS way-point as the starting way-point. This was done and verified by actual flight that can be seen in this \href{https://www.youtube.com/watch?v=wye3LynE1CM}{YouTube video.}
+\begin{enumerate}
+\item \textbf{TEST: O-3-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU receives last navigation mission from offboard control.\\
+\textbf{Results:} This was successfully tested by simply observing a flight to a single way-point at the end of a driveway.
+
+\item \textbf{TEST: O-3-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU executes navigation mission.\\
+\textbf{Results:} This was verified by creating a multi-way-point mission and ensuring that each way-point was reached in the correct order. For a mission that traced a semicircle in GPS coordinates the UAV traveled along the desired path and made a semicircle before arriving at the final way-point.
+
+\item \textbf{TEST: O-3-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\
+\textbf{Results:} In order to test accuracy of a way-point flyby mid mission, we set way-points to landmarks in the environment and had the UAV fly from landmark to landmark. The UAV came well within 10m of each landmark and ends up setting down at the landing zone within 0.5m of the target.
+\end{enumerate}
+
+A video showing the successful takeoff, navigation, return and landing is provided \href{https://www.youtube.com/watch?v=wye3LynE1CM}{here}.
 
 \newpage
 \subsection{Testing: O-4}
@@ -88,13 +159,38 @@ In order to return to the location of the landing pad, the mission must specify 
 	4 & Modify landing pose implementation as necessary & The UAV lands without damaging craft or legs. & No\\\hline
 \end{tabular}
 
-\vfill
-Although we were not able to test the physical UAVs ability to react to the AR Tag we were able to get AR Tag tracking up and running. The AR Tag tracking was able to accurately estimate the pose of an AR Tag within 15 ft. A demonstration of this tracking is shown below.
+\begin{enumerate}
+\item \textbf{TEST: O-4-4-1}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} UAV accurately estimates pose of AR tag.\\
+\textbf{Results:} Using AR Track ALVAR, an AR Tag can be seen from about 15 feet away and its pose estimated very accurately.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/poseEstimation.png}
 \caption{AR Tag tracking with AR Track ALVAR}
+\label{fig:artrack}
 \end{figure}
+
+\item \textbf{TEST: O-4-4-2}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} UAV centers over AR tag within (\textless 0.1m).\\
+\textbf{Results:} Not tested.
+
+\item \textbf{TEST: O-4-4-3}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} The UAV remains centered during descent within (\textless 0.1m).\\
+\textbf{Results:} Not tested.
+
+\item \textbf{TEST: O-4-4-4}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} The UAV lands without damaging craft or legs.\\
+\textbf{Results:} The UAV was able to land without damaging the craft under control of the FCU. Offboard control of the landing was not tested.
+\end{enumerate}
 
 \newpage
 \subsection{Testing: O-5}
@@ -106,6 +202,22 @@ Although we were not able to test the physical UAVs ability to react to the AR T
 		4 & Modify landing orientation implementation as necessary & UAV maintains correct orientation during descent within 15$\deg$ & No\\ \hline
 \end{tabular}
 
-\vspace{4cm}
-On this final user story we were only able to complete the first task which is a common task between this user story and the previous one (O-4). Which to reiterate is the correct pose estimation of an AR Tag. If you would like to see the results of the AR Tracking look at the previous page.
+\begin{enumerate}
+\item \textbf{TEST: O-5-4-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV accurately estimates the orientation of AR tag.\\
+\textbf{Results:} See Figure \ref{fig:artrack} for results of AR Tag tracking.
 
+\item \textbf{TEST: O-5-4-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV changes orientation to align with AR tag, within 15$\deg$.\\
+\textbf{Results:} Not tested.
+
+\item \textbf{TEST: O-5-4-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV maintains correct orientation during descent within 15$\deg$.\\
+\textbf{Results:}  Not tested.
+\end{enumerate}
