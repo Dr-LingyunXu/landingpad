@@ -9,63 +9,186 @@ The testing approach for this project was a bit different from traditional softw
 
 \section{Dependencies}
 There were no testing frameworks used for this project. All testing was verified manually.
-
+\
 
 \section{Test Setup and Execution}
 \subsection{Testing: U-1}
 \textbf{As a user, I want to communicate the waypoints to the UAV.}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
-	Task No. & Task & Test\\\hline
-	3 & Modify mission communication implementation as necessary & User is able to create mission file with ground control station.\\\hline
-	3 & Modify mission communication implementation as necessary & User is able to load mission file on offboard(ODroid).\\\hline
-	3 & Modify mission communication implementation as necessary & Landing Algorithm on offboard starts after completing last mission.\\\hline
-	
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Test\\\hline
+	1 & 3 & Modify mission communication implementation as necessary & User is able to create mission file with ground control station.\\\hline
+	2 & 3 & Modify mission communication implementation as necessary & User is able to load mission file on offboard(ODroid).\\\hline
+	3 & 3 & Modify mission communication implementation as necessary & Landing Algorithm on offboard starts after completing last mission.\\\hline
 \end{tabular}
+\begin{enumerate}
+\item \textbf{TEST: U-1-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} User is able to create mission file with ground control station.\\
+\textbf{Results:} The team found that QGroundControl worked more reliably, for the purpose of creating navigation files, within a Windows environment. Specifically, the files were created on an install on Windows 10.\par 
+The team was able to create a series of missions including takeoff, navigate to waypoints, and landing. The waypoint mission file is exported.
 
+\item \textbf{TEST: U-1-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} User is able to load mission file on offboard(ODroid).\\
+\textbf{Results:} The team is able to load a mission on the ODroid by connecting directly to the ODroid via network cable. The files are then transferred by the 
+
+\item \textbf{TEST: U-1-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify mission communication implementation as necessary\\
+\textbf{Task Test:} Landing Algorithm on offboard starts after completing last mission.\\
+\textbf{Results:} The team has tested that missions will feed the pixhawk via the Mavlink protocol when the pixhawk has indicated that the previous mission parameter has been met. 
+\end{enumerate}
+	
 \subsection{Testing: O-1}
 \textbf{As an owner, I want the UAV to autonomously take-off from the landing pad.}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
-	Task No. & Task & Testing\\\hline
-	3 & Modify/Rewrite take-off implementation as necessary
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Testing\\\hline
+	1 & 3 & Modify/Rewrite take-off implementation as necessary
  & FCU recieves take-off mission from mission from offboard control.\\\hline	
-	3 & Modify/Rewrite take-off implementation as necessary
+	2 & 3 & Modify/Rewrite take-off implementation as necessary
  & FCU executes take-off mission.\\\hline	
 \end{tabular}
 
+\begin{enumerate}
+\item \textbf{TEST: O-1-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite take-off implementation as necessary \\
+\textbf{Task Test:} FCU recieves take-off mission from mission from offboard control..\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-1-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite take-off implementation as necessary\\
+\textbf{Task Test:} FCU executes take-off mission
+\textbf{Results:} 
+
+\end{enumerate}
+
+
 \subsection{Testing: O-2}
 \textbf{As an owner, I want the UAV to autonomously navigate through a set of waypoints.}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
-	Task No. & Task & Test\\\hline
-	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU receives navigation missions from offboard control.\\\hline
-	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU executes navigation in sequence.\\\hline
-	3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU follows, reasonably, the planned navigation.\\\hline
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Test\\\hline
+	1 & 3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU receives navigation missions from offboard control.\\\hline
+	2 & 3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU executes navigation in sequence.\\\hline
+	3 & 3 & Modify/Rewrite waypoint navigation implementation as necessary & FCU follows, reasonably, the planned navigation.\\\hline
 \end{tabular}
+
+\begin{enumerate}
+\item \textbf{TEST: O-2-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary\\
+\textbf{Task Test:} FCU receives navigation missions from offboard control.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-2-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary \\
+\textbf{Task Test:} FCU executes navigation in sequence.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-2-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify/Rewrite waypoint navigation implementation as necessary \\
+\textbf{Task Test:} FCU follows, reasonably, the planned navigation.\\
+\textbf{Results:} 
+\end{enumerate}
 
 \subsection{Testing: O-3}
 \textbf{As an owner, I want the UAV to autonomously return to the location of the landing pad.}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
-	Task No. & Task & Test\\\hline
-	3 & Modify navigate to landing waypoint implementation as necessary & FCU receives last navigation mission from offboard control.\\\hline
-	3 & Modify navigate to landing waypoint implementation as necessary & FCU executes navigation mission.\\\hline
-	3 & Modify navigate to landing waypoint implementation as necessary & FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\\hline
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Test\\\hline
+	1 & 3 & Modify navigate to landing waypoint implementation as necessary & FCU receives last navigation mission from offboard control.\\\hline
+	2 & 3 & Modify navigate to landing waypoint implementation as necessary & FCU executes navigation mission.\\\hline
+	3 & 3 & Modify navigate to landing waypoint implementation as necessary & FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\\hline
 \end{tabular}
+
+\begin{enumerate}
+\item \textbf{TEST: O-3-3-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU receives last navigation mission from offboard control.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-3-3-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU executes navigation mission.\\
+\textbf{Results:}  
+
+\item \textbf{TEST: O-3-3-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify navigate to landing waypoint implementation as necessary\\
+\textbf{Task Test:} FCU navigates within a reasonable distance(\textless 10m) to waypoint.\\
+\textbf{Results:} 
+\end{enumerate}
+
 
 \subsection{Testing: O-4}
 \textbf{As an owner, I want the UAV to autonomously land on the landing pad without damaging the craft}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
-	Task No. & Task & Test \\\hline
-	4 & Modify landing pose implementation as necessary & UAV accurately estimates pose of AR tag\\\hline
-	4 & Modify landing pose implementation as necessary & UAV centers over AR tag within (\textless 0.1m).\\\hline
-	4 & Modify landing pose implementation as necessary & The UAV remains centered during descent within (\textless 0.1m).\\\hline
-	4 & Modify landing pose implementation as necessary & The UAV lands without damaging craft or legs.\\\hline
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Test \\\hline
+	1 & 4 & Modify landing pose implementation as necessary & UAV accurately estimates pose of AR tag\\\hline
+	2 & 4 & Modify landing pose implementation as necessary & UAV centers over AR tag within (\textless 0.1m).\\\hline
+	3 & 4 & Modify landing pose implementation as necessary & The UAV remains centered during descent within (\textless 0.1m).\\\hline
+	4 & 4 & Modify landing pose implementation as necessary & The UAV lands without damaging craft or legs.\\\hline
 \end{tabular}
+
+
+\begin{enumerate}
+\item \textbf{TEST: O-4-4-1}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} UAV accurately estimates pose of AR tag.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-4-4-2}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} UAV centers over AR tag within (\textless 0.1m).\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-4-4-3}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} The UAV remains centered during descent within (\textless 0.1m).\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-4-4-4}\\
+\textbf{Relating to Task:} 4\\
+\textbf{Task Description:} Modify landing pose implementation as necessary\\
+\textbf{Task Test:} The UAV lands without damaging craft or legs.\\
+\textbf{Results:} 
+\end{enumerate}
+
 
 \subsection{Testing: O-5}
 \textbf{As an owner, I want the UAV to autonomously land on the landing pad with the correct orientation.}\\
-\begin{tabular}{| c | >{\raggedright}m{4cm} | m{4cm} | m{4cm} |}\hline
-	Task No. & Task & Test \\\hline
-		4 & Modify landing orientation implementation as necessary & UAV accurately estimates the orientation of AR tag\\ \hline
-		4 & Modify landing orientation implementation as necessary & UAV changes orientation to align with AR tag, within 15$\deg$ \\ \hline
-		4 & Modify landing orientation implementation as necessary & UAV maintains correct orientation during descent within 15$\deg$ \\ \hline
+\begin{tabular}{| c | c | >{\raggedright}m{4cm} | m{4cm} | c |}\hline
+	Test No. & Task No. & Task & Test \\\hline
+		1 & 4 & Modify landing orientation implementation as necessary & UAV accurately estimates the orientation of AR tag\\ \hline
+		2 & 4 & Modify landing orientation implementation as necessary & UAV changes orientation to align with AR tag, within 15$\deg$ \\ \hline
+		3 & 4 & Modify landing orientation implementation as necessary & UAV maintains correct orientation during descent within 15$\deg$ \\ \hline
 \end{tabular}
 
+\begin{enumerate}
+\item \textbf{TEST: O-5-4-1}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV accurately estimates the orientation of AR tag.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-5-4-2}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV changes orientation to align with AR tag, within 15$\deg$.\\
+\textbf{Results:} 
+
+\item \textbf{TEST: O-5-4-3}\\
+\textbf{Relating to Task:} 3\\
+\textbf{Task Description:} Modify landing orientation implementation as necessary\\
+\textbf{Task Test:} UAV maintains correct orientation during descent within 15$\deg$.\\
+\textbf{Results:}  
+\end{enumerate}
