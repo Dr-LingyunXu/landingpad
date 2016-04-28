@@ -2,20 +2,7 @@
 
 \chapter{User Documentation}
 
-This section should contain the basis for any end user documentation for the system. 
- End user documentation would cover the basic steps for setup and use of the system. 
- It is likely that the majority of this section would be present in its own document 
-to be delivered to the end user.  However, it is recommended the original is contained 
-and maintained in this document. 
-
-%\newpage   %% 
-%%  The user guide can be an external document which is included here if necessary ...
-%%  a single source is the way to go.
-
-\section{User Guide}
-
-The source for the user guide can go here.    You have some options for how to handle the user docs.  If you have some {\tt newpage} commands around the guide then you can just print out those pages.   If a different formatting is required, then have the source in a separate file {\tt userguide.tex} and include that file here.  That file can also be included into a driver (like the senior design template) which has the client specified formatting.  Again, this is a single source approach.   
-
+This chapter will cover the usage instructions and how to install the software required to get the UAV up an running with a Pixhawk flight controller and a odroid xu4 companion computer. The User Guide section will cover how to run all the software installed during the Installation Guide. The Programmer Manual section will cover where to get up to speed with programming in ROS as well as details regarding the flight controller code that was used to demonstrate offboard control.
 
 %% \newpage  %%  if needed ...
 \section{Installation Guide}
@@ -23,7 +10,7 @@ The following two sections will go through the set up of a laptop or desktop as 
 \subsection{Setting Up a Workstation}
 To set up the workstation the first thing that is required is a computer with \href{http://www.ubuntu.com/download/desktop}{Ubuntu} 14.04 Long Term Support(LTS) installed as the operating system. 
 \subsubsection{Dependencies}
-Once a Ubuntu machine is acquired make sure git and cmake are installed by running the follwoing commands: 
+Once a Ubuntu machine is acquired make sure git and cmake are installed by running the following commands: 
 \begin{lstlisting}[language=bash]
 $ sudo apt-get install git
 $ sudo apt-get install cmake
@@ -85,6 +72,19 @@ $ git clone https://github.com/uzh-rpg/rpg_svo.git
 $ cd ..
 $ catkin_make
 \end{lstlisting}
+Once all the previous software is set up, a couple of items need to be moved to specific directories on the system. The flight controller directory in the landingpad repository needs to be moved into the catkin/src directory that was used for SVO. Once that is done catkin\_make the directory again like above. Also the udev rules in the udev directory in the repository need to be moved to /etc/udev/rules.d/. The following commands will do the above, just replace directories with how it is set up on the system. This all assumes everything is in the home directory of the user. 
+\begin{lstlisting}[language=bash]
+$ cd
+$ git clone https://github.com/SDSMT-CSC464-F15/landingpad
+$ cd landingpad
+$ cp -r flight_controller ../catkin_ws/src
+$ cp udev/* /etc/udev/rules.d/
+$ cd ../catkin_ws
+$ catkin_make
+$ source /devel/setup.bash
+\end{lstlisting}
+After all the steps are completed, the system is now ready for use and the user can run through the usage documentation on how to run everything that has just been installed. The next section will cover the instructions for the odroid.
+
 \subsection{Setting Up the Odroid}
 To set up the odroid that will be attached to the UAV the instructions for burning an image can be found here \url{http://odroid.com/dokuwiki/doku.php?id=en:odroid_flashing_tools}. The image that is required is the same as the odroid xu3 found at \url{http://odroid.com/dokuwiki/doku.php?id=en:xu3_release_linux_ubuntu}. It will be less demanding on the odroid if the sever version of the xu3 is used instead a desktop variant. Also space will be saved since a user interface is not necessary to run the commands on the odroid.\\
 \\
@@ -92,8 +92,11 @@ Once the odroid is booting properly connect it to a monitor or ssh into it throu
 \begin{lstlisting}[language=bash]
 $ export ARM_ARCHITECTURE=True
 \end{lstlisting}
-After the above command is run the instructions for creating the directories and compiling the cmake libraries will work just like the workstation. However, the link above for the ROS directions is for a laptop or desktop computer that will be running ROS. The directions change since the odroid is a single board computer that uses the ARM architecture. The instructions for this can be found on the ROS website at \url{http://wiki.ros.org/indigo/Installation/UbuntuARM}. The rest of the instructions in the workstation section can be followed once ROS is installed on the odroid.
+After the above command is run the instructions for creating the directories and compiling the cmake libraries will work just like the workstation. However, the link above for the ROS directions is for a laptop or desktop computer that will be running ROS. The directions change since the odroid is a single board computer that uses the ARM architecture. The instructions for this can be found on the ROS website at \url{http://wiki.ros.org/indigo/Installation/UbuntuARM}. The rest of the instructions in the workstation section can be followed once ROS is installed on the odroid. Only the flight controller directory and udev rules from the repository should go on the odroid so space is not taken up by documents such as the design document and other miscellaneous items.
 
 %% \newpage  %%  if needed ...
+\section{User Guide}
+Once all the software is installed successfully everything can start to be tested and ran. Make sure the ROS install is sourced correctly as well as the catkin workspace that was created during the installation section. 
+
 \section{Programmer Manual}
 
