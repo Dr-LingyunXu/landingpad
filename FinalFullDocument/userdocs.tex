@@ -98,9 +98,39 @@ After the above command is run the instructions for creating the directories and
 \section{User Guide}
 Once all the software is installed successfully everything can start to be tested and ran. Make sure the ROS install is sourced correctly as well as the catkin workspace that was created during the installation section.\\
 \\
-This Section will cover how to run the flight controller code that was used to demonstrate offboard control, Ar-Track-Alvar, and the visual odometry package SVO.
+This Section will cover how to run the flight controller code that was used to demonstrate offboard control, Ar-Track-Alvar for the tracking of ar tags, and the visual odometry package SVO for position estimates.\\
+\\
+The tools that will be used to run these packages and associated ros nodes will be roslaunch, and rosrun. More detail is given the the programmers manual on usage with ROS specific commands. 
 \subsection{Flight Controller}
-\subSection{Ar-Track-Alvar}
+The flight controller node is a simple python node that can control the UAV by sending vectors of direction to go where the origin is where the UAV was turned on. The node is currently is not part of a launch file so switching between terminals will be necessary to get this running.
+\subsection{Ar-Track-Alvar}
 \subsection{SVO}
-\section{Programmer Manual}
 
+\section{Programmer Manual}
+There are two main software packages used in this project ROS and mavlink. The robot operating system (ROS) is an open-source, meta-operating system for a robot, and Mavlink is the library used to interface with the Pixhawk flight controller.
+\subsection{ROS}
+ROS was the main the tool used in getting all the software to work together as well as many of the libraries in ROS are required to get different nodes to communicate with each other. The framework of ROS is complicated, but at its core it is an easy way to get different modules of code to communicate to each other. It has software built in that will allow a user to visualize the data that is getting streamed across the ROS network known as ROS topics.\\
+\\
+ROS provides wrappers for interfacing with low level libraries such as Mavlink. This allows data to get streamed accros ROS topics for the user to see what GPS location the flight controller and other useful information. The visulization tools such as Rviz allow a user to see pose information between a camera and ar tag for example as well as the map.\\
+\\
+\subsubsection{Core ROS Tools}
+This section will cover the tools used specifically in the user guide. More information can be found at the ROS wiki regarding other tools or more in depth explanations.\\
+\\
+Roscore is a collection of nodes and programs that are pre-requisites of a ROS-based system. You must have a roscore running in order for ROS nodes to communicate. It is rand by using the roscore command.
+\begin{lstlisting}[language=bash]
+$ roscore
+\end{lstlisting}
+Rosrun allows you to run an executable in an arbitrary package from anywhere without having to give its full path.
+\begin{lstlisting}[language=bash]
+$ rosrun package executable
+\end{lstlisting}
+Roslaunch is a tool for easily launching multiple ROS nodes locally and remotely via SSH, as well as setting parameters on the Parameter Server. roslaunch can be run by executing the following commands.
+\begin{lstlisting}[language=bash]
+$ roslaunch package_name file.launch
+\end{lstlisting}
+Rostopic contains the rostopic command-line tool for displaying debug information about ROS Topics, including publishers, subscribers, publishing rate, and ROS Messages.
+\begin{lstlisting}[language=bash]
+$ rostopic list
+$ rostopic echo topic_name
+\end{lstlisting}
+\subsection{Mavlink}
