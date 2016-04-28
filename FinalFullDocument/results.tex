@@ -2,11 +2,24 @@
 
 \chapter{Research Results}
 
-This chapter describes the results and conclusions of your research.   This would be the final report for a research project.  
+This chapter describes the results and conclusions from our work on developing the UAV lander. This report should serve as the first stop for future teams interested in extending this project or conducting similar research.\\
 
-\section{Result 1}
+\section{User Interface}
+QGroundControl is likely the best means of generating mission files. There are definitely some problems with the application. However, it is important to remember that QGroundControl, like many of the tools we are using in this project, are currently ongoing and in development. There is an active community surrounding this project that addresses bugs, updates, and fielding questions.\\
 
-\section{Result 2}
+It may be worth the time to develop a small message passing tool so that the file containing the files is not as difficult to transfer. The current process of connecting to the ODroid via network cable, logging into the ODroid, and pulling the file from the laptop from the laptop to the ODroid is clunky and slows down testing. As the team was not unable to afford the time to invest in developing this tool, this may be a good place to invest effort initially for future teams.\\
+
+\section{Autonomous Take-off}
+The take-off is solved through the functionality on the pixhawk. The pixhawk flight controller solves many of the problems of this project, so that the team was left with solving for the landing.\\
+
+The take-off works very well, given an environment with GPS signal. There was a small issue that was found that the UAV needed to be at or very near the take-off waypoint specified in the take-off mission parameters. It is therefore much easier to drag around a laptop to connect to the UAV at the take-off point to ensure that when activated the UAV will perform the take-off mission consistently. \\
+
+\section{Autonomous Navigation}
+As mentioned in the previous section, the UAV had autonomous navigation solved with the incorporation of the pixhawk flight controller. Given an area with GPS signal, the UAV will navigate to the waypoint, and upon reaching that waypoint, load the next waypoint into as the current mission. This built-in functionality allowed the team to focus on the landing problem.\\
+
+Future teams should be aware that when using the pixhawk, that the navigation will solve for shortest distance. The problem with navigating outdoors that will be encountered early will be terrain. The 
+
+\section{Autonomous Landing}
 
 \section{Conclusions}
 
