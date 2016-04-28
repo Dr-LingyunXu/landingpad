@@ -107,7 +107,7 @@ The flight controller node is a simple python node that can control the UAV by s
 \subsection{SVO}
 
 \section{Programmer Manual}
-There are two main software packages used in this project ROS and mavlink. The robot operating system (ROS) is an open-source, meta-operating system for a robot, and Mavlink is the library used to interface with the Pixhawk flight controller.
+To write more software to control the UAV a meta-operating system known as the Robot Operating System (ROS) is needed. ROS is the framework of everything used in this project. Other frameworks such as Mavlink could be used, however that requires writing much of the software without the basis of the communication that ROS can provide. The following subsection will describe ROS and some of the tools used in running the packages in the user guide.
 \subsection{ROS}
 ROS was the main the tool used in getting all the software to work together as well as many of the libraries in ROS are required to get different nodes to communicate with each other. The framework of ROS is complicated, but at its core it is an easy way to get different modules of code to communicate to each other. It has software built in that will allow a user to visualize the data that is getting streamed across the ROS network known as ROS topics.\\
 \\
@@ -133,4 +133,6 @@ Rostopic contains the rostopic command-line tool for displaying debug informatio
 $ rostopic list
 $ rostopic echo topic_name
 \end{lstlisting}
-\subsection{Mavlink}
+\subsubsection{Programming with ROS}
+Information regarding programming in ROS can be found on the wiki page in the tutorial page for writing a simple publisher and subscriber in C++ and python. The flight controller node is example of python node that subscribes to information from the Pixhawk topics and also for publishing to topics for the Pixhawk to be controlled. Examples of more ROS code and be found at \url{https://github.com/smd-ros-devel}. The following listing is the flight controller code used to demonstrate offboard control. Instead of using global functions for callbacks as in the simple examples on the ROS wiki it uses a class structure to encapsulate the callbacks so data isn't global.
+\lstinputlisting{code/flight_controller.py}
