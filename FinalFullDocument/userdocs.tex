@@ -115,12 +115,12 @@ Ar-track-alvar is the node that calculates the pose of a camera relative to a ar
 $ roslaunch flight_controller webcam.launch
 $ rosrun rviz rviz
 \end{lstlisting}
-Once rviz 
+Once rviz open there will be a section on the right side where a camera topic, marker topic, and the transform (TF) topic can be added to visualize the camera and ar tags.
 \subsection{SVO}
 SVO is the visual odometry node that is used to give pose estimates to the Pixhawk based on the camera. To run the SVO node run the following commands:
 \begin{lstlisting}[language=bash]
 $ roslaunch flight_controller webcam_svo.launch
-$ rosrun rviz rviz
+$ rostopic echo <pose_topic>
 \end{lstlisting}
 \section{Programmer Manual}
 To write more software to control the UAV a meta-operating system known as the Robot Operating System (ROS) is needed. ROS is the framework of everything used in this project. Other frameworks such as Mavlink could be used, however that requires writing much of the software without the basis of the communication that ROS can provide. The following subsection will describe ROS and some of the tools used in running the packages in the user guide.
