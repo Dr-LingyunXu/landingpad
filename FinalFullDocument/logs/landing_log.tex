@@ -40,7 +40,7 @@ The inputs will be the image, motor speeds, IMU(roll, pitch, yaw). The outputs w
 
 \item [2/15/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
-\item [2/22/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
+\item [2/22/16]  AR tag tracking tool cannot be used to localize. When using the localization methods provided by mavlink protocol, we are getting garbage. Changing different localization methods to receive information from pixhawk does not seem to help. \hfill{Steven Huerta}
 
 \item [2/29/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
@@ -49,6 +49,10 @@ The inputs will be the image, motor speeds, IMU(roll, pitch, yaw). The outputs w
 \item [3/21/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
 \item [3/28/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
+
+\item [3/28/16]  SVO not working, IMU data from pixhawk is overwhelming the sensor data fusion after SVO breaks and is producing very poor pose estimates. If I can get the SVO package to be a bit more robust, sensor fusion should fall in line and we should have some good pose estimations, then the landing. \hfill{Steven Huerta}
+
+\item [4/4/16]  SVO still not working. Unable to get reliable pose estimates.  \hfill{Steven Huerta}
 
 \item [4/4/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 \end{description}
