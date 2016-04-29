@@ -100,19 +100,35 @@ Once all the software is installed successfully everything can start to be teste
 \\
 This Section will cover how to run the flight controller code that was used to demonstrate offboard control, Ar-Track-Alvar for the tracking of ar tags, and the visual odometry package SVO for position estimates.\\
 \\
-The tools that will be used to run these packages and associated ros nodes will be roslaunch, and rosrun. More detail is given the the programmers manual on usage with ROS specific commands. 
-\subsection{Flight Controller}
-The flight controller node is a simple python node that can control the UAV by sending vectors of direction to go where the origin is where the UAV was turned on. The node is currently is not part of a launch file so switching between terminals will be necessary to get this running.
-\subsection{Ar-Track-Alvar}
-\subsection{SVO}
+A couple of ROS tools will be used to run the nodes that were downloaded and installed. The tools in ROS that will be used to run these commands are detailed in the following section in the programmers manual.
 
+\subsection{Flight Controller}
+The flight controller node is a simple python node that can control the UAV by sending vectors of direction to go where the origin is where the UAV was turned on. Make sure the Pixhawk is plugged into either the workstation or odroid and if everything is being run in the odroid multiple ssh sessions or screen is needed. To run flgight controller node execute the following commands:
+\begin{lstlisting}[language=bash]
+$ roslaunch flight_controller px4.launch
+$ rosrun flight_controller flight_conroller
+\end{lstlisting}
+Once the above commands are executed the topics can be viewed by using rostopic list or rostopic echo to view the data on a specific topic. As of this writing the flight controller node will wait until a position is reached based on the setpoint local topics and what the code is telling it to go to. The end goal is published in the console for the first three points so the user can verify that it reaches the positions appropriately. 
+\subsection{Ar-Track-Alvar}
+Ar-track-alvar is the node that calculates the pose of a camera relative to a ar tag that is in its line of sight. This node can be ran by running the following commands depending on a camera that is used. If the user wants to use a different camera besides the ones provided they will need to calibrate the camera with the ROS camera calibration node. The commands are:
+\begin{lstlisting}[language=bash]
+$ roslaunch flight_controller webcam.launch
+$ rosrun rviz rviz
+\end{lstlisting}
+Once rviz 
+\subsection{SVO}
+SVO is the visual odometry node that is used to give pose estimates to the Pixhawk based on the camera. To run the SVO node run the following commands:
+\begin{lstlisting}[language=bash]
+$ roslaunch flight_controller webcam_svo.launch
+$ rosrun rviz rviz
+\end{lstlisting}
 \section{Programmer Manual}
 To write more software to control the UAV a meta-operating system known as the Robot Operating System (ROS) is needed. ROS is the framework of everything used in this project. Other frameworks such as Mavlink could be used, however that requires writing much of the software without the basis of the communication that ROS can provide. The following subsection will describe ROS and some of the tools used in running the packages in the user guide.
 \subsection{ROS}
 ROS was the main the tool used in getting all the software to work together as well as many of the libraries in ROS are required to get different nodes to communicate with each other. The framework of ROS is complicated, but at its core it is an easy way to get different modules of code to communicate to each other. It has software built in that will allow a user to visualize the data that is getting streamed across the ROS network known as ROS topics.\\
 \\
-ROS provides wrappers for interfacing with low level libraries such as Mavlink. This allows data to get streamed accros ROS topics for the user to see what GPS location the flight controller and other useful information. The visulization tools such as Rviz allow a user to see pose information between a camera and ar tag for example as well as the map.\\
-\\
+ROS provides wrappers for interfacing with low level libraries such as Mavlink. This allows data to get streamed across ROS topics for the user to see what GPS location the flight controller and other useful information. The visualization tools such as Rviz allow a user to see pose information between a camera and ar tag for example as well as the map.
+
 \subsubsection{Core ROS Tools}
 This section will cover the tools used specifically in the user guide. More information can be found at the ROS wiki regarding other tools or more in depth explanations.\\
 \\
@@ -132,6 +148,10 @@ Rostopic contains the rostopic command-line tool for displaying debug informatio
 \begin{lstlisting}[language=bash]
 $ rostopic list
 $ rostopic echo topic_name
+\end{lstlisting}
+Rviz is a 3D visualization tool for ROS. This node allows for the 
+\begin{lstlisting}[language=bash]
+$ rosrun rviz rviz
 \end{lstlisting}
 \subsubsection{Programming with ROS}
 Information regarding programming in ROS can be found on the wiki page in the tutorial page for writing a simple publisher and subscriber in C++ and python. The flight controller node is example of python node that subscribes to information from the Pixhawk topics and also for publishing to topics for the Pixhawk to be controlled. Examples of more ROS code and be found at \url{https://github.com/smd-ros-devel}. The following listing is the flight controller code used to demonstrate offboard control. Instead of using global functions for callbacks as in the simple examples on the ROS wiki it uses a class structure to encapsulate the callbacks so data isn't global.
