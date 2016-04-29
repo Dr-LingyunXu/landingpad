@@ -10,7 +10,7 @@ The following two sections will go through the set up of a laptop or desktop as 
 \subsection{Setting Up a Workstation}
 To set up the workstation the first thing that is required is a computer with \href{http://www.ubuntu.com/download/desktop}{Ubuntu} 14.04 Long Term Support(LTS) installed as the operating system. 
 \subsubsection{Dependencies}
-Once a Ubuntu machine is acquired make sure git and cmake are installed by running the following commands: 
+Once an Ubuntu machine is acquired make sure git and cmake are installed by running the following commands: 
 \begin{lstlisting}[language=bash]
 $ sudo apt-get install git
 $ sudo apt-get install cmake
@@ -103,7 +103,7 @@ This Section will cover how to run the flight controller code that was used to d
 A couple of ROS tools will be used to run the nodes that were downloaded and installed. The tools in ROS that will be used to run these commands are detailed in the following section in the programmers manual.
 
 \subsection{Flight Controller}
-The flight controller node is a simple python node that can control the UAV by sending vectors of direction to go where the origin is where the UAV was turned on. Make sure the Pixhawk is plugged into either the workstation or odroid and if everything is being run in the odroid multiple ssh sessions or screen is needed. To run flgight controller node execute the following commands:
+The flight controller node is a simple python node that can control the UAV by sending vectors of direction to go where the origin is where the UAV was turned on. Make sure the Pixhawk is plugged into either the workstation or odroid and if everything is being run in the odroid multiple ssh sessions or screen is needed. To run flight controller node execute the following commands:
 \begin{lstlisting}[language=bash]
 $ roslaunch flight_controller px4.launch
 $ rosrun flight_controller flight_conroller
