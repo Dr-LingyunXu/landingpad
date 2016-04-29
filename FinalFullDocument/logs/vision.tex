@@ -33,6 +33,8 @@
 
 \item [12/28/15]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
+\item [12/28/15]  Attempted to implement ar\_track\_alvar. Unable to get ros package working. Camera is working. Tag is being detected, but pose information is not being outputted. Changed sizes of AR tag, no change. Changed parameters in launch file, no change. \hfill{Steven Huerta}
+
 \item [1/4/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
 \item SPRINT 4
@@ -41,21 +43,34 @@
 
 \item [1/25/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
+\item [1/25/16]  Attempting to get ar\_track\_alvar working. Using a webcam instead of firefly to see if results are different. They are not. Results are the same. Tag is being detected, including correct identification of tag type, but no pose information is being produced.  \hfill{Steven Huerta}
+
+
 \item [2/1/16]  Non-ROS version of ALVAR is able to see AR Tags and estimate their pose. This information is stored as 3 translation variables(x,y,z) and 4 quaternian terms. Future implementations could bundle this data into a ROS Message but for now it is just printed to the terminal. \hfill{Dylan Geyer}
 
 \item SPRINT 5
-
 \item [2/15/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
+
+\item [2/15/16]  ar\_track\_alvar now working consistently and reliably. ROS package requires presence of camera calibration file. Absence of file will not produce errors, however no pose data will be outputted. Calibration MUST occur before ar\_track\_alvar package is implemented. \hfill{Steven Huerta}
 
 \item [2/22/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
+\item [2/22/16]  Reproduced calibration files for both firefly and web cameras. Pose estimation is much more accurate. AR tag metrics must be adjusted if switching to a different sized tag. This must be done to get reliable and accurate pose estimates of the AR tag. \hfill{Steven Huerta}
+
 \item [2/29/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
+\item [2/29/16]  Starting work on installing SVO project. SVO project is implementation of Semi-Direct FAST feature detection. SVO project package is designed to incorporate into the ROS environment. \hfill{Steven Huerta}
+
 \item SPRINT 6
+\item [3/21/16]  Needed to adapt camera calibration files to create necessary parameter files for SVO. SVO ATAN calibration method proved to be somewhat problematic. ATAN is recommended, but calibration application continues to fail during calibration. Files are now generated for both firefly and webcam. Both are using PINHOLE camera types. Hoping that this is not a deal breaker.  \hfill{Steven Huerta}
 
 \item [3/21/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
+
+\item [3/28/16]  SVO continues to break regardless of camera being used. SVO can initially localize, but any transition or rotation of the camera results in a loss of features so that localization can no longer be calculated. Not sure where this error is coming from. If camera moves incredibly slowly and not too far, SVO will continue to report pose. We are very close.  \hfill{First Last}
 
 \item [3/28/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
 
 \item [4/4/16]  Ran modified filter on data sets 1 - 6.  Results were ... \hfill{First Last}
+
+\item [4/4/16] SVO continues to fail. Attempted to change some camera parameters (shutter speed, frame rate, and autofocus), and did not succeed with either firefly or web camera. Also attempted to change some of the SVO parameters in the launch file such as minimum features. Performance increased slightly, but not enough to overcome likely movement of UAV.  \hfill{Steven Huerta}
 \end{description}
