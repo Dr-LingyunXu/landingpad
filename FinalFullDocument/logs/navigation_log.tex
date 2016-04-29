@@ -25,5 +25,13 @@
 
 \item SPRINT 5
 
+\item [2/15/16]  Offboard control for the UAV established for switching to the mode from mission mode. Noticed the local position of the UAV was not where it should be. The Pixhawk should be at the origin or close to since it has an imu. The position of the UAV in ROS needs to be investigated further.\hfill{Chris Smith}
+
+\item [2/22/16]  The position that UAV wants is in vector format of x, y, z, theta. Since the UAV does not start at the origin there is no telling what could happen if offboard control is used in the current state.\hfill{Chris Smith}
+
 \item SPRINT 6
- \end{description}
+
+\item [3/21/16]  Over spring break visual odometry was tried in order to get a better position estimate since no other method of controlling the UAV was satisfactory compared to the vector.\hfill{Chris Smith}
+
+\item [3/28/16]  Offboard mode was tested without props to demonstrate offboard control. THe motors did increase in speed. The  UAV also gave feedback of takeoff detected and was trying reach a vector that was straight above the origin in its local frame. However that location according to the Pixhawk was below it and meters to the left. The UAV would have flipped into the ground if there had been Props. If visual odometry was working we would be able to integrate another sensor in the pose estimate and gain better accuracy for the UAV on its local position.\hfill{Chris Smith}
+\end{description}
