@@ -3,33 +3,21 @@
 
 \begin{description}
 
-\item SPRINT 1
-
 \item [10/03/15]  Tested ardupilot with windows. Could not get landingpad ardupilot to connect, but was able to get Robotics Team ardupilot to work with windows. Also was able to get this ardupilot connected in Ubuntu and working with MavRos. \hfill{Chris Smith}
 
-\item SPRINT 3
-
 \item [11/16/15]  QGroundControl installed and working...maybe. The linux side install seems to be a bit more problematic (some crashing and buttons not loading properly). Windows side install went smoothly, seems to work just fine. Able to generate mission files using either side.  \hfill{Steven Huerta}
-
-\item SPRINT 3.5
 
 \item [12/21/15]  QGroundControl is incredibly frustrating to use to calibrate the pix on the linux side. Unable to complete the calibration for some reason, some information is not getting updated and preventing the final calibration from being completed. This has required walking through the calibration from the beginning each time.  \hfill{Steven Huerta}
 
 \item [1/4/16]  Pixhawk is calibrated and working with QGroundControl. We have some motor tests to complete and then we are ready to fly. \hfill{Steven Huerta}
 
-\item SPRINT 4
-
 \item [1/18/16]  UAV flying under manual control, ready to test autonomous flight soon. \hfill{Steven Huerta}
 
 \item [1/25/16]  UAV performed beautifully. Recent outdoor tests confirm that the pixhawk is able to execute waypoint navigation missions. We discovered after a few flights that one of the rotor arms was twisting, and the flight controller was able to compensate for this and still fly accurately. We had consistent results of less than a few feet when the flight controller was given the same point to take off from and land on. Very surprising and we may be able to modify our landing approach.  \hfill{Steven Huerta}
 
-\item SPRINT 5
-
 \item [2/15/16]  Offboard control for the UAV established for switching to the mode from mission mode. Noticed the local position of the UAV was not where it should be. The Pixhawk should be at the origin or close to since it has an imu. The position of the UAV in ROS needs to be investigated further.\hfill{Chris Smith}
 
 \item [2/22/16]  The position that UAV wants is in vector format of x, y, z, theta. Since the UAV does not start at the origin there is no telling what could happen if offboard control is used in the current state.\hfill{Chris Smith}
-
-\item SPRINT 6
 
 \item [3/21/16]  Over spring break visual odometry was tried in order to get a better position estimate since no other method of controlling the UAV was satisfactory compared to the vector.\hfill{Chris Smith}
 

@@ -10,28 +10,19 @@
 First attempt: Attempted to create a waypoint publisher to pass waypoints via ROS. Abandoned this method when waypoint file loader was found in Mavlink documentation.\\
 Second attempt: Attempted to utilize waypoint file loader to pass a file of waypoints and instructions to simulated UAV. Abandoned this method when we were unable to connect to MavROS implementation. Calling waypoint loader method would result in communication error.
 Third attempt: Attempted to use a different simulation of PixHawk and UAV in order to implement file loading. Abandoned after many unsuccessful attempts to load waypoint files.\\
-
 \hfill{Chris Smith, Steven Huerta}
 
 \item [11/15/15] Continued working on simulation waypoint passing. Returning to original conceived method of creating a waypoint publisher node to pass waypoints from a file to the simulated PixHawk. Created fork in Git to work on waypoint publisher.\\
-
 \hfill{Chris Smith, Steven Huerta}
 
-
 \item [11/21/15] Continued working on simulation environment setup. Started from stratch with SITL Pix4 simulation.  Can now see pose messages generated from joystick operation of simulated UAV being published via mavros\_sitl node. Still unable to successfully control UAV through mavros commands.\\
-
 \hfill{Steven Huerta}
 
 \item [11/23/15] Worked on setting up ground control station, QGroundControl. Possible to setup message passing between ground control station and pixhawk simulation.\\
-
 \hfill{Steven Huerta}
-
 
 \item [11/29/15] Working on ground control station setup with pixhawk.
 \hfill{Steven Huerta}
-
-
-\item SPRINT 3.5
 
 \item [12/21/15]  Hardware in the Loop simulation still not working. Simulation requires calibration that I am unable to get working for the simulation. Have researched the issue through forums. I am voting to drop simulation completely and focus on the UAV and landing problem without simulation.  \hfill{Steven Huerta}
 
